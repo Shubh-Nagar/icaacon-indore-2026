@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="container-x relative z-10 grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4 lg:py-20">
         {/* Brand + theme */}
         <div className="lg:col-span-1">
-          <Logo variant="light" />
+          <Logo />
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-ivory/70">
             {EVENT.edition} {EVENT.longName}. A diamond-jubilee gathering for a
             healthier tomorrow.
