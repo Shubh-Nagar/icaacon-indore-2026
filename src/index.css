@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================================
+   ICAACON Indore 2026 — global styles
+   ========================================================================= */
+
+@layer base {
+  :root {
+    scroll-behavior: smooth;
+  }
+
+  /* Respect users who prefer reduced motion (accessibility floor). */
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
+  body {
+    @apply bg-ivory text-ink font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+    text-wrap: balance;
+  }
+
+  /* Visible keyboard focus ring everywhere. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-teal ring-offset-2 ring-offset-ivory;
+  }
+
+  ::selection {
+    @apply bg-teal text-ivory;
+  }
+}
+
+@layer components {
+  /* Page max-width wrapper */
+  .container-x {
+    @apply mx-auto w-full max-w-container px-5 sm:px-8 lg:px-10;
+  }
+
+  /* The small uppercase label above section headings */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-sans text-xs font-semibold
+           uppercase tracking-eyebrow text-teal;
+  }
+
+  /* Buttons -------------------------------------------------------------- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+           px-7 py-3 font-sans text-sm font-semibold tracking-wide
+           transition-all duration-300 focus-visible:ring-2;
+  }
+  .btn-primary {
+    @apply btn bg-teal text-ivory shadow-card
+           hover:bg-teal-deep hover:shadow-lift hover:-translate-y-0.5;
+  }
+  .btn-accent {
+    @apply btn bg-maroon text-ivory shadow-card
+           hover:bg-maroon-deep hover:shadow-lift hover:-translate-y-0.5;
+  }
+  .btn-ghost {
+    @apply btn border border-ink/20 bg-transparent text-ink
+           hover:border-teal hover:text-teal;
+  }
+  .btn-gold {
+    @apply btn bg-gold text-ink hover:bg-gold-deep hover:-translate-y-0.5;
+  }
+
+  /* Hairline gold rule used as a delicate divider */
+  .rule-gold {
+    @apply h-px w-16 bg-gradient-to-r from-transparent via-gold to-transparent;
+  }
+
+  /* Card surface */
+  .card {
+    @apply rounded-2xl border border-ink/10 bg-white/70 backdrop-blur-sm
+           shadow-card transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  /* Soft paper-grain texture for ivory sections */
+  .grain {
+    background-image: theme('backgroundImage.ivory-grain');
+    background-size: 22px 22px;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
