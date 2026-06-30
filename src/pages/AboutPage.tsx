@@ -13,7 +13,7 @@ export default function AboutPage() {
     <>
       <PageHeader
         current="About"
-        eyebrow="About ICAACON 2026"
+        eyebrow="About ICAAICON 2026"
         title={
           <>
             A diamond-jubilee gathering for{' '}

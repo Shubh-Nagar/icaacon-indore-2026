@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 // ---------------------------------------------------------------------------
-// ICAACON Indore 2026 — Tailwind theme
+// ICAAICON Indore 2026 — Tailwind theme
 // Palette is derived directly from the Save-the-Date poster:
 //   • teal  — the ICAAICON wordmark + section accents
 //   • maroon — the "60th" and "INDORE 2026" crimson

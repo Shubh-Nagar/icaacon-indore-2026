@@ -43,7 +43,7 @@ export default function ContactPage() {
         current="Contact"
         eyebrow="Get in touch"
         title="We’re here to help"
-        subtitle="Questions about registration, abstracts, sponsorship or travel? Reach the ICAACON 2026 secretariat."
+        subtitle="Questions about registration, abstracts, sponsorship or travel? Reach the ICAAICON 2026 secretariat."
       />
 
       <section className="bg-ivory py-24 lg:py-28">

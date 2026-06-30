@@ -16,7 +16,7 @@ export default function Gallery() {
       <Container>
         <SectionHeading
           eyebrow="Gallery"
-          title="The ICAACON experience"
+          title="The ICAAICON experience"
           subtitle="Science, conversation and the colour of Indore — a glimpse of what awaits."
         />
 

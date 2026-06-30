@@ -1,7 +1,7 @@
 // =========================================================================
 // content.ts — single source of truth for all site copy & data.
 // Edit values here to update the whole site. Everything below comes from the
-// Save-the-Date poster for ICAACON Indore 2026.
+// Save-the-Date poster for ICAAICON Indore 2026.
 // =========================================================================
 import {
   Factory,
@@ -15,7 +15,7 @@ import {
 /** Core event facts (from the poster). */
 export const EVENT = {
   edition: '60th',
-  shortName: 'ICAACON',
+  shortName: 'ICAAICON',
   longName: 'International Conference on Allergy, Asthma & Immunology',
   city: 'Indore',
   year: '2026',
@@ -34,8 +34,9 @@ export const EVENT = {
     mapsQuery: 'Vivanta+Indore',
   },
   contact: {
-    email: 'secretariat@icaacon2026.org',
-    phone: '+91 731 000 0000',
+    address: 'Surbhi 76 Dhar Kothi, Residency Area, Indore',
+    email: 'icaaicon2026@gmail.com',
+    phone: '8818940404',
     instagram: '@icaacon2026',
   },
 }
@@ -46,6 +47,16 @@ export const NAV_LINKS = [
   { label: 'About', to: '/about' },
   { label: 'Program', to: '/program' },
   { label: 'Contact', to: '/contact' },
+]
+
+/** Sub-links under the "Host City" dropdown. */
+export const HOST_CITY_LINKS = [
+  { label: 'About Indore', to: '/host-city/about-indore' },
+  { label: 'Places to Visit in Indore', to: '/host-city/places-to-visit' },
+  { label: 'Places to Visit near Indore', to: '/host-city/places-near-indore' },
+  { label: 'How to Reach Indore', to: '/host-city/how-to-reach' },
+  { label: 'Food and Culture', to: '/host-city/food-and-culture' },
+  { label: 'Hotel & Accommodation', to: '/host-city/hotel-accommodation' },
 ]
 
 /** The five focus areas + their poster icons. */
@@ -59,6 +70,24 @@ export type FocusArea = {
 
 export const FOCUS_AREAS: FocusArea[] = [
   {
+    icon: Flower2,
+    title: 'Allergy',
+    blurb: 'Identifying, preventing and managing allergic disease more precisely.',
+    accent: 'gold',
+  },
+  {
+    icon: Wind,
+    title: 'Asthma',
+    blurb: 'Better understanding for better breathing across every age group.',
+    accent: 'ink',
+  },
+  {
+    icon: Syringe,
+    title: 'Immunotherapy',
+    blurb: 'Innovative, evidence-based solutions for lasting clinical relief.',
+    accent: 'tealSoft',
+  },
+  {
     icon: Factory,
     title: 'Air Pollution',
     blurb: 'Reducing the impact of degrading air quality on respiratory health.',
@@ -70,30 +99,12 @@ export const FOCUS_AREAS: FocusArea[] = [
     blurb: 'Addressing the global threat that reshapes how and what we breathe.',
     accent: 'teal',
   },
-  {
-    icon: Wind,
-    title: 'Asthma',
-    blurb: 'Better understanding for better breathing across every age group.',
-    accent: 'ink',
-  },
-  {
-    icon: Flower2,
-    title: 'Allergy',
-    blurb: 'Identifying, preventing and managing allergic disease more precisely.',
-    accent: 'gold',
-  },
-  {
-    icon: Syringe,
-    title: 'Immunotherapy',
-    blurb: 'Innovative, evidence-based solutions for lasting clinical relief.',
-    accent: 'tealSoft',
-  },
 ]
 
 /** Key milestone dates (placeholder values — customise freely). */
 export const IMPORTANT_DATES = [
   { date: '15 Mar 2026', label: 'Abstract submission opens', status: 'open' },
-  { date: '30 Jun 2026', label: 'Early-bird registration ends', status: 'soon' },
+  { date: '30 Jul 2026', label: 'Early-bird registration ends', status: 'soon' },
   { date: '31 Jul 2026', label: 'Abstract submission closes', status: 'upcoming' },
   { date: '20 Aug 2026', label: 'Acceptance notifications', status: 'upcoming' },
   { date: '24 Sep 2026', label: 'Conference begins', status: 'upcoming' },
@@ -183,8 +194,8 @@ export const BENEFITS = [
 export const REGISTRATION_TIERS = [
   {
     name: 'Early Bird',
-    price: '₹ 8,500',
-    window: 'Until 30 Jun 2026',
+    price: '₹ 6,500',
+    window: 'Until 30 Jul 2026',
     featured: false,
     perks: [
       'Full 4-day access',
@@ -207,7 +218,7 @@ export const REGISTRATION_TIERS = [
   },
   {
     name: 'Postgraduate',
-    price: '₹ 6,000',
+    price: '₹ 5,500',
     window: 'Valid student ID required',
     featured: false,
     perks: [
@@ -263,8 +274,8 @@ export const SPONSORS = [
 /** Program / abstract FAQs. */
 export const FAQS = [
   {
-    q: 'Who should attend ICAACON 2026?',
-    a: 'Allergists, immunologists, pulmonologists, paediatricians, ENT specialists, general physicians, researchers and postgraduate students working in respiratory and allergic disease.',
+    q: 'Who should attend ICAAICON 2026?',
+    a: 'Allergologist, immunologists, pulmonologists, paediatricians, ENT specialists, general physicians, dermatologist, researchers and postgraduate students working in respiratory skin, eye, naso bronchial and allergic disease.',
   },
   {
     q: 'How do I submit an abstract?',

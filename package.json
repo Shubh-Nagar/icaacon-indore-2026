@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "ICAACON Indore 2026 — 60th International Conference on Allergy, Asthma & Immunology",
+  "description": "ICAAICON Indore 2026 — 60th International Conference on Allergy, Asthma & Immunology",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

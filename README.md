@@ -1,11 +1,11 @@
-# ICAACON Indore 2026 — Conference Website
+# ICAAICON Indore 2026 — Conference Website
 
 A high-end, responsive marketing site for the **60th International Conference on
-Allergy, Asthma & Immunology** — *ICAACON Indore 2026*. Built as a single-page
+Allergy, Asthma & Immunology** — *ICAAICON Indore 2026*. Built as a single-page
 experience with genuine multi-page depth (About / Program / Register / Contact).
 
 **Theme:** *Breathe Better, Live Better* · **Dates:** 24–27 September 2026 ·
-**Venue:** Vivanta Hotel, Indore.
+<!-- **Venue:** Vivanta Hotel, Indore. -->
 
 ---
 
@@ -73,7 +73,7 @@ icaacon-indore-2026/
     │   ├── ui/
     │   │   ├── Container.tsx        # Max-width wrapper
     │   │   ├── Img.tsx              # Image with graceful gradient fallback
-    │   │   ├── Logo.tsx             # ICAACON wordmark lock-up
+    │   │   ├── Logo.tsx             # ICAAICON wordmark lock-up
     │   │   ├── SectionHeading.tsx   # Eyebrow + title + rule
     │   │   ├── PageHeader.tsx       # Inner-page banner
     │   │   └── TempleSkyline.tsx    # ⭐ Signature Indore skyline SVG motif

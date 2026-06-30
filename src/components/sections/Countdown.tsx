@@ -16,8 +16,9 @@ type Tone = 'light' | 'dark'
 /**
  * A compact countdown to the opening day. Updates every second.
  * `tone` switches the colour scheme for use over light or dark backgrounds.
+ * `compact` switches to a 2×2 grid layout for narrow containers.
  */
-export default function Countdown({ tone = 'light' }: { tone?: Tone }) {
+export default function Countdown({ tone = 'light', compact = false }: { tone?: Tone; compact?: boolean }) {
   const [t, setT] = useState(() => getRemaining(EVENT.startISO))
 
   useEffect(() => {
@@ -35,6 +36,36 @@ export default function Countdown({ tone = 'light' }: { tone?: Tone }) {
   const numColor = tone === 'light' ? 'text-ivory' : 'text-ink'
   const labelColor = tone === 'light' ? 'text-ivory/65' : 'text-ink-muted'
   const divider = tone === 'light' ? 'bg-ivory/20' : 'bg-ink/15'
+
+  if (compact) {
+    return (
+      <div
+        className="flex w-full items-center justify-center gap-2"
+        role="timer"
+        aria-label="Time remaining until the conference"
+      >
+        {units.map((u, i) => (
+          <div key={u.label} className="flex items-center gap-2">
+            <div className="flex flex-col items-center">
+              <span
+                className={`font-display text-2xl font-semibold tabular-nums ${numColor}`}
+              >
+                {String(u.value).padStart(2, '0')}
+              </span>
+              <span
+                className={`mt-1 text-[0.6rem] font-semibold uppercase tracking-eyebrow ${labelColor}`}
+              >
+                {u.label}
+              </span>
+            </div>
+            {i < units.length - 1 && (
+              <span className={`h-7 w-px ${divider}`} aria-hidden="true" />
+            )}
+          </div>
+        ))}
+      </div>
+    )
+  }
 
   return (
     <div

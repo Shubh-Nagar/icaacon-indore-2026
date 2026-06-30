@@ -8,6 +8,12 @@ import AboutPage from '@/pages/AboutPage'
 import ProgramPage from '@/pages/ProgramPage'
 import RegisterPage from '@/pages/RegisterPage'
 import ContactPage from '@/pages/ContactPage'
+import PlacesToVisitIndorePage from '@/pages/PlacesToVisitIndorePage'
+import PlacesNearIndorePage from '@/pages/PlacesNearIndorePage'
+import HowToReachIndorePage from '@/pages/HowToReachIndorePage'
+import FoodAndCulturePage from '@/pages/FoodAndCulturePage'
+import HotelAccommodationPage from '@/pages/HotelAccommodationPage'
+import AboutIndorePage from '@/pages/AboutIndorePage'
 
 /**
  * Root application shell.
@@ -28,6 +34,12 @@ export default function App() {
           <Route path="/program" element={<ProgramPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/host-city/places-to-visit" element={<PlacesToVisitIndorePage />} />
+          <Route path="/host-city/places-near-indore" element={<PlacesNearIndorePage />} />
+          <Route path="/host-city/how-to-reach" element={<HowToReachIndorePage />} />
+          <Route path="/host-city/food-and-culture" element={<FoodAndCulturePage />} />
+          <Route path="/host-city/hotel-accommodation" element={<HotelAccommodationPage />} />
+          <Route path="/host-city/about-indore" element={<AboutIndorePage />} />
           {/* Fallback: anything unknown returns home */}
           <Route path="*" element={<HomePage />} />
         </Routes>

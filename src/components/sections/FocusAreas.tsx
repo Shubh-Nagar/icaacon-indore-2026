@@ -20,7 +20,7 @@ const ACCENT: Record<
 
 /**
  * Theme & focus areas.
- * The five tracks lifted directly from the poster (Air Pollution → Immunotherapy),
+ * The five tracks lifted directly from the poster (Allergy → Climate Change),
  * each with its own accent colour and Lucide icon. Cards lift on hover.
  */
 export default function FocusAreas() {

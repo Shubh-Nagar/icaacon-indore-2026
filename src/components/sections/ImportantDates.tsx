@@ -81,7 +81,7 @@ export default function ImportantDates() {
             <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold-soft">
               Conference begins in
             </p>
-            <Countdown tone="light" />
+            <Countdown tone="light" compact />
             <p className="text-sm text-ivory/70">{EVENT.dates}</p>
             <p className="text-sm font-semibold text-ivory">
               {EVENT.venue.name}, {EVENT.venue.city}

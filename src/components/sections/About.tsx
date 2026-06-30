@@ -89,10 +89,13 @@ export default function About() {
             viewport={viewportOnce}
             className="relative"
           >
-            {/* Main: medical conference / respiratory research */}
-            <Img
-              src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=900&q=80&auto=format&fit=crop"
-              alt="Clinicians collaborating in a modern medical setting"
+            {/* Main: lung health video */}
+            <video
+              src="/lung-video.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
               className="aspect-[4/5] w-full rounded-3xl object-cover shadow-card"
             />
             {/* Floating accent: Indore heritage (Rajwada-style architecture) */}
