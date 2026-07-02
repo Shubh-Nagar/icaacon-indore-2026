@@ -8,8 +8,8 @@ import { fadeUp, staggerContainer, viewportOnce } from '@/lib/motion'
 
 /**
  * Registration tiers.
- * Three cards; the middle "Standard" tier is visually elevated as the
- * recommended option. Pricing is placeholder (INR) and lives in content.ts.
+ * Three cards; the "ICAAI Member" tier is visually elevated as the
+ * recommended option. Pricing (INR) lives in content.ts.
  */
 export default function Registration() {
   return (
@@ -62,6 +62,21 @@ export default function Registration() {
                 }`}
               >
                 {tier.window}
+              </p>
+
+              <p
+                className={`mt-4 text-lg font-semibold ${
+                  tier.featured ? 'text-teal' : 'text-ivory'
+                }`}
+              >
+                {tier.onSpotPrice}
+              </p>
+              <p
+                className={`mt-0.5 text-sm ${
+                  tier.featured ? 'text-ink-muted' : 'text-ivory/70'
+                }`}
+              >
+                {tier.onSpotWindow}
               </p>
 
               <ul className="mt-7 flex-1 space-y-3">

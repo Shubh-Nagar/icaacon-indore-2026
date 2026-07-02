@@ -6,6 +6,7 @@ import ScrollToTop from '@/components/layout/ScrollToTop'
 import HomePage from '@/pages/HomePage'
 import AboutPage from '@/pages/AboutPage'
 import ProgramPage from '@/pages/ProgramPage'
+import SponsorshipPage from '@/pages/SponsorshipPage'
 import RegisterPage from '@/pages/RegisterPage'
 import ContactPage from '@/pages/ContactPage'
 import PlacesToVisitIndorePage from '@/pages/PlacesToVisitIndorePage'
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/program" element={<ProgramPage />} />
+          <Route path="/sponsorship" element={<SponsorshipPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/host-city/places-to-visit" element={<PlacesToVisitIndorePage />} />

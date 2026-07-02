@@ -24,13 +24,14 @@ export const EVENT = {
   pillars: ['Science', 'Solutions', 'Sustainability'],
   dates: '24–27 September 2026',
   datesShort: '24–27 Sep 2026',
+  auspices: 'Organized under the auspices of the Indian College of Allergy, Asthma and Applied Immunology and Amaltas University',
   // ISO start used by the countdown timer
   startISO: '2026-09-24T09:00:00+05:30',
   venue: {
     name: 'Vivanta Hotel',
     city: 'Indore',
     region: 'Madhya Pradesh, India',
-    address: 'Vivanta by Taj, Indore, Madhya Pradesh 452010',
+    address: 'Vivanta, Indore, Madhya Pradesh 452010',
     mapsQuery: 'Vivanta+Indore',
   },
   contact: {
@@ -46,6 +47,7 @@ export const NAV_LINKS = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
   { label: 'Program', to: '/program' },
+  { label: 'Sponsorship', to: '/sponsorship' },
   { label: 'Contact', to: '/contact' },
 ]
 
@@ -105,7 +107,7 @@ export const FOCUS_AREAS: FocusArea[] = [
 export const IMPORTANT_DATES = [
   { date: '15 Mar 2026', label: 'Abstract submission opens', status: 'open' },
   { date: '30 Jul 2026', label: 'Early-bird registration ends', status: 'soon' },
-  { date: '31 Jul 2026', label: 'Abstract submission closes', status: 'upcoming' },
+  { date: '30 Jul 2026', label: 'Abstract submission closes', status: 'upcoming' },
   { date: '20 Aug 2026', label: 'Acceptance notifications', status: 'upcoming' },
   { date: '24 Sep 2026', label: 'Conference begins', status: 'upcoming' },
 ] as const
@@ -190,12 +192,28 @@ export const BENEFITS = [
   },
 ]
 
-/** Registration tiers (placeholder pricing in INR). */
+/** Registration tiers (INR). */
 export const REGISTRATION_TIERS = [
   {
-    name: 'Early Bird',
+    name: 'ICAAI Member',
     price: '₹ 6,500',
-    window: 'Until 30 Jul 2026',
+    onSpotPrice: '₹ 9,500',
+    window: 'Regular: 01 Jun – 10 Sep 2026',
+    onSpotWindow: 'On spot: 11 Sep 2026 onwards',
+    featured: true,
+    perks: [
+      'Full 4-day access',
+      'Conference kit & badge',
+      'Lunch & networking breaks',
+      'E-certificate of participation',
+    ],
+  },
+  {
+    name: 'Non-ICAAI Member',
+    price: '₹ 7,500',
+    onSpotPrice: '₹ 11,500',
+    window: 'Regular: 01 Jun – 10 Sep 2026',
+    onSpotWindow: 'On spot: 11 Sep 2026 onwards',
     featured: false,
     perks: [
       'Full 4-day access',
@@ -205,21 +223,11 @@ export const REGISTRATION_TIERS = [
     ],
   },
   {
-    name: 'Standard',
-    price: '₹ 11,000',
-    window: '01 Jul – 31 Aug 2026',
-    featured: true,
-    perks: [
-      'Everything in Early Bird',
-      'Priority workshop seating',
-      'Printed abstract book',
-      'Gala dinner invitation',
-    ],
-  },
-  {
-    name: 'Postgraduate',
+    name: 'PG Student',
     price: '₹ 5,500',
-    window: 'Valid student ID required',
+    onSpotPrice: '₹ 7,500',
+    window: 'Regular: 01 Jun – 10 Sep 2026',
+    onSpotWindow: 'On spot: 11 Sep 2026 onwards',
     featured: false,
     perks: [
       'Full 4-day access',
@@ -228,6 +236,83 @@ export const REGISTRATION_TIERS = [
       'E-certificate of participation',
     ],
   },
+]
+
+/** Sponsorship tiers (from "ICAAICON 2026 - Sponsorship Benefits"). GST @ 18% extra on all categories. */
+export const SPONSORSHIP_TIERS = [
+  {
+    name: 'Platinum Sponsor',
+    price: '₹ 10,00,000',
+    featured: true,
+    perks: [
+      'Premium exhibition stall',
+      'Exclusive Platinum Sponsorship status (first-come, first-served)',
+      'Prominent branding across all promotional materials and the official conference website',
+      'Logo and company profile featured under the Platinum Sponsor category on the official Sponsor Panel',
+      'Inclusion of promotional materials in the Delegate Kit',
+      'Branding on participant badges',
+    ],
+  },
+  {
+    name: 'Diamond Sponsor',
+    price: '₹ 8,00,000',
+    featured: false,
+    perks: [
+      'Premium exhibition stall',
+      'High-visibility branding opportunities',
+      'Logo and company profile featured under the Diamond Sponsor category on the Sponsor Panel',
+      'Inclusion of promotional materials in the Delegate Kit',
+    ],
+  },
+  {
+    name: 'Gold Sponsor',
+    price: '₹ 6,00,000',
+    featured: false,
+    perks: [
+      'Exhibition stall',
+      'Recognition as a Gold Sponsor on the conference website',
+      'Logo and company profile featured under the Gold Sponsor category on the Sponsor Panel',
+      'Inclusion of promotional materials in the Delegate Kit',
+    ],
+  },
+  {
+    name: 'Silver Sponsor',
+    price: '₹ 4,00,000',
+    featured: false,
+    perks: [
+      'Exhibition stall',
+      'Recognition as a Silver Sponsor on the conference website',
+      'Logo and company profile featured under the Silver Sponsor category on the Sponsor Panel',
+    ],
+  },
+  {
+    name: 'Regular Stall',
+    price: '₹ 2,00,000',
+    featured: false,
+    perks: ['Standard exhibition stall'],
+  },
+]
+
+/** Why sponsor — from the ICAAICON 2026 sponsorship invitation letter. */
+export const SPONSORSHIP_BENEFITS = [
+  'High-visibility brand presence among relevant specialists',
+  'Direct interaction with clinicians actively managing asthma and allergy patients',
+  'Opportunity to showcase products, devices, and innovations through exhibition and scientific engagement',
+  "Association with a credible academic forum, reinforcing your company's commitment to education and patient care",
+]
+
+/** Sponsorship enquiries contact (from the invitation letter). */
+export const SPONSORSHIP_CONTACT = {
+  name: 'Dr. Salil Bhargava',
+  role: 'Chairman, Organizing Committee',
+  phone: '+91982706040',
+  email: 'drsalilbhargava@gmail.com',
+}
+
+/** Downloadable sponsorship documents, uploaded to public/doc/. */
+export const SPONSORSHIP_DOCS = [
+  { label: 'Sponsorship Benefits (PDF/DOC)', href: '/doc/ICAAICON 2026 - Sponsorship Benefits (Update).docx' },
+  { label: 'Sponsorship Invitation Letter', href: '/doc/ICAAICON 2026 - Sponsorship Letter.docx' },
 ]
 
 /** Gallery imagery — described per the brief. */

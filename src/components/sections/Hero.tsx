@@ -95,6 +95,38 @@ export default function Hero() {
             {EVENT.city} {EVENT.year}
           </motion.p>
 
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.25 }}
+            className="mt-3 max-w-xl text-sm font-medium text-ivory/70 sm:text-base"
+          >
+            {EVENT.auspices}
+          </motion.p>
+
+          {/* Organizing bodies */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="mt-5 flex flex-wrap items-center justify-center gap-4"
+          >
+            <span className="inline-flex items-center rounded-xl bg-white/95 px-4 py-2 shadow-sm">
+              <img
+                src="/icaai%20logo.png"
+                alt="Indian College of Allergy, Asthma & Applied Immunology"
+                className="h-8 w-auto sm:h-9"
+              />
+            </span>
+            <span className="inline-flex items-center rounded-xl bg-white/95 px-4 py-2 shadow-sm">
+              <img
+                src="/Amaltas-University-Logo.jpg"
+                alt="Amaltas University"
+                className="h-8 w-auto sm:h-9"
+              />
+            </span>
+          </motion.div>
+
           {/* Theme */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -106,6 +138,7 @@ export default function Hero() {
             <span className="text-teal-soft">Live Better</span>
           </motion.p>
 
+          {/* Science · Solutions · Sustainability — commented out for now
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -114,6 +147,7 @@ export default function Hero() {
           >
             {EVENT.pillars.join(' · ')}
           </motion.p>
+          */}
 
           {/* Date + venue chips */}
           <motion.div

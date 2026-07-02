@@ -99,11 +99,11 @@ export default function About() {
               className="aspect-[4/5] w-full rounded-3xl object-cover shadow-card"
             />
             {/* Floating accent: Indore heritage (Rajwada-style architecture) */}
-            <Img
+            {/* <Img
               src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=500&q=80&auto=format&fit=crop"
               alt="Heritage architecture of Indore"
               className="absolute -bottom-8 -left-8 hidden aspect-square w-44 rounded-2xl border-4 border-ivory object-cover shadow-lift sm:block"
-            />
+            /> */}
             {/* Badge */}
             <div className="absolute -right-4 top-8 rounded-2xl bg-maroon px-5 py-4 text-center text-ivory shadow-lift">
               <p className="font-display text-2xl font-bold leading-none">60th</p>

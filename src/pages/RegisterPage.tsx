@@ -20,7 +20,7 @@ const EMPTY: FormState = {
   name: '',
   email: '',
   org: '',
-  tier: REGISTRATION_TIERS[1].name,
+  tier: REGISTRATION_TIERS[0].name,
   track: FOCUS_AREAS[0].title,
 }
 

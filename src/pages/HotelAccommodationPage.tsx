@@ -11,7 +11,7 @@ const HOTELS = [
   {
     tier: 'Official' as Tier,
     name: 'Vivanta Indore',
-    brand: 'Taj Hotels',
+    brand: 'Vivanta Hotels',
     stars: 5,
     tag: 'Official Conference Hotel',
     distance: 'Conference Venue',
@@ -19,7 +19,7 @@ const HOTELS = [
     price: '₹8,000 – ₹14,000',
     priceNote: 'per night (approx.)',
     description:
-      'The official host hotel of ICAAICON 2026 — a sophisticated five-star property combining contemporary design with warm Taj hospitality. Delegates staying here enjoy direct access to all conference halls, seamless networking opportunities and priority check-in.',
+      'The official host hotel of ICAAICON 2026 — a sophisticated five-star property combining contemporary design with warm hospitality. Delegates staying here enjoy direct access to all conference halls, seamless networking opportunities and priority check-in.',
     img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=80&auto=format&fit=crop',
     amenities: ['Conference halls on-site', 'Swimming pool & spa', 'Multi-cuisine restaurants', 'Business centre', 'Airport transfer', 'Free Wi-Fi'],
     highlight: true,
