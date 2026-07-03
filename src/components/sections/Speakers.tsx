@@ -5,7 +5,7 @@ import Container from '@/components/ui/Container'
 import SectionHeading from '@/components/ui/SectionHeading'
 // import Img from '@/components/ui/Img'
 // import { SPEAKERS } from '@/data/content'
-import { fadeUp, staggerContainer, viewportOnce } from '@/lib/motion'
+import { fadeUp, viewportOnce } from '@/lib/motion'
 // import { scaleIn } from '@/lib/motion'
 
 /**

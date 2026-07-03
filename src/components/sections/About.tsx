@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import Container from '@/components/ui/Container'
 import SectionHeading from '@/components/ui/SectionHeading'
-import Img from '@/components/ui/Img'
 import { fadeUp, staggerContainer, viewportOnce } from '@/lib/motion'
 import { EVENT } from '@/data/content'
 
