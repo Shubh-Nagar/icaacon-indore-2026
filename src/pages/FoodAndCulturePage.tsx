@@ -11,7 +11,7 @@ const DISHES = [
     emoji: '🍽️',
     description:
       'The quintessential Indore breakfast — light, fluffy poha seasoned with mustard, curry leaves and spices, garnished with sev and lemon, paired with hot crisp jalebis. A combination that has defined mornings in this city for generations.',
-    img: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=700&q=80&auto=format&fit=crop',
+    img: '/indore/poha-jalebi.jpg',
     tag: 'Breakfast Classic',
   },
   {
@@ -19,7 +19,7 @@ const DISHES = [
     emoji: '🫕',
     description:
       'Madhya Pradesh\'s answer to the Rajasthani dal-baati — baked wheat dumplings dunked in ghee, served with rich lentil dal, tangy chutneys and kadhi. A wholesome, soul-satisfying meal rooted in Malwa tradition.',
-    img: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=700&q=80&auto=format&fit=crop',
+    img: '/indore/dal-bafla.jpg',
     tag: 'Regional Specialty',
   },
   {
@@ -35,7 +35,7 @@ const DISHES = [
     emoji: '🥔',
     description:
       'Crispy fried yam (kand) seasoned with chaat masala and lemon — a beloved winter street snack of Indore, unique to this city and impossible to find elsewhere quite like this.',
-    img: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=700&q=80&auto=format&fit=crop',
+    img: '/indore/garadu.jpg',
     tag: 'Only in Indore',
   },
   {
@@ -43,7 +43,7 @@ const DISHES = [
     emoji: '🍹',
     description:
       'A rich, saffron-laced chilled milk drink — Indore\'s own spin on the shikanji tradition. Served cold and fragrant, it is the go-to refreshment after a walk through the city\'s bustling bazaars.',
-    img: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=700&q=80&auto=format&fit=crop',
+    img: '/indore/shahi-shikanji.jpg',
     tag: 'Indore Original',
   },
   {
@@ -51,7 +51,7 @@ const DISHES = [
     emoji: '☕',
     description:
       'A light, pearl-sago stir-fry cooked with peanuts, green chillies and cumin — paired with masala chai at any hour. The everyday comfort food that defines tea-time across Indore\'s homes and dhabas alike.',
-    img: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80&auto=format&fit=crop',
+    img: '/indore/sabudana-khichdi.jpg',
     tag: 'Comfort Food',
   },
 ]
@@ -62,7 +62,7 @@ const FOOD_SPOTS = [
     subtitle: 'Night Food Market',
     description:
       'A jewellery market by day, Sarafa transforms after 9 pm into one of India\'s most legendary night food streets. The entire stretch fills with vendors serving dahi falli, garadu, malpua, rabdi, and dozens of chaat varieties under twinkling lights. No visit to Indore is complete without this experience.',
-    img: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80&auto=format&fit=crop',
+    img: '/indore/sarafa-bazaar.jpg',
     timing: 'Open: 9 PM – 2 AM',
     highlight: 'Night only',
   },
@@ -71,7 +71,7 @@ const FOOD_SPOTS = [
     subtitle: '56 Shops Food Street',
     description:
       'Named for its 56 eateries packed side by side, Chhappan Dukan is Indore\'s most beloved organised food street — active from morning to midnight. From hot jalebis and kachori at dawn to chaat, sandwiches and ice creams at night, this strip captures the full breadth of Indore\'s food culture in one vibrant stretch.',
-    img: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80&auto=format&fit=crop',
+    img: '/indore/chhappan-dukan.jpg',
     timing: 'Open: 7 AM – 12 AM',
     highlight: 'All day',
   },

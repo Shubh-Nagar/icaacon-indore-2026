@@ -10,7 +10,7 @@ type Tier = 'Official' | 'Luxury' | 'Mid-Range' | 'Budget'
 const HOTELS = [
   {
     tier: 'Official' as Tier,
-    name: 'Vivanta Indore',
+    name: 'Vivanta Indore Amaltas',
     brand: 'Vivanta Hotels',
     stars: 5,
     tag: 'Official Conference Hotel',

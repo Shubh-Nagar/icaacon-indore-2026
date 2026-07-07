@@ -17,7 +17,7 @@ const PLACES = [
     tag: 'Nature & Wildlife',
     description:
       'A peaceful forest reserve on the outskirts of Indore offering shaded trails, a heritage hunting lodge, deer, leopards and sweeping panoramic viewpoints.',
-    img: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80&auto=format&fit=crop',
+    img: '/indore/ralamandal-sanctuary.jpg',
   },
   {
     name: 'Tincha Falls',
@@ -26,7 +26,7 @@ const PLACES = [
     tag: 'Nature & Wildlife',
     description:
       'One of the most popular cascades near Indore, tumbling through lush rock formations — especially spectacular during and just after the monsoon.',
-    img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80&auto=format&fit=crop',
+    img: '/indore/tincha-falls.jpg',
   },
   // Heritage — close
   {
@@ -36,7 +36,7 @@ const PLACES = [
     tag: 'Heritage & History',
     description:
       'The birthplace of Dr. Bhimrao Ambedkar in the cantonment town of Mhow — a site of deep historical and constitutional significance for India.',
-    img: 'https://images.unsplash.com/photo-1585468274952-66591eb14165?w=800&q=80&auto=format&fit=crop',
+    img: '/indore/ambedkar-memorial-mhow.jpg',
   },
   {
     name: 'Gulawat Lotus Valley',
@@ -45,7 +45,7 @@ const PLACES = [
     tag: 'Nature & Wildlife',
     description:
       'A breathtaking seasonal wetland blanketed in thousands of pink and white lotus flowers — best experienced at sunrise in the post-monsoon months.',
-    img: 'https://images.unsplash.com/photo-1559563458-527698bf5295?w=800&q=80&auto=format&fit=crop',
+    img: '/indore/lotus-valley.jpg',
   },
   {
     name: 'Patalpani Waterfall',
@@ -54,7 +54,7 @@ const PLACES = [
     tag: 'Nature & Wildlife',
     description:
       'A dramatic 300-ft cascade set amid dense hills and forest, with a scenic toy-train route from Indore making the journey part of the experience.',
-    img: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=800&q=80&auto=format&fit=crop',
+    img: '/indore/patalpani-waterfall.jpg',
   },
   {
     name: 'Choral Dam',
@@ -63,7 +63,7 @@ const PLACES = [
     tag: 'Nature & Wildlife',
     description:
       'A tranquil reservoir cradled by the Vindhya hills — perfect for picnics, birdwatching and quiet evenings away from the city.',
-    img: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80&auto=format&fit=crop',
+    img: '/indore/choral-dam.jpg',
   },
   {
     name: 'Mahakaleshwar Jyotirlinga, Ujjain',
@@ -72,7 +72,7 @@ const PLACES = [
     tag: 'Spiritual',
     description:
       'One of the twelve sacred Jyotirlingas of Lord Shiva, housed in one of India\'s oldest living cities alongside ancient ghats, temples and an astronomical heritage.',
-    img: 'https://images.unsplash.com/photo-1609340261352-e62f2400e8d8?w=800&q=80&auto=format&fit=crop',
+    img: '/indore/mahakaleshwar-ujjain.jpg',
   },
   {
     name: 'Omkareshwar Jyotirlinga',
@@ -81,7 +81,7 @@ const PLACES = [
     tag: 'Spiritual',
     description:
       'One of India\'s holiest pilgrimage sites — a Jyotirlinga temple perched on an Om-shaped island in the sacred Narmada River, serene and deeply spiritual.',
-    img: 'https://images.unsplash.com/photo-1617957718614-8c23f060c2d0?w=800&q=80&auto=format&fit=crop',
+    img: '/indore/omkareshwar.jpg',
   },
   {
     name: 'Mandu (Mandav)',
@@ -90,7 +90,7 @@ const PLACES = [
     tag: 'Heritage & History',
     description:
       'A ruined fort city set on a plateau, celebrated for its Afghan-Mughal palaces, the romance of Baz Bahadur and Roopmati, and misty monsoon landscapes.',
-    img: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80&auto=format&fit=crop',
+    img: '/indore/mandu-jahaz-mahal.jpg',
   },
   {
     name: 'Maheshwar',
@@ -99,7 +99,7 @@ const PLACES = [
     tag: 'Heritage & History',
     description:
       'A serene Narmada-side town crowned by the magnificent Ahilya Fort of Queen Ahilyabai Holkar, and famed for the handwoven Maheshwari silk sarees.',
-    img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80&auto=format&fit=crop',
+    img: '/indore/maheshwar-fort.jpg',
   },
   {
     name: 'Dhar Fort & Bhojshala',
@@ -108,7 +108,7 @@ const PLACES = [
     tag: 'Heritage & History',
     description:
       'An ancient fort and the celebrated Bhojshala temple-mosque complex — a living testament to the Paramara dynasty and the scholarly reign of Raja Bhoj.',
-    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80&auto=format&fit=crop',
+    img: '/indore/dhar-fort-bhojshala.jpg',
   },
   {
     name: 'Hanuwantiya Tapu',
@@ -117,7 +117,7 @@ const PLACES = [
     tag: 'Nature & Wildlife',
     description:
       'A scenic island retreat on the vast Indira Sagar reservoir, offering boating, water sports, lakeside camping and golden sunsets over open water.',
-    img: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&q=80&auto=format&fit=crop',
+    img: '/indore/hanuwantiya-tapu.jpg',
   },
 ]
 

@@ -28,11 +28,11 @@ export const EVENT = {
   // ISO start used by the countdown timer
   startISO: '2026-09-24T09:00:00+05:30',
   venue: {
-    name: 'Vivanta Hotel',
+    name: 'Vivanta Indore Amaltas',
     city: 'Indore',
     region: 'Madhya Pradesh, India',
-    address: 'Vivanta, Indore, Madhya Pradesh 452010',
-    mapsQuery: 'Vivanta+Indore',
+    address: 'MR 10 Old Toll Naka Near Shree Ram and Enclave Apt, Indore, Indore, India, 453555',
+    mapsQuery: 'Vivanta+Indore+Amaltas',
   },
   contact: {
     address: 'Surbhi 76 Dhar Kothi, Residency Area, Indore',
@@ -344,16 +344,13 @@ export const GALLERY = [
   },
 ]
 
-/** Sponsor / partner placeholders. */
+/** Sponsor / partner list. */
 export const SPONSORS = [
-  'MediCore Labs',
-  'Aeris Pharma',
-  'PulmoTech',
-  'ImmunoVantage',
-  'BreatheWell',
-  'Sanjeevani Health',
-  'NovaCare',
-  'Indore MedTrust',
+  { name: 'Malwanchal University', logo: '/partners/malwanchal-university.png' },
+  { name: 'National College of Chest Physicians', logo: '/partners/nccp-india.png' },
+  { name: 'Lung Care Foundation', logo: '/partners/lung-care-foundation.png' },
+  { name: 'Doctor for Clean Air', logo: '/partners/doctors-for-clean-air.png' },
+  { name: 'Indore Chest Society', logo: '' },
 ]
 
 /** Program / abstract FAQs. */

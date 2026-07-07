@@ -5,7 +5,7 @@ Allergy, Asthma & Immunology** — *ICAAICON Indore 2026*. Built as a single-pag
 experience with genuine multi-page depth (About / Program / Register / Contact).
 
 **Theme:** *Breathe Better, Live Better* · **Dates:** 24–27 September 2026 ·
-<!-- **Venue:** Vivanta Hotel, Indore. -->
+<!-- **Venue:** Vivanta Indore Amaltas. -->
 
 ---
 

@@ -157,7 +157,7 @@ export default function AboutIndorePage() {
 
             <motion.div variants={fadeUp} className="relative">
               <Img
-                src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=900&q=80&auto=format&fit=crop"
+                src="/indore/rajwada-palace.jpg"
                 alt="Rajwada Palace, the iconic landmark of Indore"
                 className="aspect-[4/5] w-full rounded-3xl object-cover shadow-card"
               />
@@ -262,32 +262,32 @@ export default function AboutIndorePage() {
           >
             {[
               {
-                src: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=700&q=80&auto=format&fit=crop',
+                src: '/indore/lal-bagh-palace.jpg',
                 alt: 'Lal Bagh Palace, Indore',
                 label: 'Lal Bagh Palace',
                 span: 'lg:col-span-2 lg:row-span-2',
               },
               {
-                src: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80&auto=format&fit=crop',
+                src: '/indore/sarafa-bazaar.jpg',
                 alt: 'Sarafa Night Food Market',
                 label: 'Sarafa Bazaar',
                 span: '',
               },
               {
-                src: 'https://images.unsplash.com/photo-1609340261352-e62f2400e8d8?w=600&q=80&auto=format&fit=crop',
+                src: '/indore/khajrana-temple.jpg',
                 alt: 'Khajrana Ganesh Temple',
                 label: 'Khajrana Temple',
                 span: '',
               },
               {
-                src: 'https://images.unsplash.com/photo-1559563458-527698bf5295?w=600&q=80&auto=format&fit=crop',
+                src: '/indore/lotus-valley.jpg',
                 alt: 'Gulawat Lotus Valley near Indore',
                 label: 'Gulawat Lotus Valley',
                 span: '',
               },
               {
-                src: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80&auto=format&fit=crop',
-                alt: 'Indore street food',
+                src: '/indore/indori-poha.jpg',
+                alt: 'Indori poha, the city\'s iconic street food',
                 label: 'Iconic Street Food',
                 span: '',
               },

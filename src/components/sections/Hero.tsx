@@ -111,20 +111,16 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="mt-5 flex flex-wrap items-center justify-center gap-4"
           >
-            <span className="inline-flex items-center rounded-xl bg-white/95 px-4 py-2 shadow-sm">
-              <img
-                src="/icaai%20logo.png"
-                alt="Indian College of Allergy, Asthma & Applied Immunology"
-                className="h-8 w-auto sm:h-9"
-              />
-            </span>
-            <span className="inline-flex items-center rounded-xl bg-white/95 px-4 py-2 shadow-sm">
-              <img
-                src="/Amaltas-University-Logo.jpg"
-                alt="Amaltas University"
-                className="h-8 w-auto sm:h-9"
-              />
-            </span>
+            <img
+              src="/icaai%20logo.png"
+              alt="Indian College of Allergy, Asthma & Applied Immunology"
+              className="h-10 w-auto sm:h-12"
+            />
+            <img
+              src="/Amaltas-University-Logo.png"
+              alt="Amaltas University"
+              className="h-10 w-auto sm:h-12"
+            />
           </motion.div>
 
           {/* Theme */}
