@@ -305,7 +305,7 @@ export const SPONSORSHIP_BENEFITS = [
 export const SPONSORSHIP_CONTACT = {
   name: 'Dr. Salil Bhargava',
   role: 'Chairman, Organizing Committee',
-  phone: '+91982706040',
+  phone: '+918818940404',
   email: 'drsalilbhargava@gmail.com',
 }
 

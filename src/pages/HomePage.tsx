@@ -6,7 +6,7 @@ import Speakers from '@/components/sections/Speakers'
 import Venue from '@/components/sections/Venue'
 import WhyAttend from '@/components/sections/WhyAttend'
 import Registration from '@/components/sections/Registration'
-import Gallery from '@/components/sections/Gallery'
+// import Gallery from '@/components/sections/Gallery'
 import Sponsors from '@/components/sections/Sponsors'
 import CtaBand from '@/components/sections/CtaBand'
 
@@ -25,7 +25,7 @@ export default function HomePage() {
       <Venue />
       <WhyAttend />
       <Registration />
-      <Gallery />
+      {/* <Gallery /> */}
       <Sponsors />
       <CtaBand />
     </>
