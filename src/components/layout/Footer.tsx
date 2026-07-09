@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Mail, Phone, MapPin, Instagram } from 'lucide-react'
 import Logo from '@/components/ui/Logo'
 import TempleSkyline from '@/components/ui/TempleSkyline'
+import VisitorCounter from '@/components/ui/VisitorCounter'
 import { EVENT, NAV_LINKS, FOCUS_AREAS } from '@/data/content'
 
 /**
@@ -98,10 +99,13 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="container-x relative z-10 flex flex-col items-center justify-between gap-3 border-t border-ivory/10 py-6 text-xs text-ivory/55 sm:flex-row">
-        <p>
-          © {year} {EVENT.shortName} {EVENT.city} {EVENT.year}. All rights
-          reserved.
-        </p>
+        <div className="flex flex-col items-center gap-1 sm:flex-row sm:gap-0">
+          <p>
+            © {year} {EVENT.shortName} {EVENT.city} {EVENT.year}. All rights
+            reserved.
+          </p>
+          <VisitorCounter />
+        </div>
         <p>
           {EVENT.dates} · {EVENT.venue.city}
         </p>

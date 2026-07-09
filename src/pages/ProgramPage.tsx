@@ -8,31 +8,39 @@ import SectionHeading from '@/components/ui/SectionHeading'
 import { FAQS, FOCUS_AREAS, IMPORTANT_DATES } from '@/data/content'
 import { fadeUp, staggerContainer, viewportOnce } from '@/lib/motion'
 
+// Common pointers shared across the scientific days (Days 2–4).
+const COMMON_POINTERS = [
+  'Allergy & Diagnosis',
+  'Immunotherapy & Close',
+  'Climate & Asthma',
+  'Opening & Air Quality',
+]
+
 // Placeholder day-by-day outline.
 const SCHEDULE = [
   {
     day: 'Day 1',
     date: '24 Sep',
-    title: 'Opening & Air Quality',
-    items: ['Inaugural keynote', 'Air pollution & lungs', 'Welcome reception'],
+    title: 'Workshop',
+    items: ['Pre-conference workshop', 'Hands-on training sessions', 'Welcome reception'],
   },
   {
     day: 'Day 2',
     date: '25 Sep',
-    title: 'Climate & Asthma',
-    items: ['Climate–respiratory panel', 'Asthma masterclass', 'E-poster session I'],
+    title: 'Scientific Sessions',
+    items: COMMON_POINTERS,
   },
   {
     day: 'Day 3',
     date: '26 Sep',
-    title: 'Allergy & Diagnostics',
-    items: ['Allergy diagnostics workshop', 'Oral presentations', 'Gala dinner'],
+    title: 'Scientific Sessions',
+    items: COMMON_POINTERS,
   },
   {
     day: 'Day 4',
     date: '27 Sep',
-    title: 'Immunotherapy & Close',
-    items: ['Immunotherapy frontiers', 'Award ceremony', 'Closing address'],
+    title: 'Scientific Sessions',
+    items: COMMON_POINTERS,
   },
 ]
 

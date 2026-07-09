@@ -35,10 +35,10 @@ export const EVENT = {
     mapsQuery: 'Vivanta+Indore+Amaltas',
   },
   contact: {
-    address: 'Surbhi 76 Dhar Kothi, Residency Area, Indore',
+    address: 'Surabhi 76 Dhar Kothi, Residency Area, Indore',
     email: 'icaaicon2026@gmail.com',
     phone: '8818940404',
-    instagram: '@icaacon2026',
+    instagram: '@icaaicon2026',
   },
 }
 
@@ -243,6 +243,7 @@ export const SPONSORSHIP_TIERS = [
   {
     name: 'Platinum Sponsor',
     price: '₹ 10,00,000',
+    tier: 'platinum',
     featured: true,
     perks: [
       'Premium exhibition stall',
@@ -256,6 +257,7 @@ export const SPONSORSHIP_TIERS = [
   {
     name: 'Diamond Sponsor',
     price: '₹ 8,00,000',
+    tier: 'diamond',
     featured: false,
     perks: [
       'Premium exhibition stall',
@@ -267,6 +269,7 @@ export const SPONSORSHIP_TIERS = [
   {
     name: 'Gold Sponsor',
     price: '₹ 6,00,000',
+    tier: 'gold',
     featured: false,
     perks: [
       'Exhibition stall',
@@ -278,6 +281,7 @@ export const SPONSORSHIP_TIERS = [
   {
     name: 'Silver Sponsor',
     price: '₹ 4,00,000',
+    tier: 'silver',
     featured: false,
     perks: [
       'Exhibition stall',
@@ -288,6 +292,7 @@ export const SPONSORSHIP_TIERS = [
   {
     name: 'Regular Stall',
     price: '₹ 2,00,000',
+    tier: 'regular',
     featured: false,
     perks: ['Standard exhibition stall'],
   },

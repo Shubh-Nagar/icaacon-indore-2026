@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Check, Star, Eye, Users, PackageSearch, Award, Mail, Phone, FileDown } from 'lucide-react'
+import { Check, Star, Eye, Users, PackageSearch, Award, Medal, Mail, Phone, FileDown } from 'lucide-react'
 import PageHeader from '@/components/ui/PageHeader'
 import Container from '@/components/ui/Container'
 import {
@@ -13,6 +13,56 @@ import {
 import { fadeUp, staggerContainer, viewportOnce } from '@/lib/motion'
 
 const BENEFIT_ICONS = [Eye, Users, PackageSearch, Award]
+
+/**
+ * Per-tier accent — a soft tinted wash + matching border carries the metal's
+ * color across the whole card, instead of a stripe/badge stacked at the top.
+ */
+const TIER_STYLES: Record<
+  string,
+  { wash: string; border: string; gradient: string; text: string; glow: string; button: string }
+> = {
+  platinum: {
+    wash: 'from-slate-100 to-white',
+    border: 'border-slate-300/70',
+    gradient: 'from-slate-400 to-slate-600',
+    text: 'text-slate-600',
+    glow: 'shadow-[0_20px_45px_-18px_rgba(71,85,105,0.45)]',
+    button: 'btn-accent',
+  },
+  diamond: {
+    wash: 'from-sky-50 to-white',
+    border: 'border-sky-300/70',
+    gradient: 'from-cyan-400 to-sky-600',
+    text: 'text-sky-600',
+    glow: 'shadow-[0_20px_45px_-18px_rgba(2,132,199,0.4)]',
+    button: 'btn-primary',
+  },
+  gold: {
+    wash: 'from-white to-white',
+    border: 'border-gold/50',
+    gradient: 'from-gold-soft to-gold-deep',
+    text: 'text-gold-deep',
+    glow: 'shadow-[0_20px_45px_-18px_rgba(166,134,58,0.45)]',
+    button: 'btn-primary',
+  },
+  silver: {
+    wash: 'from-gray-100 to-white',
+    border: 'border-gray-300/70',
+    gradient: 'from-gray-300 to-gray-500',
+    text: 'text-gray-600',
+    glow: 'shadow-[0_20px_45px_-18px_rgba(107,114,128,0.35)]',
+    button: 'btn-primary',
+  },
+  regular: {
+    wash: 'from-teal-tint to-white',
+    border: 'border-teal/25',
+    gradient: 'from-teal-soft to-teal-deep',
+    text: 'text-teal-deep',
+    glow: 'shadow-[0_20px_45px_-18px_rgba(11,80,80,0.3)]',
+    button: 'btn-primary',
+  },
+}
 
 /**
  * Sponsorship page — content sourced from the ICAAICON 2026 sponsorship
@@ -208,63 +258,54 @@ export default function SponsorshipPage() {
             viewport={viewportOnce}
             className="mt-14 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-5"
           >
-            {SPONSORSHIP_TIERS.map((tier) => (
-              <motion.div
-                key={tier.name}
-                variants={fadeUp}
-                className={`relative flex flex-col rounded-3xl p-8 ${
-                  tier.featured
-                    ? 'bg-ivory text-ink shadow-lift lg:-translate-y-4'
-                    : 'border border-ivory/15 bg-teal/40 text-ivory backdrop-blur-sm'
-                }`}
-              >
-                {tier.featured && (
-                  <span className="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-gold px-4 py-1 text-xs font-bold uppercase tracking-wide text-ink">
-                    <Star size={12} fill="currentColor" />
-                    Top tier
-                  </span>
-                )}
-
-                <h3
-                  className={`font-display text-lg font-semibold ${
-                    tier.featured ? 'text-teal' : 'text-ivory'
+            {SPONSORSHIP_TIERS.map((tier) => {
+              const style = TIER_STYLES[tier.tier] ?? TIER_STYLES.regular
+              return (
+                <motion.div
+                  key={tier.name}
+                  variants={fadeUp}
+                  className={`relative flex flex-col rounded-3xl border bg-gradient-to-b p-8 text-ink shadow-card transition-transform duration-300 hover:-translate-y-1 ${style.wash} ${style.border} ${style.glow} ${
+                    tier.featured ? 'lg:-translate-y-4' : ''
                   }`}
                 >
-                  {tier.name}
-                </h3>
-                <p className="mt-3 font-display text-2xl font-bold">{tier.price}</p>
-                <p
-                  className={`mt-1 text-xs ${
-                    tier.featured ? 'text-ink-muted' : 'text-ivory/70'
-                  }`}
-                >
-                  + 18% GST
-                </p>
+                  {tier.featured && (
+                    <span
+                      className={`absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-gradient-to-r px-4 py-1 text-[11px] font-bold uppercase tracking-wide text-white ${style.gradient}`}
+                    >
+                      <Star size={11} fill="currentColor" />
+                      Top tier
+                    </span>
+                  )}
 
-                <ul className="mt-6 flex-1 space-y-2.5">
-                  {tier.perks.map((perk) => (
-                    <li key={perk} className="flex items-start gap-2 text-xs leading-relaxed">
-                      <Check
-                        size={14}
-                        className={`mt-0.5 shrink-0 ${
-                          tier.featured ? 'text-teal' : 'text-gold-soft'
-                        }`}
-                      />
-                      <span className={tier.featured ? 'text-ink-soft' : 'text-ivory/85'}>
-                        {perk}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                  <div className="flex items-center gap-3">
+                    <span
+                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br text-white ${style.gradient}`}
+                    >
+                      <Medal size={18} />
+                    </span>
+                    <h3 className={`font-display text-lg font-semibold ${style.text}`}>
+                      {tier.name}
+                    </h3>
+                  </div>
 
-                <Link
-                  to="/contact"
-                  className={`mt-7 w-full ${tier.featured ? 'btn-accent' : 'btn-gold'}`}
-                >
-                  Enquire
-                </Link>
-              </motion.div>
-            ))}
+                  <p className="mt-6 font-display text-2xl font-bold text-ink">{tier.price}</p>
+                  <p className="mt-1 text-xs text-ink-muted">+ 18% GST</p>
+
+                  <ul className="mt-6 flex-1 space-y-2.5">
+                    {tier.perks.map((perk) => (
+                      <li key={perk} className="flex items-start gap-2 text-xs leading-relaxed">
+                        <Check size={14} className={`mt-0.5 shrink-0 ${style.text}`} />
+                        <span className="text-ink-soft">{perk}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link to="/contact" className={`mt-7 w-full ${style.button}`}>
+                    Enquire
+                  </Link>
+                </motion.div>
+              )
+            })}
           </motion.div>
 
           <p className="mt-8 text-center text-sm text-ivory/60">
