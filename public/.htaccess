@@ -1,0 +1,11 @@
+# Serves index.html for any path that isn't a real file/directory, so
+# React Router (BrowserRouter) can handle client-side routes like
+# /about, /program, /host-city/... on refresh or direct link.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

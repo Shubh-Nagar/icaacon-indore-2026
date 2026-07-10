@@ -114,12 +114,12 @@ export default function Hero() {
             <img
               src="/icaai%20logo.png"
               alt="Indian College of Allergy, Asthma & Applied Immunology"
-              className="h-16 w-auto sm:h-20"
+              className="h-24 w-auto sm:h-28"
             />
             <img
               src="/Amaltas-University-Logo.png"
               alt="Amaltas University"
-              className="h-16 w-auto sm:h-20"
+              className="h-24 w-auto sm:h-28"
             />
           </motion.div>
 
