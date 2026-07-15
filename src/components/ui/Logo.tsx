@@ -3,9 +3,16 @@ import { EVENT } from '@/data/content'
 
 type Props = {
   className?: string
+  imgClassName?: string
+  /** Use the alternate mark (logo-2) — e.g. once the navbar gains a solid background. */
+  solid?: boolean
 }
 
-export default function Logo({ className = '' }: Props) {
+export default function Logo({
+  className = '',
+  imgClassName = 'h-10 w-auto object-contain sm:h-12',
+  solid = false,
+}: Props) {
   return (
     <Link
       to="/"
@@ -13,9 +20,9 @@ export default function Logo({ className = '' }: Props) {
       aria-label={`${EVENT.shortName} ${EVENT.city} ${EVENT.year} — home`}
     >
       <img
-        src="/logo.jpeg"
+        src={solid ? '/logo-2.png' : '/logo.png'}
         alt={`${EVENT.shortName} logo`}
-        className="h-10 w-auto object-contain sm:h-12"
+        className={imgClassName}
       />
     </Link>
   )

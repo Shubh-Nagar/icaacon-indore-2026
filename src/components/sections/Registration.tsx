@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import { Check, Star } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import SectionHeading from '@/components/ui/SectionHeading'
-import { REGISTRATION_TIERS } from '@/data/content'
+import { REGISTRATION_TIERS, GOOGLE_FORM_URL } from '@/data/content'
 import { fadeUp, staggerContainer, viewportOnce } from '@/lib/motion'
 
 /**
@@ -95,14 +94,16 @@ export default function Registration() {
                 ))}
               </ul>
 
-              <Link
-                to="/register"
+              <a
+                href={GOOGLE_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`mt-8 w-full ${
                   tier.featured ? 'btn-accent' : 'btn-gold'
                 }`}
               >
                 Select {tier.name}
-              </Link>
+              </a>
             </motion.div>
           ))}
         </motion.div>

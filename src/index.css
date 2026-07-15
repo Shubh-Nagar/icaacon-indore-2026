@@ -23,6 +23,13 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.001ms !important;
     }
+
+    /* The header marquee carries scrolling content (not decorative motion),
+       so it stays exempt from the blanket animation freeze above. */
+    .animate-marquee {
+      animation-duration: 24s !important;
+      animation-iteration-count: infinite !important;
+    }
   }
 
   body {

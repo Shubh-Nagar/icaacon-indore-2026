@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, CalendarDays, ChevronDown } from 'lucide-react'
 import Logo from '@/components/ui/Logo'
+import VisitorCounter from '@/components/ui/VisitorCounter'
 import { NAV_LINKS, HOST_CITY_LINKS, EVENT } from '@/data/content'
 
 /**
@@ -50,17 +51,22 @@ export default function Navbar() {
   const activeColor = solid ? 'text-teal' : 'text-gold-soft'
 
   const isCityActive = HOST_CITY_LINKS.some((l) => pathname.startsWith(l.to))
+  // Homepage has its own TopBar (visitor count + marquee + socials) above
+  // this nav, so it's pinned lower there and skips its own visitor count.
+  const isHome = pathname === '/'
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+      className={`fixed inset-x-0 z-50 transition-all duration-300 ${
+        isHome ? 'top-9' : 'top-0'
+      } ${
         solid
           ? 'border-b border-ink/10 bg-ivory/90 backdrop-blur-md shadow-sm'
           : 'bg-transparent'
       }`}
     >
       <nav className="container-x flex h-16 items-center justify-between lg:h-20">
-        <Logo />
+        <Logo solid={solid} imgClassName="h-12 w-auto object-contain sm:h-16" />
 
         {/* Desktop links */}
         <ul className="hidden items-center gap-8 lg:flex">
@@ -160,6 +166,7 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden items-center gap-3 lg:flex">
+          {!isHome && <VisitorCounter solid={solid} />}
           <span className={`hidden items-center gap-1.5 text-xs font-semibold xl:flex ${solid ? 'text-ink-muted' : 'text-ivory/60'}`}>
             <CalendarDays size={14} className={solid ? 'text-teal' : 'text-gold-soft'} />
             {EVENT.datesShort}
@@ -169,16 +176,19 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className={`inline-flex h-10 w-10 items-center justify-center rounded-full lg:hidden ${solid ? 'text-ink' : 'text-ivory'}`}
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        {/* Mobile: visitor count + hamburger */}
+        <div className="flex items-center gap-2 lg:hidden">
+          {!isHome && <VisitorCounter solid={solid} />}
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className={`inline-flex h-10 w-10 items-center justify-center rounded-full ${solid ? 'text-ink' : 'text-ivory'}`}
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile drawer */}

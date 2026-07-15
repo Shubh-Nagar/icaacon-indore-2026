@@ -1,7 +1,8 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import ScrollToTop from '@/components/layout/ScrollToTop'
+import TopBar from '@/components/layout/TopBar'
 
 import HomePage from '@/pages/HomePage'
 import AboutPage from '@/pages/AboutPage'
@@ -24,9 +25,13 @@ import AboutIndorePage from '@/pages/AboutIndorePage'
  *   while the other routes give the site genuine multi-page depth.
  */
 export default function App() {
+  const { pathname } = useLocation()
+  const isHome = pathname === '/'
+
   return (
     <div className="flex min-h-screen flex-col">
       <ScrollToTop />
+      {isHome && <TopBar />}
       <Navbar />
       <main className="flex-1">
         <Routes>

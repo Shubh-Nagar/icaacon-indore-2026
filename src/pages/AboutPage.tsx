@@ -13,6 +13,7 @@ export default function AboutPage() {
     <>
       <PageHeader
         current="About"
+        logos
         eyebrow="About ICAAICON 2026"
         title={
           <>

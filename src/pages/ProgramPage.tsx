@@ -89,6 +89,7 @@ export default function ProgramPage() {
     <>
       <PageHeader
         current="Program"
+        logos
         eyebrow="Scientific program"
         title="Four days of science, solutions & exchange"
         subtitle="Keynotes, masterclasses, oral sessions and e-posters across the five focus tracks. The full agenda is released closer to the event."

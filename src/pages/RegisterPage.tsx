@@ -4,15 +4,15 @@ import PageHeader from '@/components/ui/PageHeader'
 import Container from '@/components/ui/Container'
 import SectionHeading from '@/components/ui/SectionHeading'
 import Registration from '@/components/sections/Registration'
+import { GOOGLE_FORM_URL } from '@/data/content'
 import { fadeUp, viewportOnce } from '@/lib/motion'
-
-const GOOGLE_FORM_URL = 'https://forms.gle/gP2GqLJZwsfwaN3y7'
 
 export default function RegisterPage() {
   return (
     <>
       <PageHeader
         current="Register"
+        logos
         eyebrow="Registration"
         title="Secure your place in Indore"
         subtitle="Pick a pass, complete the form, and our secretariat will confirm your registration with payment details."

@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import { Mail, Phone, MapPin, Instagram } from 'lucide-react'
 import Logo from '@/components/ui/Logo'
 import TempleSkyline from '@/components/ui/TempleSkyline'
-import VisitorCounter from '@/components/ui/VisitorCounter'
 import { EVENT, NAV_LINKS, FOCUS_AREAS } from '@/data/content'
 
 /**
@@ -104,7 +103,6 @@ export default function Footer() {
             © {year} {EVENT.shortName} {EVENT.city} {EVENT.year}. All rights
             reserved.
           </p>
-          <VisitorCounter />
         </div>
         <p>
           {EVENT.dates} · {EVENT.venue.city}

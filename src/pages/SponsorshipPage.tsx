@@ -73,6 +73,7 @@ export default function SponsorshipPage() {
     <>
       <PageHeader
         current="Sponsorship"
+        logos
         eyebrow="Partner with us"
         title={
           <>

@@ -9,6 +9,8 @@ import {
   Wind,
   Flower2,
   Syringe,
+  Facebook,
+  Instagram,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -41,6 +43,25 @@ export const EVENT = {
     instagram: '@icaaicon2026',
   },
 }
+
+/** Google Form used for registration/payment — no backend, so this is the
+ *  single external link every "register" CTA on the site points to. */
+export const GOOGLE_FORM_URL = 'https://forms.gle/gP2GqLJZwsfwaN3y7'
+
+/** Social media links for the homepage top utility bar. Replace the "#"
+ *  placeholders once the real handles/pages go live. */
+export const SOCIAL_LINKS: { label: string; href: string; icon: LucideIcon }[] = [
+  { label: 'Facebook', href: '#', icon: Facebook },
+  { label: 'Instagram', href: 'https://instagram.com/icaaicon2026', icon: Instagram },
+]
+
+/** Scrolling marquee notices shown in the homepage top bar. */
+export const MARQUEE_NOTICES = [
+  `Theme: "${EVENT.theme}"`,
+  `Venue: ${EVENT.venue.name}, ${EVENT.venue.city}`,
+  'Early-bird registration ends 30 Jul 2026',
+  'Abstract submission closes 30 Jul 2026',
+]
 
 /** Navigation links shared by the navbar and footer. */
 export const NAV_LINKS = [
@@ -316,8 +337,8 @@ export const SPONSORSHIP_CONTACT = {
 
 /** Downloadable sponsorship documents, uploaded to public/doc/. */
 export const SPONSORSHIP_DOCS = [
-  { label: 'Sponsorship Benefits (PDF/DOC)', href: '/doc/ICAAICON 2026 - Sponsorship Benefits (Update).docx' },
-  { label: 'Sponsorship Invitation Letter', href: '/doc/ICAAICON 2026 - Sponsorship Letter.docx' },
+  { label: 'Sponsorship Benefits (PDF/DOC)', href: '/doc/ICAAICON 2026 - Sponsorship Benefits (Update).pdf' },
+  { label: 'Sponsorship Invitation Letter', href: '/doc/ICAAICON 2026 - Sponsorship Letter.pdf' },
 ]
 
 /** Gallery imagery — described per the brief. */
