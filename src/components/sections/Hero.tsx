@@ -25,7 +25,7 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative flex min-h-[100svh] items-center overflow-hidden bg-ink pt-20"
+      className="relative flex min-h-[100svh] items-center overflow-hidden bg-ink pt-28 lg:pt-36"
     >
       {/* ── Video background ─────────────────────────────────────────── */}
       <video
