@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Mail, Phone, MapPin, Instagram } from 'lucide-react'
 import Logo from '@/components/ui/Logo'
 import TempleSkyline from '@/components/ui/TempleSkyline'
-import { EVENT, NAV_LINKS, FOCUS_AREAS } from '@/data/content'
+import { EVENT, NAV_LINKS, FOCUS_AREAS, SOCIAL_LINKS } from '@/data/content'
 
 /**
  * Site footer.
@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="container-x relative z-10 grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4 lg:py-20">
         {/* Brand + theme */}
         <div className="lg:col-span-1">
-          <Logo />
+          <Logo imgClassName="h-14 w-auto object-contain sm:h-16" />
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-ivory/70">
             {EVENT.edition} {EVENT.longName}. A diamond-jubilee gathering for a
             healthier tomorrow.
@@ -90,7 +90,14 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-3">
               <Instagram size={16} className="shrink-0 text-gold-soft" />
-              <span>{EVENT.contact.instagram}</span>
+              <a
+                href={SOCIAL_LINKS.find((s) => s.label === 'Instagram')?.href}
+                target="_blank"
+                rel="noreferrer"
+                className="transition-colors hover:text-gold-soft"
+              >
+                {EVENT.contact.instagram}
+              </a>
             </li>
           </ul>
         </div>

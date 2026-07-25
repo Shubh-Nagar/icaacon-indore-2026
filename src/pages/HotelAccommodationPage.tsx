@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Star, MapPin, Wifi, Car, Utensils, Dumbbell, CheckCircle2, Phone, Mail } from 'lucide-react'
+import { Star, MapPin, CheckCircle2, Phone, Mail, Plane, TrainFront, BedDouble, IndianRupee } from 'lucide-react'
 import PageHeader from '@/components/ui/PageHeader'
 import Container from '@/components/ui/Container'
 import Img from '@/components/ui/Img'
@@ -20,98 +20,184 @@ const HOTELS = [
     priceNote: 'per night (approx.)',
     description:
       'The official host hotel of ICAAICON 2026 — a sophisticated five-star property combining contemporary design with warm hospitality. Delegates staying here enjoy direct access to all conference halls, seamless networking opportunities and priority check-in.',
+    // Placeholder: Vivanta Indore Amaltas is a pre-opening property (2026) with no public photography available yet.
     img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=80&auto=format&fit=crop',
     amenities: ['Conference halls on-site', 'Swimming pool & spa', 'Multi-cuisine restaurants', 'Business centre', 'Airport transfer', 'Free Wi-Fi'],
     highlight: true,
-  },
-  {
-    tier: 'Luxury' as Tier,
-    name: 'Radisson Blu Hotel Indore',
-    brand: 'Radisson Hotels',
-    stars: 5,
-    tag: 'Luxury',
-    distance: '2.5 km from venue',
-    distanceKm: '2.5 km',
-    price: '₹6,500 – ₹11,000',
-    priceNote: 'per night (approx.)',
-    description:
-      'A striking five-star property in the heart of Indore\'s commercial district, offering spacious rooms, a rooftop pool and multiple dining outlets — an excellent alternative for delegates seeking luxury close to the venue.',
-    img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80&auto=format&fit=crop',
-    amenities: ['Rooftop infinity pool', 'Spa & wellness centre', 'Fine dining restaurant', 'Fitness centre', 'Valet parking', 'Free Wi-Fi'],
-    highlight: false,
-  },
-  {
-    tier: 'Luxury' as Tier,
-    name: 'Sayaji Hotel Indore',
-    brand: 'Sayaji Hotels',
-    stars: 5,
-    tag: 'Luxury',
-    distance: '3 km from venue',
-    distanceKm: '3 km',
-    price: '₹5,500 – ₹9,000',
-    priceNote: 'per night (approx.)',
-    description:
-      'One of Indore\'s most established luxury properties, Sayaji is known for its expansive banquet spaces, excellent regional cuisine and reliable service — a popular choice for conference delegates.',
-    img: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80&auto=format&fit=crop',
-    amenities: ['Multiple restaurants', 'Banquet facilities', 'Swimming pool', 'Ayurvedic spa', 'Business centre', 'Free Wi-Fi'],
-    highlight: false,
-  },
-  {
-    tier: 'Mid-Range' as Tier,
-    name: 'Lemon Tree Premier Indore',
-    brand: 'Lemon Tree Hotels',
-    stars: 4,
-    tag: 'Mid-Range',
-    distance: '4 km from venue',
-    distanceKm: '4 km',
-    price: '₹3,500 – ₹6,000',
-    priceNote: 'per night (approx.)',
-    description:
-      'A smart four-star hotel with well-appointed rooms, a refreshing pool and consistent service — ideal for delegates who want comfortable, professionally managed accommodation without the full five-star price tag.',
-    img: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80&auto=format&fit=crop',
-    amenities: ['Swimming pool', 'All-day dining', 'Meeting rooms', 'Fitness centre', 'Paid parking', 'Free Wi-Fi'],
-    highlight: false,
-  },
-  {
-    tier: 'Mid-Range' as Tier,
-    name: 'WOW! Hotel Indore',
-    brand: 'WOW Hotels',
-    stars: 4,
-    tag: 'Mid-Range',
-    distance: '3.5 km from venue',
-    distanceKm: '3.5 km',
-    price: '₹2,800 – ₹5,500',
-    priceNote: 'per night (approx.)',
-    description:
-      'A contemporary four-star hotel offering modern rooms, friendly service and a great location — well suited for delegates seeking good value with a professional standard of stay.',
-    img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80&auto=format&fit=crop',
-    amenities: ['Modern rooms', 'Restaurant & bar', 'Conference facility', 'Gym', 'Parking', 'Free Wi-Fi'],
-    highlight: false,
-  },
-  {
-    tier: 'Budget' as Tier,
-    name: 'Hotel Amar Vilas',
-    brand: 'Independent',
-    stars: 3,
-    tag: 'Budget-Friendly',
-    distance: '5 km from venue',
-    distanceKm: '5 km',
-    price: '₹1,200 – ₹2,500',
-    priceNote: 'per night (approx.)',
-    description:
-      'A clean, comfortable three-star property offering reliable no-frills accommodation at an affordable price — a practical option for postgraduate delegates and those on a tighter budget.',
-    img: 'https://images.unsplash.com/photo-1596701062351-8ac031a0a713?w=800&q=80&auto=format&fit=crop',
-    amenities: ['Air-conditioned rooms', 'Restaurant', 'Room service', '24-hr reception', 'Parking', 'Free Wi-Fi'],
-    highlight: false,
+    contactPerson: { name: 'Piyush Rathore', phone: '9009090439' },
   },
 ]
 
-const TIER_COLORS: Record<Tier, string> = {
-  Official: 'bg-gold/20 text-amber-700',
-  Luxury: 'bg-teal/10 text-teal',
-  'Mid-Range': 'bg-ink/8 text-ink-soft',
-  Budget: 'bg-maroon/10 text-maroon',
-}
+/** Empanelled accommodation list for delegates, from the official
+ *  "Accommodation List - ICAAICON 2026" sheet. Rates/rooms are approximate
+ *  and provided by each hotel directly. */
+const ACCOMMODATION_LIST = [
+  {
+    name: 'Indore Marriott',
+    address: 'H-2 Scheme No 54, Meghdoot Garden, Vijay Nagar, Indore, Madhya Pradesh 452010',
+    phones: ['0731-4777777'],
+    rooms: 216,
+    rate: 10000,
+    distanceVenue: '4.6 km',
+    distanceAirport: '16.1 km',
+    distanceRailway: '6.1 km',
+    img: 'https://ak-d.tripcdn.com/images/0226512000i398nkf5D34_R_960_660_R5_D.jpg',
+  },
+  {
+    name: 'Wow Crest',
+    address: 'PU-3 Commercial, Plot No. 106, AB Rd, Scheme 54 PU4, Indore, Madhya Pradesh 452010',
+    phones: ['0731-6711111'],
+    rooms: 125,
+    rate: 7000,
+    distanceVenue: '13 km',
+    distanceAirport: '17 km',
+    distanceRailway: '5 km',
+    img: 'https://ak-d.tripcdn.com/images/0224j12000cfirig42C8D_R_960_660_R5_D.jpg',
+  },
+  {
+    name: 'Sayaji Indore',
+    address: 'H/1, Scheme No. 54, Vijay Nagar, Indore, Madhya Pradesh 452010',
+    phones: ['0731-4006666'],
+    rooms: 213,
+    rate: 6000,
+    distanceVenue: '8 km',
+    distanceAirport: '16.8 km',
+    distanceRailway: '5 km',
+    img: 'https://ak-d.tripcdn.com/images/0586212000dsx1zkj07FF_R_960_660_R5_D.jpg',
+  },
+  {
+    name: 'Radisson Blu',
+    address: '12, Ring Rd, Scheme No 171, Indore, Madhya Pradesh 452010',
+    phones: ['0731-6738888'],
+    rooms: 200,
+    rate: 7000,
+    distanceVenue: '14 km',
+    distanceAirport: '18.4 km',
+    distanceRailway: '6.3 km',
+    img: 'https://ak-d.tripcdn.com/images/220i18000001464k0C56D_R_960_660_R5_D.jpg',
+  },
+  {
+    name: 'Effottel',
+    address: 'Plot No. 10, C/CA, Scheme No. 94, Sector C, Scheme 94 Sector CA, Indore, Madhya Pradesh 452010',
+    phones: ['7898001990'],
+    rooms: 181,
+    rate: 6000,
+    distanceVenue: '14 km',
+    distanceAirport: '18.2 km',
+    distanceRailway: '7 km',
+    img: 'https://ak-d.tripcdn.com/images/0225o12000b3rugo75ED3_R_960_660_R5_D.jpg',
+  },
+  {
+    name: 'Best Western Plus',
+    address: '306 B, PU4, Scheme 54, AB Rd, near Rasoma Lab Square Road, Vijay Nagar, Indore, Madhya Pradesh 452010',
+    phones: ['0731-4266666'],
+    rooms: 71,
+    rate: 4500,
+    distanceVenue: '8 km',
+    distanceAirport: '12 km',
+    distanceRailway: '5.2 km',
+    img: 'https://ak-d.tripcdn.com/images/0222f12000cjqjrs3B975_R_960_660_R5_D.jpg',
+  },
+  {
+    name: 'Infinity',
+    address: '1C/CA, Ring Rd, Opp. Prestige College, Near Bombay Hospital, Scheme No 94 Sector EB, Indore, Madhya Pradesh 452010',
+    phones: ['9981777778'],
+    rooms: 49,
+    rate: 5000,
+    distanceVenue: '13 km',
+    distanceAirport: '18 km',
+    distanceRailway: '6.3 km',
+    img: 'https://assets.simplotel.com/simplotel/image/upload/x_0,y_70,w_1920,h_689,r_0,c_crop/q_80,w_1600,dpr_1,f_auto,fl_progressive,c_limit/hotel-infiniti/Infiniti-Hotel_6ae29eb7',
+  },
+  {
+    name: 'Alba Inn',
+    address: 'Plot No. 60, 61, 62, Scheme No. 53, Ratanlok Colony, Medanta Hospital Road, Vijay Nagar, Indore, Madhya Pradesh 452010',
+    phones: ['91110-05423', '91099-74973'],
+    rooms: 43,
+    rate: 5000,
+    distanceVenue: '3.4 km',
+    distanceAirport: '18 km',
+    distanceRailway: '5.7 km',
+    img: 'https://ak-d.tripcdn.com/images/0222i12000qn6tbviA93A_R_960_660_R5_D.jpg',
+  },
+  {
+    name: 'Hotel Carry Inn',
+    address: 'CG-06, Scheme No. 136, opposite VIBGYOR School, near Brilliant Convention Centre, Vijay Nagar, Indore, Madhya Pradesh',
+    phones: ['09981-160603'],
+    rooms: 38,
+    rate: 3000,
+    distanceVenue: '1.1 km',
+    distanceAirport: '15.8 km',
+    distanceRailway: '7.1 km',
+    img: 'https://carryhotels.com/images/uploads/s_3975/Carry_Facade_Night_View_3_5056.png',
+  },
+  {
+    name: 'Treebo Musk',
+    address: '3C S/1, Scheme No 78-III, Sector D, Slice 1, Aranya Nagar, Vijay Nagar, Indore, Madhya Pradesh 452010',
+    phones: ['09322-800100'],
+    rooms: 23,
+    rate: 1500,
+    distanceVenue: '5.5 km',
+    distanceAirport: '17.5 km',
+    distanceRailway: '7 km',
+    img: 'https://cs-images.treebo.com/Treebo_Musk/OAK/Oak_1_.jpg?auto=compress',
+  },
+  {
+    name: 'Hotel Om Stay Well',
+    address: '33/2 Chhoti Gwaltoli, near Sardar Patel Bridge and Sarwate Bus Stand, Indore, Madhya Pradesh',
+    phones: ['09826-067661'],
+    rooms: 21,
+    rate: 2000,
+    distanceVenue: '3.4 km',
+    distanceAirport: '8.4 km',
+    distanceRailway: '300 m',
+    img: 'https://ak-d.tripcdn.com/images/0584712000sxi8m9dC52C_R_960_660_R5_D.jpg',
+  },
+  {
+    name: 'Hotel The Bellevue',
+    address: 'EC 39, Scheme 94, Sector C, Pushp Vihar Colony, Indore, Madhya Pradesh',
+    phones: ['8460562382', '9009929213'],
+    rooms: 13,
+    rate: 2200,
+    distanceVenue: '4.2 km',
+    distanceAirport: '18.4 km',
+    distanceRailway: '6.4 km',
+    img: 'https://ak-d.tripcdn.com/images/0226o12000othosh6D6F3_R_960_660_R5_D.jpg',
+  },
+  {
+    name: 'Omni Residency',
+    address: '7-8 Ring Road, Scheme No. 94, near Bombay Hospital, Vijay Nagar, Indore, Madhya Pradesh 452010',
+    phones: ['8818866166'],
+    rooms: 36,
+    rate: 3500,
+    distanceVenue: '4.4 km',
+    distanceAirport: '19 km',
+    distanceRailway: '6.9 km',
+    img: 'https://ak-d.tripcdn.com/images/0225i12000kyrm5eiC055_R_960_660_R5_D.jpg',
+  },
+  {
+    name: 'Aceotel Inn Flamingo',
+    address: 'Plot No. 193, Vasant Vihar, Sector C, Vijay Nagar, Indore, Madhya Pradesh 452010',
+    phones: ['09752-895362'],
+    rooms: 16,
+    rate: 1500,
+    distanceVenue: '6 km',
+    distanceAirport: '18 km',
+    distanceRailway: '6.9 km',
+    img: 'https://cdn3.shopvii.com/1307/1047/IMG_20240311_WA0007.jpg',
+  },
+  {
+    name: 'Treebo Trend Holiday',
+    address: 'Plot No. 57, PU-4, Scheme No. 54, behind C21 Mall on AB Road, LIG Colony, Indore, Madhya Pradesh',
+    phones: ['9322800100'],
+    rooms: 32,
+    rate: 2500,
+    distanceVenue: '8 km',
+    distanceAirport: '14 km',
+    distanceRailway: '5.5 km',
+    img: 'https://ak-d.tripcdn.com/images/0225r12000aphgqqd9CF6_R_960_660_R5_D.jpg',
+  },
+]
 
 const TIPS = [
   {
@@ -210,6 +296,22 @@ export default function HotelAccommodationPage() {
                     ))}
                   </div>
 
+                  {hotel.contactPerson && (
+                    <div className="flex items-center gap-3 rounded-2xl bg-gold/10 px-4 py-3">
+                      <Phone size={16} className="shrink-0 text-amber-700" />
+                      <p className="text-sm text-ink-soft">
+                        <span className="font-semibold text-ink">Discounted rates:</span> Contact{' '}
+                        <span className="font-semibold text-ink">{hotel.contactPerson.name}</span> at{' '}
+                        <a
+                          href={`tel:+91${hotel.contactPerson.phone}`}
+                          className="font-semibold text-amber-700 underline underline-offset-2"
+                        >
+                          +91 {hotel.contactPerson.phone.slice(0, 5)} {hotel.contactPerson.phone.slice(5)}
+                        </a>
+                      </p>
+                    </div>
+                  )}
+
                   <div className="flex flex-wrap items-end justify-between gap-4 border-t border-ink/8 pt-5">
                     <div>
                       <p className="text-xs text-ink-muted">Starting from</p>
@@ -239,7 +341,7 @@ export default function HotelAccommodationPage() {
               Other recommended hotels
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-base text-ink-soft">
-              Indore offers excellent accommodation across all budgets within easy reach of the venue.
+              An empanelled list of hotels across Indore, all within easy reach of the venue, airport and railway station.
             </p>
           </motion.div>
 
@@ -250,7 +352,7 @@ export default function HotelAccommodationPage() {
             viewport={viewportOnce}
             className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
           >
-            {HOTELS.filter((h) => !h.highlight).map((hotel) => (
+            {ACCOMMODATION_LIST.map((hotel) => (
               <motion.div
                 key={hotel.name}
                 variants={fadeUp}
@@ -263,45 +365,55 @@ export default function HotelAccommodationPage() {
                     alt={hotel.name}
                     className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <span className={`absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-semibold backdrop-blur-sm bg-white/85 ${TIER_COLORS[hotel.tier]}`}>
-                    {hotel.tag}
+                  <span className="absolute left-4 top-4 inline-flex items-center gap-1 rounded-full bg-white/85 px-3 py-1 text-xs font-semibold text-teal backdrop-blur-sm">
+                    <MapPin size={12} />{hotel.distanceVenue} from venue
                   </span>
                 </div>
 
                 {/* Content */}
                 <div className="flex flex-1 flex-col gap-4 p-6">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-teal">{hotel.brand}</p>
-                    <h3 className="mt-1 font-display text-lg font-semibold text-ink">{hotel.name}</h3>
-                    <div className="mt-1.5 flex flex-wrap items-center gap-3">
-                      <StarRating count={hotel.stars} />
-                      <span className="flex items-center gap-1 text-xs text-ink-muted">
-                        <MapPin size={12} className="text-teal" />{hotel.distance}
-                      </span>
+                    <h3 className="font-display text-lg font-semibold text-ink">{hotel.name}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-ink-soft">{hotel.address}</p>
+                  </div>
+
+                  {/* Distance & room stats */}
+                  <div className="grid grid-cols-3 gap-2 rounded-2xl bg-ivory-deep px-3 py-3 text-center">
+                    <div>
+                      <Plane size={13} className="mx-auto text-teal" />
+                      <p className="mt-1 text-xs font-semibold text-ink">{hotel.distanceAirport}</p>
+                      <p className="text-[10px] text-ink-muted">Airport</p>
+                    </div>
+                    <div>
+                      <TrainFront size={13} className="mx-auto text-teal" />
+                      <p className="mt-1 text-xs font-semibold text-ink">{hotel.distanceRailway}</p>
+                      <p className="text-[10px] text-ink-muted">Railway</p>
+                    </div>
+                    <div>
+                      <BedDouble size={13} className="mx-auto text-teal" />
+                      <p className="mt-1 text-xs font-semibold text-ink">{hotel.rooms}</p>
+                      <p className="text-[10px] text-ink-muted">Rooms</p>
                     </div>
                   </div>
 
-                  <p className="text-sm leading-relaxed text-ink-soft flex-1">{hotel.description}</p>
-
-                  {/* Amenity icons */}
-                  <div className="flex flex-wrap gap-2">
-                    {[
-                      { key: 'Wi-Fi', Icon: Wifi },
-                      { key: 'Parking', Icon: Car },
-                      { key: 'Dining', Icon: Utensils },
-                      { key: 'Gym', Icon: Dumbbell },
-                    ].map(({ key, Icon }) => (
-                      <span key={key} className="inline-flex items-center gap-1 rounded-full bg-ivory-deep px-2.5 py-1 text-xs text-ink-soft">
-                        <Icon size={11} className="text-teal" />{key}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="border-t border-ink/8 pt-4 flex items-end justify-between">
+                  <div className="mt-auto flex flex-wrap items-end justify-between gap-3 border-t border-ink/8 pt-4">
                     <div>
-                      <p className="text-xs text-ink-muted">From</p>
-                      <p className="font-display text-xl font-bold text-ink">{hotel.price}</p>
-                      <p className="text-xs text-ink-muted">{hotel.priceNote}</p>
+                      <p className="text-xs text-ink-muted">Approx. rate</p>
+                      <p className="flex items-center font-display text-xl font-bold text-ink">
+                        <IndianRupee size={16} className="mr-0.5" />{hotel.rate.toLocaleString('en-IN')}
+                        <span className="ml-1 text-xs font-normal text-ink-muted">/night</span>
+                      </p>
+                    </div>
+                    <div className="flex flex-col items-end gap-1">
+                      {hotel.phones.map((p) => (
+                        <a
+                          key={p}
+                          href={`tel:+91${p.replace(/\D/g, '').slice(-10)}`}
+                          className="inline-flex items-center gap-1.5 rounded-full bg-teal/8 px-3 py-1.5 text-xs font-semibold text-teal hover:bg-teal/15 transition-colors"
+                        >
+                          <Phone size={12} />{p}
+                        </a>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -366,11 +478,11 @@ export default function HotelAccommodationPage() {
                 icaaicon2026@gmail.com
               </a>
               <a
-                href="tel:+918818940404"
+                href="tel:+919424540909"
                 className="inline-flex items-center gap-2 rounded-full bg-white/15 border border-white/25 px-6 py-3 text-sm font-semibold text-ivory hover:bg-white/25 transition-colors"
               >
                 <Phone size={16} />
-                +91 88189 40404
+                +91 94245 40909
               </a>
             </div>
           </motion.div>

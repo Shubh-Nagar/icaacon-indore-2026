@@ -39,7 +39,7 @@ export const EVENT = {
   contact: {
     address: 'Surabhi 76 Dhar Kothi, Residency Area, Indore',
     email: 'icaaicon2026@gmail.com',
-    phone: '8818940404',
+    phone: '9424540909',
     instagram: '@icaaicon2026',
   },
 }
@@ -52,7 +52,7 @@ export const GOOGLE_FORM_URL = 'https://forms.gle/gP2GqLJZwsfwaN3y7'
  *  placeholders once the real handles/pages go live. */
 export const SOCIAL_LINKS: { label: string; href: string; icon: LucideIcon }[] = [
   { label: 'Facebook', href: '#', icon: Facebook },
-  { label: 'Instagram', href: 'https://instagram.com/icaaicon2026', icon: Instagram },
+  { label: 'Instagram', href: 'https://www.instagram.com/icaaicon2026', icon: Instagram },
 ]
 
 /** Scrolling marquee notices shown in the homepage top bar. */
@@ -331,7 +331,7 @@ export const SPONSORSHIP_BENEFITS = [
 export const SPONSORSHIP_CONTACT = {
   name: 'Dr. Salil Bhargava',
   role: 'Chairman, Organizing Committee',
-  phone: '+918818940404',
+  phone: '+919424540909',
   email: 'drsalilbhargava@gmail.com',
 }
 
@@ -377,6 +377,9 @@ export const SPONSORS = [
   { name: 'Lung Care Foundation', logo: '/partners/lung-care-foundation.png' },
   { name: 'Doctor for Clean Air', logo: '/partners/doctors-for-clean-air.png' },
   { name: 'Indore Chest Society', logo: '' },
+  { name: 'Association of Physicians of India', logo: '/partners/API.jpg' },
+  { name: 'CETI - Collaboration to Eliminate Tuberculosis among Indians', logo: '/partners/CETI-TBfree-logo.png' },
+  { name: 'Gyanpushp', logo: '/partners/Logo_Gyanpushp.jpeg' },
 ]
 
 /** Program / abstract FAQs. */
