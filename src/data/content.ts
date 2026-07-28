@@ -82,6 +82,97 @@ export const HOST_CITY_LINKS = [
   { label: 'Hotel & Accommodation', to: '/host-city/hotel-accommodation' },
 ]
 
+/** A single committee's roster page — member names are placeholders until confirmed. */
+export type Committee = {
+  slug: string
+  label: string
+  to: string
+  eyebrow: string
+  description: string
+  members: { name: string; designation: string }[]
+}
+
+export const COMMITTEES: Committee[] = [
+  {
+    slug: 'executive-committee',
+    label: 'Executive Committee',
+    to: '/committee/executive-committee',
+    eyebrow: 'Committee · Executive',
+    description:
+      'The Executive Committee comprises the office bearers and council members of the Indian College of Allergy, Asthma & Applied Immunology (ICAAI), who steer the overall direction and governance of ICAAICON Indore 2026.',
+    members: [
+      { name: 'Dr. Suresh Koolwal', designation: 'President' },
+      { name: 'Dr. Raj Kumar', designation: 'Vice President' },
+      { name: 'Dr. A.B. Singh', designation: 'Secretary' },
+      { name: 'Dr. Saibal Moitra', designation: 'Joint Secretary' },
+      { name: 'Dr. Nitin Goel', designation: 'Treasurer' },
+      { name: 'Dr. Surya Kant', designation: 'Editor' },
+      { name: 'Dr. Ajay Kumar Verma', designation: 'Council Member' },
+      { name: 'Dr. A.K. Janmeja', designation: 'Council Member' },
+      { name: 'Dr. Mahesh Goyal', designation: 'Council Member' },
+      { name: 'Dr. Naveen Arora', designation: 'Council Member' },
+      { name: 'Dr. Anil Kumar Jain', designation: 'Council Member' },
+      { name: 'Dr. Mahesh Kumar Mishra', designation: 'Council Member' },
+      { name: 'Dr. Digamber Behera', designation: 'Ex-Officio Member (Past President)' },
+      { name: 'Dr. Rajendra Prasad', designation: 'Convenor, North Zone' },
+      { name: 'Dr. K.V. Nagendra Prasad', designation: 'Convenor, South Zone' },
+      { name: 'Dr. Gautam Modi', designation: 'Convenor, East Zone' },
+      { name: 'Dr. V.K. Jain', designation: 'Convenor, West Zone' },
+    ],
+  },
+  {
+    slug: 'central-scientific-committee',
+    label: 'Central Scientific Committee',
+    to: '/committee/central-scientific-committee',
+    eyebrow: 'Committee · Central Scientific',
+    description:
+      'The Central Scientific Committee curates the national scientific vision and academic standards for the conference. Names and designations will be announced shortly.',
+    members: [
+      { name: 'Prof. Raj Kumar', designation: 'Member' },
+      { name: 'Dr. A.B. Singh', designation: 'Member' },
+      { name: 'Dr. Naveen Arora', designation: 'Member' },
+      { name: 'Dr. Saibal Moitra', designation: 'Member' },
+      { name: 'Dr. Suresh Koolwal', designation: 'Member' },
+      { name: 'Dr. Nitin Goel', designation: 'Member' },
+    ],
+  },
+  {
+    slug: 'organizing-committee',
+    label: 'Organizing Committee',
+    to: '/committee/organizing-committee',
+    eyebrow: 'Committee · Organizing',
+    description:
+      'The Organizing Committee manages logistics, hospitality and on-ground execution for the conference in Indore. Names and designations will be announced shortly.',
+    members: [
+      { name: 'To be announced', designation: 'Organizing Chairperson' },
+      { name: 'To be announced', designation: 'Organizing Secretary' },
+      { name: 'To be announced', designation: 'Joint Secretary' },
+      { name: 'To be announced', designation: 'Treasurer' },
+      { name: 'To be announced', designation: 'Member' },
+      { name: 'To be announced', designation: 'Member' },
+    ],
+  },
+  {
+    slug: 'scientific-committee',
+    label: 'Scientific Committee',
+    to: '/committee/scientific-committee',
+    eyebrow: 'Committee · Scientific',
+    description:
+      'The Scientific Committee reviews abstracts and shapes the academic program tracks for the conference. Names and designations will be announced shortly.',
+    members: [
+      { name: 'To be announced', designation: 'Chairperson' },
+      { name: 'To be announced', designation: 'Co-Chairperson' },
+      { name: 'To be announced', designation: 'Convener' },
+      { name: 'To be announced', designation: 'Member' },
+      { name: 'To be announced', designation: 'Member' },
+      { name: 'To be announced', designation: 'Member' },
+    ],
+  },
+]
+
+/** Sub-links under the "Committee" dropdown. */
+export const COMMITTEE_LINKS = COMMITTEES.map((c) => ({ label: c.label, to: c.to }))
+
 /** The five focus areas + their poster icons. */
 export type FocusArea = {
   icon: LucideIcon

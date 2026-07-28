@@ -24,7 +24,7 @@ export default function VisitorCounter({ solid = false }: { solid?: boolean }) {
 
   return (
     <span
-      className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-colors ${
+      className={`inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-colors ${
         solid
           ? 'border-ink/10 bg-ink/5 text-ink-muted'
           : 'border-ivory/20 bg-white/10 text-ivory'

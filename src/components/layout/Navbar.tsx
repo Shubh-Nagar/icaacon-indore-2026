@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, CalendarDays, ChevronDown } from 'lucide-react'
 import Logo from '@/components/ui/Logo'
 import VisitorCounter from '@/components/ui/VisitorCounter'
-import { NAV_LINKS, HOST_CITY_LINKS, EVENT } from '@/data/content'
+import { NAV_LINKS, HOST_CITY_LINKS, COMMITTEE_LINKS, EVENT } from '@/data/content'
 
 /**
  * Sticky navigation bar.
@@ -18,8 +18,11 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [cityOpen, setCityOpen] = useState(false)
   const [mobileCity, setMobileCity] = useState(false)
+  const [committeeOpen, setCommitteeOpen] = useState(false)
+  const [mobileCommittee, setMobileCommittee] = useState(false)
   const { pathname } = useLocation()
   const dropdownRef = useRef<HTMLLIElement>(null)
+  const committeeDropdownRef = useRef<HTMLLIElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -28,18 +31,27 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  useEffect(() => { setOpen(false); setCityOpen(false); setMobileCity(false) }, [pathname])
+  useEffect(() => {
+    setOpen(false)
+    setCityOpen(false)
+    setMobileCity(false)
+    setCommitteeOpen(false)
+    setMobileCommittee(false)
+  }, [pathname])
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [open])
 
-  // Close dropdown when clicking outside
+  // Close dropdowns when clicking outside
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setCityOpen(false)
+      }
+      if (committeeDropdownRef.current && !committeeDropdownRef.current.contains(e.target as Node)) {
+        setCommitteeOpen(false)
       }
     }
     document.addEventListener('mousedown', handler)
@@ -51,6 +63,7 @@ export default function Navbar() {
   const activeColor = solid ? 'text-teal' : 'text-gold-soft'
 
   const isCityActive = HOST_CITY_LINKS.some((l) => pathname.startsWith(l.to))
+  const isCommitteeActive = COMMITTEE_LINKS.some((l) => pathname.startsWith(l.to))
   // Homepage has its own TopBar (visitor count + marquee + socials) above
   // this nav, so it's pinned lower there and skips its own visitor count.
   const isHome = pathname === '/'
@@ -69,7 +82,7 @@ export default function Navbar() {
         <Logo solid={solid} imgClassName="h-12 w-auto object-contain sm:h-16" />
 
         {/* Desktop links */}
-        <ul className="hidden items-center gap-8 lg:flex">
+        <ul className="hidden items-center gap-6 xl:flex">
           {NAV_LINKS.filter((l) => l.to !== '/contact').map((link) => {
             const active = pathname === link.to
             return (
@@ -91,6 +104,54 @@ export default function Navbar() {
               </li>
             )
           })}
+
+          {/* Committee dropdown */}
+          <li ref={committeeDropdownRef} className="relative">
+            <button
+              type="button"
+              onClick={() => setCommitteeOpen((v) => !v)}
+              className={`inline-flex items-center gap-1 font-sans text-sm font-semibold transition-colors ${
+                isCommitteeActive ? activeColor : linkBase
+              }`}
+            >
+              Committee
+              <ChevronDown
+                size={15}
+                className={`transition-transform duration-200 ${committeeOpen ? 'rotate-180' : ''}`}
+              />
+              {isCommitteeActive && (
+                <motion.span
+                  layoutId="nav-underline"
+                  className="absolute -bottom-1.5 left-0 h-0.5 w-full rounded-full bg-gold"
+                />
+              )}
+            </button>
+
+            <AnimatePresence>
+              {committeeOpen && (
+                <motion.ul
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 6 }}
+                  transition={{ duration: 0.18 }}
+                  className="absolute left-1/2 top-full mt-3 w-64 -translate-x-1/2 rounded-2xl border border-ink/10 bg-ivory py-2 shadow-lift"
+                >
+                  {COMMITTEE_LINKS.map((link) => (
+                    <li key={link.to}>
+                      <Link
+                        to={link.to}
+                        className={`block px-4 py-2.5 text-sm font-medium transition-colors hover:bg-ivory-deep hover:text-teal ${
+                          pathname === link.to ? 'text-teal' : 'text-ink-soft'
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </motion.ul>
+              )}
+            </AnimatePresence>
+          </li>
 
           {/* Host City dropdown */}
           <li ref={dropdownRef} className="relative">
@@ -165,19 +226,19 @@ export default function Navbar() {
         </ul>
 
         {/* Desktop CTA */}
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden shrink-0 items-center gap-3 xl:flex">
           {!isHome && <VisitorCounter solid={solid} />}
-          <span className={`hidden items-center gap-1.5 text-xs font-semibold xl:flex ${solid ? 'text-ink-muted' : 'text-ivory/60'}`}>
+          <span className={`hidden items-center gap-1.5 whitespace-nowrap text-xs font-semibold 2xl:flex ${solid ? 'text-ink-muted' : 'text-ivory/60'}`}>
             <CalendarDays size={14} className={solid ? 'text-teal' : 'text-gold-soft'} />
             {EVENT.datesShort}
           </span>
-          <Link to="/register" className="btn-accent !py-2.5 !px-6">
+          <Link to="/register" className="btn-accent !py-2.5 !px-6 whitespace-nowrap">
             Register Now
           </Link>
         </div>
 
         {/* Mobile: visitor count + hamburger */}
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-2 xl:hidden">
           {!isHome && <VisitorCounter solid={solid} />}
           <button
             type="button"
@@ -215,6 +276,49 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
+
+              {/* Committee accordion */}
+              <button
+                type="button"
+                onClick={() => setMobileCommittee((v) => !v)}
+                className={`flex items-center justify-between rounded-xl px-4 py-3 font-display text-lg ${
+                  isCommitteeActive ? 'bg-teal-tint text-teal' : 'text-ink hover:bg-ivory-deep'
+                }`}
+              >
+                Committee
+                <ChevronDown
+                  size={18}
+                  className={`transition-transform duration-200 ${mobileCommittee ? 'rotate-180' : ''}`}
+                />
+              </button>
+
+              <AnimatePresence>
+                {mobileCommittee && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="flex flex-col gap-0.5 pl-4">
+                      {COMMITTEE_LINKS.map((link) => (
+                        <Link
+                          key={link.to}
+                          to={link.to}
+                          className={`rounded-xl px-4 py-2.5 text-base font-medium ${
+                            pathname === link.to
+                              ? 'text-teal'
+                              : 'text-ink-soft hover:bg-ivory-deep'
+                          }`}
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               {/* Host City accordion */}
               <button

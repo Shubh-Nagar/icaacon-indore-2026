@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import { ChevronDown, FileText, Upload, Calendar } from 'lucide-react'
 import PageHeader from '@/components/ui/PageHeader'
 import Container from '@/components/ui/Container'
@@ -178,9 +177,14 @@ export default function ProgramPage() {
                   </motion.li>
                 ))}
               </motion.ol>
-              <Link to="/register" className="btn-primary mt-8">
+              <a
+                href="https://forms.gle/J9DLDrp1hYsKo6D36"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary mt-8"
+              >
                 Start a submission
-              </Link>
+              </a>
             </div>
 
             {/* Tracks */}

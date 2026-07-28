@@ -16,6 +16,7 @@ import HowToReachIndorePage from '@/pages/HowToReachIndorePage'
 import FoodAndCulturePage from '@/pages/FoodAndCulturePage'
 import HotelAccommodationPage from '@/pages/HotelAccommodationPage'
 import AboutIndorePage from '@/pages/AboutIndorePage'
+import CommitteePage from '@/pages/CommitteePage'
 
 /**
  * Root application shell.
@@ -47,6 +48,7 @@ export default function App() {
           <Route path="/host-city/food-and-culture" element={<FoodAndCulturePage />} />
           <Route path="/host-city/hotel-accommodation" element={<HotelAccommodationPage />} />
           <Route path="/host-city/about-indore" element={<AboutIndorePage />} />
+          <Route path="/committee/:slug" element={<CommitteePage />} />
           {/* Fallback: anything unknown returns home */}
           <Route path="*" element={<HomePage />} />
         </Routes>
