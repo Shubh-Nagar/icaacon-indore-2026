@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Users } from 'lucide-react'
 import PageHeader from '@/components/ui/PageHeader'
 import Container from '@/components/ui/Container'
+import Img from '@/components/ui/Img'
 import { fadeUp, staggerContainer, viewportOnce } from '@/lib/motion'
 import { COMMITTEES } from '@/data/content'
 
@@ -35,12 +36,20 @@ export default function CommitteePage() {
               <motion.div
                 key={`${member.designation}-${i}`}
                 variants={fadeUp}
-                className="flex items-center gap-4 rounded-3xl bg-white p-6 shadow-card"
+                className="overflow-hidden rounded-3xl bg-white shadow-card"
               >
-                <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-teal/10 text-teal">
-                  <Users size={20} />
-                </span>
-                <div className="min-w-0">
+                {member.photo ? (
+                  <Img
+                    src={member.photo}
+                    alt={`Portrait of ${member.name}`}
+                    className="aspect-square w-full object-cover object-top"
+                  />
+                ) : (
+                  <div className="flex aspect-square w-full items-center justify-center bg-teal/10 text-teal">
+                    <Users size={48} />
+                  </div>
+                )}
+                <div className="min-w-0 p-6">
                   <p className="font-display text-base font-semibold text-ink">{member.name}</p>
                   <p className="text-sm text-ink-soft">{member.designation}</p>
                 </div>

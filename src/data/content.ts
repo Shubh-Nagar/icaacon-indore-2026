@@ -89,7 +89,7 @@ export type Committee = {
   to: string
   eyebrow: string
   description: string
-  members: { name: string; designation: string }[]
+  members: { name: string; designation: string; photo?: string }[]
 }
 
 export const COMMITTEES: Committee[] = [
@@ -101,23 +101,67 @@ export const COMMITTEES: Committee[] = [
     description:
       'The Executive Committee comprises the office bearers and council members of the Indian College of Allergy, Asthma & Applied Immunology (ICAAI), who steer the overall direction and governance of ICAAICON Indore 2026.',
     members: [
-      { name: 'Dr. Suresh Koolwal', designation: 'President' },
+      {
+        name: 'Dr. Suresh Koolwal',
+        designation: 'President',
+        photo: '/executive-committee/dr-suresh-koolwal.jpeg',
+      },
       { name: 'Dr. Raj Kumar', designation: 'Vice President' },
       { name: 'Dr. A.B. Singh', designation: 'Secretary' },
       { name: 'Dr. Saibal Moitra', designation: 'Joint Secretary' },
       { name: 'Dr. Nitin Goel', designation: 'Treasurer' },
-      { name: 'Dr. Surya Kant', designation: 'Editor' },
-      { name: 'Dr. Ajay Kumar Verma', designation: 'Council Member' },
+      {
+        name: 'Dr. Surya Kant',
+        designation: 'Editor',
+        photo: '/executive-committee/dr-surya-kant.jpeg',
+      },
+      {
+        name: 'Dr. Ajay Kumar Verma',
+        designation: 'Council Member',
+        photo: '/executive-committee/dr-ajay-kumar-verma.jpeg',
+      },
       { name: 'Dr. A.K. Janmeja', designation: 'Council Member' },
-      { name: 'Dr. Mahesh Goyal', designation: 'Council Member' },
-      { name: 'Dr. Naveen Arora', designation: 'Council Member' },
-      { name: 'Dr. Anil Kumar Jain', designation: 'Council Member' },
-      { name: 'Dr. Mahesh Kumar Mishra', designation: 'Council Member' },
+      {
+        name: 'Dr. Mahesh Goyal',
+        designation: 'Council Member',
+        photo: '/executive-committee/dr-mahesh-goyal.jpeg',
+      },
+      {
+        name: 'Dr. Naveen Arora',
+        designation: 'Council Member',
+        photo: '/executive-committee/prof-naveen-arora.jpeg',
+      },
+      {
+        name: 'Dr. Anil Kumar Jain',
+        designation: 'Council Member',
+        photo: '/executive-committee/prof-anil-kumar-jain.jpeg',
+      },
+      {
+        name: 'Dr. Mahesh Kumar Mishra',
+        designation: 'Council Member',
+        photo: '/executive-committee/dr-mahesh-mishra.jpeg',
+      },
       { name: 'Dr. Digamber Behera', designation: 'Ex-Officio Member (Past President)' },
-      { name: 'Dr. Rajendra Prasad', designation: 'Convenor, North Zone' },
-      { name: 'Dr. K.V. Nagendra Prasad', designation: 'Convenor, South Zone' },
-      { name: 'Dr. Gautam Modi', designation: 'Convenor, East Zone' },
-      { name: 'Dr. V.K. Jain', designation: 'Convenor, West Zone' },
+      {
+        name: 'Dr. Rajendra Prasad',
+        designation: 'Convenor, North Zone',
+        photo: '/executive-committee/dr-rajendra-prasad.jpeg',
+      },
+      {
+        name: 'Dr. K.V. Nagendra Prasad',
+        designation: 'Convenor, South Zone',
+        photo: '/executive-committee/dr-nagendra-prasad-kv.jpeg',
+      },
+      {
+        name: 'Dr. Gautam Modi',
+        designation: 'Convenor, East Zone',
+        photo: '/executive-committee/dr-gautam-modi.jpeg',
+      },
+      {
+        name: 'Dr. V.K. Jain',
+        designation: 'Convenor, West Zone',
+        photo: '/executive-committee/dr-vikram-kumar-jain.jpeg',
+      },
     ],
   },
   {
