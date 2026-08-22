@@ -1,16 +1,17 @@
 import { motion } from 'framer-motion'
-import { MapPin, Plane, Hotel, Utensils } from 'lucide-react'
+import { MapPin, Plane, Hotel, Users } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import SectionHeading from '@/components/ui/SectionHeading'
 import Img from '@/components/ui/Img'
 import { EVENT } from '@/data/content'
 import { fadeUp, staggerContainer, viewportOnce } from '@/lib/motion'
 
-// Quick venue facts.
+// Quick venue facts, from the hotel's own fact sheet
+// (public/Vivanta Indore Amaltas.pdf).
 const FACTS = [
-  { Icon: Hotel, label: '5-star host venue', sub: 'On-site delegate rooms' },
-  { Icon: Plane, label: '8 km from airport', sub: 'Devi Ahilyabai Holkar (IDR)' },
-  { Icon: Utensils, label: 'Famed Indore food', sub: 'Sarafa & Chappan Dukan nearby' },
+  { Icon: Hotel, label: '202 rooms & suites', sub: 'Deluxe rooms to Vivanta suites' },
+  { Icon: Plane, label: '12 km from airport', sub: 'Railway station just 8 km away' },
+  { Icon: Users, label: '750-guest ballroom', sub: 'Tango Grand Ballroom on-site' },
 ]
 
 /**
@@ -48,8 +49,8 @@ export default function Venue() {
           >
             <motion.div variants={fadeUp}>
               <Img
-                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=80&auto=format&fit=crop"
-                alt="Elegant five-star hotel exterior at dusk"
+                src="/vivanta/lobby.jpg"
+                alt={`The lobby lounge at ${EVENT.venue.name}`}
                 className="aspect-[16/10] w-full rounded-3xl object-cover shadow-card"
               />
             </motion.div>

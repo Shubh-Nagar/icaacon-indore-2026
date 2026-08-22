@@ -1,32 +1,91 @@
 import { motion } from 'framer-motion'
-import { Star, MapPin, CheckCircle2, Phone, Mail, Plane, TrainFront, BedDouble, IndianRupee } from 'lucide-react'
+import {
+  Star,
+  MapPin,
+  CheckCircle2,
+  Phone,
+  Mail,
+  Plane,
+  TrainFront,
+  BedDouble,
+  IndianRupee,
+  Users,
+  UtensilsCrossed,
+  Waves,
+} from 'lucide-react'
 import PageHeader from '@/components/ui/PageHeader'
 import Container from '@/components/ui/Container'
 import Img from '@/components/ui/Img'
 import { fadeUp, staggerContainer, viewportOnce } from '@/lib/motion'
 
-type Tier = 'Official' | 'Luxury' | 'Mid-Range' | 'Budget'
-
-const HOTELS = [
-  {
-    tier: 'Official' as Tier,
-    name: 'Vivanta Indore Amaltas',
-    brand: 'Vivanta Hotels',
-    stars: 5,
-    tag: 'Official Conference Hotel',
-    distance: 'Conference Venue',
-    distanceKm: '0 km',
-    price: '₹8,000 – ₹14,000',
-    priceNote: 'per night (approx.)',
-    description:
-      'The official host hotel of ICAAICON 2026 — a sophisticated five-star property combining contemporary design with warm hospitality. Delegates staying here enjoy direct access to all conference halls, seamless networking opportunities and priority check-in.',
-    // Placeholder: Vivanta Indore Amaltas is a pre-opening property (2026) with no public photography available yet.
-    img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=80&auto=format&fit=crop',
-    amenities: ['Conference halls on-site', 'Swimming pool & spa', 'Multi-cuisine restaurants', 'Business centre', 'Airport transfer', 'Free Wi-Fi'],
-    highlight: true,
-    contactPerson: { name: 'Piyush Rathore', phone: '9009090439' },
+/** The official conference hotel. All figures, room categories, banquet
+ *  capacities, dining outlets and photography are taken from the hotel's own
+ *  "Vivanta Indore Amaltas" fact sheet (public/Vivanta Indore Amaltas.pdf). */
+const VIVANTA = {
+  name: 'Vivanta Indore Amaltas',
+  brand: 'Vivanta Hotels · Taj Group',
+  stars: 5,
+  distance: 'Conference Venue',
+  price: '₹8,000 – ₹14,000',
+  priceNote: 'per night (approx.)',
+  overview:
+    "Indore offers an evolved startup ecosystem and is one of the country's fastest-growing commercial hubs, and Vivanta Indore Amaltas taps into that urban spirit. Naturally illuminated spaces, contemporary architecture and thoughtfully curated experiences reflect the design philosophy of 'Height and Light' — while the city's grandest banqueting and conferencing spaces host every session of ICAAICON 2026 under one roof.",
+  location:
+    'Strategically situated on the MR-10 corridor, with easy access to business districts, industrial corridors, educational institutes and the most monumental landmarks of Indore.',
+  hero: '/vivanta/lobby.jpg',
+  stats: [
+    { icon: BedDouble, value: '202', label: 'Rooms & suites' },
+    { icon: Plane, value: '12 km', label: 'From airport' },
+    { icon: TrainFront, value: '8 km', label: 'From railway station' },
+    { icon: Users, value: '750', label: 'Ballroom capacity' },
+  ],
+  /** ACCOMMODATION — 202 well-appointed rooms across five categories. */
+  rooms: {
+    img: '/vivanta/guest-room.jpg',
+    total: 202,
+    categories: [
+      'Deluxe room with pool view',
+      'Superior room with city view',
+      'Premium room',
+      'Executive suite',
+      'Vivanta suite',
+    ],
   },
-]
+  /** MEETINGS & BANQUETS — venue capacities as published by the hotel. */
+  banquets: {
+    img: '/vivanta/tango-ballroom.jpg',
+    venues: [
+      { name: 'Tango Grand Ballroom', capacity: 750 },
+      { name: 'Horizon 1 — Banquet Lawn', capacity: 750 },
+      { name: 'Horizon 3 — Party Lawn', capacity: 750 },
+      { name: 'Horizon 2 — Poolside Lawn', capacity: 600 },
+      { name: 'Agenda', capacity: 170 },
+      { name: 'Strategy 2', capacity: 14 },
+      { name: 'Strategy 1', capacity: 12 },
+    ],
+    extra: 'Plush bridal room and an exclusive wedding studio',
+  },
+  dining: {
+    img: '/vivanta/mynt-dining.jpg',
+    outlets: [
+      { name: 'Mynt', desc: 'Vibrant all-day dining restaurant' },
+      { name: 'Swirl', desc: 'Brews and sweet treats' },
+      { name: 'Wink', desc: 'High-energy bar' },
+      { name: 'Tease', desc: 'Poolside sips' },
+      { name: 'Trattino', desc: 'Italian favourites, served with a view' },
+    ],
+  },
+  facilities: {
+    img: '/vivanta/pool.jpg',
+    items: [
+      'State-of-the-art fitness centre',
+      'Open-air, temperature-controlled swimming pool',
+      'A rejuvenating spa',
+    ],
+  },
+  contactPerson: { name: 'Piyush Rathore', phone: '9009090439' },
+  reservations: { phone: '+91 6232 034303', email: 'bookvivanta.amaltasindore@tajhotels.com' },
+}
 
 /** Empanelled accommodation list for delegates, from the official
  *  "Accommodation List - ICAAICON 2026" sheet. Rates/rooms are approximate
@@ -250,85 +309,216 @@ export default function HotelAccommodationPage() {
       {/* Featured: Official hotel */}
       <section className="bg-ivory py-16 lg:py-24">
         <Container>
-          {HOTELS.filter((h) => h.highlight).map((hotel) => (
-            <motion.div
-              key={hotel.name}
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="show"
-              viewport={viewportOnce}
-              className="overflow-hidden rounded-3xl bg-white shadow-lift ring-2 ring-gold/40"
-            >
-              <div className="grid lg:grid-cols-2">
-                {/* Image */}
-                <motion.div variants={fadeUp} className="relative overflow-hidden">
-                  <Img
-                    src={hotel.img}
-                    alt={hotel.name}
-                    className="h-full min-h-[320px] w-full object-cover"
-                  />
-                  <span className="absolute left-5 top-5 rounded-full bg-gold px-4 py-1.5 text-xs font-bold text-ivory shadow">
-                    ★ Official Conference Hotel
-                  </span>
-                </motion.div>
-
-                {/* Info */}
-                <motion.div variants={fadeUp} className="flex flex-col gap-5 p-8 lg:p-10">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-teal">{hotel.brand}</p>
-                    <h2 className="mt-1 font-display text-2xl font-semibold text-ink sm:text-3xl">{hotel.name}</h2>
-                    <div className="mt-2 flex flex-wrap items-center gap-3">
-                      <StarRating count={hotel.stars} />
-                      <span className="flex items-center gap-1 text-xs text-ink-muted">
-                        <MapPin size={12} className="text-teal" />{hotel.distance}
-                      </span>
-                    </div>
-                  </div>
-
-                  <p className="text-sm leading-relaxed text-ink-soft">{hotel.description}</p>
-
-                  <div className="grid grid-cols-2 gap-2">
-                    {hotel.amenities.map((a) => (
-                      <div key={a} className="flex items-center gap-2 text-sm text-ink-soft">
-                        <CheckCircle2 size={14} className="shrink-0 text-teal" />
-                        {a}
-                      </div>
-                    ))}
-                  </div>
-
-                  {hotel.contactPerson && (
-                    <div className="flex items-center gap-3 rounded-2xl bg-gold/10 px-4 py-3">
-                      <Phone size={16} className="shrink-0 text-amber-700" />
-                      <p className="text-sm text-ink-soft">
-                        <span className="font-semibold text-ink">Discounted rates:</span> Contact{' '}
-                        <span className="font-semibold text-ink">{hotel.contactPerson.name}</span> at{' '}
-                        <a
-                          href={`tel:+91${hotel.contactPerson.phone}`}
-                          className="font-semibold text-amber-700 underline underline-offset-2"
-                        >
-                          +91 {hotel.contactPerson.phone.slice(0, 5)} {hotel.contactPerson.phone.slice(5)}
-                        </a>
-                      </p>
-                    </div>
-                  )}
-
-                  <div className="flex flex-wrap items-end justify-between gap-4 border-t border-ink/8 pt-5">
-                    <div>
-                      <p className="text-xs text-ink-muted">Starting from</p>
-                      <p className="font-display text-2xl font-bold text-ink">{hotel.price}</p>
-                      <p className="text-xs text-ink-muted">{hotel.priceNote}</p>
-                    </div>
-                    <a
-                      href="mailto:icaaicon2026@gmail.com"
-                      className="btn-accent"
-                    >
-                      Request Delegate Rate
-                    </a>
-                  </div>
-                </motion.div>
-              </div>
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={viewportOnce}
+            className="overflow-hidden rounded-3xl bg-white shadow-lift ring-2 ring-gold/40"
+          >
+            {/* Hero: hotel lobby */}
+            <motion.div variants={fadeUp} className="relative overflow-hidden">
+              <Img
+                src={VIVANTA.hero}
+                alt={`The lobby lounge at ${VIVANTA.name}`}
+                className="aspect-[16/9] w-full object-cover sm:aspect-[21/9]"
+              />
+              <span className="absolute left-5 top-5 rounded-full bg-gold px-4 py-1.5 text-xs font-bold text-ivory shadow">
+                ★ Official Conference Hotel
+              </span>
             </motion.div>
-          ))}
+
+            <div className="p-8 lg:p-10">
+              {/* Identity + overview */}
+              <motion.div variants={fadeUp}>
+                <p className="text-xs font-semibold uppercase tracking-widest text-teal">{VIVANTA.brand}</p>
+                <h2 className="mt-1 font-display text-2xl font-semibold text-ink sm:text-3xl">{VIVANTA.name}</h2>
+                <div className="mt-2 flex flex-wrap items-center gap-3">
+                  <StarRating count={VIVANTA.stars} />
+                  <span className="flex items-center gap-1 text-xs text-ink-muted">
+                    <MapPin size={12} className="text-teal" />
+                    {VIVANTA.distance}
+                  </span>
+                </div>
+                <p className="mt-5 text-sm leading-relaxed text-ink-soft">{VIVANTA.overview}</p>
+              </motion.div>
+
+              {/* Key figures */}
+              <motion.div
+                variants={fadeUp}
+                className="mt-8 grid grid-cols-2 gap-3 rounded-2xl bg-ivory-deep p-4 sm:grid-cols-4"
+              >
+                {VIVANTA.stats.map((stat) => (
+                  <div key={stat.label} className="text-center">
+                    <stat.icon size={16} className="mx-auto text-teal" />
+                    <p className="mt-1.5 font-display text-xl font-bold text-ink">{stat.value}</p>
+                    <p className="text-[11px] leading-tight text-ink-muted">{stat.label}</p>
+                  </div>
+                ))}
+              </motion.div>
+
+              {/* Accommodation */}
+              <motion.div variants={fadeUp} className="mt-10 grid gap-6 lg:grid-cols-2 lg:items-center">
+                <Img
+                  src={VIVANTA.rooms.img}
+                  alt={`A guest room at ${VIVANTA.name}`}
+                  className="aspect-[4/3] w-full rounded-2xl object-cover"
+                />
+                <div>
+                  <h3 className="font-display text-lg font-semibold text-ink">Accommodation</h3>
+                  <p className="mt-1.5 text-sm text-ink-soft">
+                    {VIVANTA.rooms.total} well-appointed rooms across five categories:
+                  </p>
+                  <ul className="mt-4 space-y-2">
+                    {VIVANTA.rooms.categories.map((room) => (
+                      <li key={room} className="flex items-start gap-2 text-sm text-ink-soft">
+                        <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-teal" />
+                        {room}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+
+              {/* Meetings & banquets */}
+              <motion.div
+                variants={fadeUp}
+                className="mt-10 grid gap-6 lg:grid-cols-2 lg:items-center"
+              >
+                <Img
+                  src={VIVANTA.banquets.img}
+                  alt={`The Tango Grand Ballroom at ${VIVANTA.name}`}
+                  className="aspect-[4/3] w-full rounded-2xl object-cover lg:order-2"
+                />
+                <div className="lg:order-1">
+                  <h3 className="font-display text-lg font-semibold text-ink">Meetings &amp; Banquets</h3>
+                  <p className="mt-1.5 text-sm text-ink-soft">
+                    The city's grandest conferencing spaces — every ICAAICON session, workshop and banquet
+                    happens here.
+                  </p>
+                  <ul className="mt-4 divide-y divide-ink/8 border-y border-ink/8">
+                    {VIVANTA.banquets.venues.map((venue) => (
+                      <li key={venue.name} className="flex items-baseline justify-between gap-3 py-2">
+                        <span className="text-sm text-ink-soft">{venue.name}</span>
+                        <span className="shrink-0 text-xs font-semibold text-teal">
+                          {venue.capacity} pax
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-3 flex items-start gap-2 text-sm text-ink-soft">
+                    <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-teal" />
+                    {VIVANTA.banquets.extra}
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Dining & facilities */}
+              <motion.div variants={fadeUp} className="mt-10 grid gap-6 sm:grid-cols-2">
+                <div className="overflow-hidden rounded-2xl bg-ivory-deep">
+                  <Img
+                    src={VIVANTA.dining.img}
+                    alt={`Mynt, the all-day dining restaurant at ${VIVANTA.name}`}
+                    className="aspect-[16/10] w-full object-cover"
+                  />
+                  <div className="p-6">
+                    <h3 className="flex items-center gap-2 font-display text-lg font-semibold text-ink">
+                      <UtensilsCrossed size={16} className="text-teal" />
+                      Dining
+                    </h3>
+                    <ul className="mt-3 space-y-2">
+                      {VIVANTA.dining.outlets.map((outlet) => (
+                        <li key={outlet.name} className="text-sm text-ink-soft">
+                          <span className="font-semibold text-ink">{outlet.name}</span> — {outlet.desc}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="overflow-hidden rounded-2xl bg-ivory-deep">
+                  <Img
+                    src={VIVANTA.facilities.img}
+                    alt={`The open-air swimming pool at ${VIVANTA.name}`}
+                    className="aspect-[16/10] w-full object-cover"
+                  />
+                  <div className="p-6">
+                    <h3 className="flex items-center gap-2 font-display text-lg font-semibold text-ink">
+                      <Waves size={16} className="text-teal" />
+                      Facilities
+                    </h3>
+                    <ul className="mt-3 space-y-2">
+                      {VIVANTA.facilities.items.map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-sm text-ink-soft">
+                          <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-teal" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Location note */}
+              <motion.div
+                variants={fadeUp}
+                className="mt-10 flex items-start gap-3 rounded-2xl bg-teal/8 px-5 py-4"
+              >
+                <MapPin size={16} className="mt-0.5 shrink-0 text-teal" />
+                <p className="text-sm leading-relaxed text-ink-soft">
+                  <span className="font-semibold text-ink">Location:</span> {VIVANTA.location}
+                </p>
+              </motion.div>
+
+              {/* Delegate rates */}
+              <motion.div
+                variants={fadeUp}
+                className="mt-4 flex items-start gap-3 rounded-2xl bg-gold/10 px-5 py-4"
+              >
+                <Phone size={16} className="mt-0.5 shrink-0 text-amber-700" />
+                <p className="text-sm leading-relaxed text-ink-soft">
+                  <span className="font-semibold text-ink">Discounted delegate rates:</span> Contact{' '}
+                  <span className="font-semibold text-ink">{VIVANTA.contactPerson.name}</span> at{' '}
+                  <a
+                    href={`tel:+91${VIVANTA.contactPerson.phone}`}
+                    className="font-semibold text-amber-700 underline underline-offset-2"
+                  >
+                    +91 {VIVANTA.contactPerson.phone.slice(0, 5)} {VIVANTA.contactPerson.phone.slice(5)}
+                  </a>
+                  . For direct hotel reservations, call{' '}
+                  <a
+                    href={`tel:${VIVANTA.reservations.phone.replace(/\s/g, '')}`}
+                    className="font-semibold text-amber-700 underline underline-offset-2"
+                  >
+                    {VIVANTA.reservations.phone}
+                  </a>{' '}
+                  or write to{' '}
+                  <a
+                    href={`mailto:${VIVANTA.reservations.email}`}
+                    className="font-semibold text-amber-700 underline underline-offset-2"
+                  >
+                    {VIVANTA.reservations.email}
+                  </a>
+                  .
+                </p>
+              </motion.div>
+
+              {/* Rate + CTA */}
+              <motion.div
+                variants={fadeUp}
+                className="mt-6 flex flex-wrap items-end justify-between gap-4 border-t border-ink/8 pt-6"
+              >
+                <div>
+                  <p className="text-xs text-ink-muted">Starting from</p>
+                  <p className="font-display text-2xl font-bold text-ink">{VIVANTA.price}</p>
+                  <p className="text-xs text-ink-muted">{VIVANTA.priceNote}</p>
+                </div>
+                <a href="mailto:icaaicon2026@gmail.com" className="btn-accent">
+                  Request Delegate Rate
+                </a>
+              </motion.div>
+            </div>
+          </motion.div>
         </Container>
       </section>
 

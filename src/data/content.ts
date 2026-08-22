@@ -33,8 +33,11 @@ export const EVENT = {
     name: 'Vivanta Indore Amaltas',
     city: 'Indore',
     region: 'Madhya Pradesh, India',
-    address: 'MR 10 Old Toll Naka Near Shree Ram and Enclave Apt, Indore, Indore, India, 453555',
-    mapsQuery: 'Vivanta+Indore+Amaltas',
+    address: 'MR 10 Old Toll Naka, Near Shree Ram Enclave, Indore, Madhya Pradesh 453555',
+    // The hotel is pre-opening and has no Google Maps listing yet — searching
+    // its name lands on Vivanta Ahmedabad. Pin the MR-10 site by coordinates
+    // instead, with the hotel name as the marker label.
+    mapsQuery: '22.7795875,75.8601406 (Vivanta Indore Amaltas)',
   },
   contact: {
     address: 'Surabhi 76 Dhar Kothi, Residency Area, Indore',
@@ -59,8 +62,8 @@ export const SOCIAL_LINKS: { label: string; href: string; icon: LucideIcon }[] =
 export const MARQUEE_NOTICES = [
   `Theme: "${EVENT.theme}"`,
   `Venue: ${EVENT.venue.name}, ${EVENT.venue.city}`,
-  'Early-bird registration ends 30 Jul 2026',
-  'Abstract submission closes 30 Jul 2026',
+  'Early-bird registration ends 31 Aug 2026',
+  'Abstract submission closes 31 Aug 2026',
 ]
 
 /** Navigation links shared by the navbar and footer. */
@@ -106,10 +109,26 @@ export const COMMITTEES: Committee[] = [
         designation: 'President',
         photo: '/executive-committee/dr-suresh-koolwal.jpeg',
       },
-      { name: 'Dr. Raj Kumar', designation: 'Vice President' },
-      { name: 'Dr. A.B. Singh', designation: 'Secretary' },
-      { name: 'Dr. Saibal Moitra', designation: 'Joint Secretary' },
-      { name: 'Dr. Nitin Goel', designation: 'Treasurer' },
+      {
+        name: 'Dr. Raj Kumar',
+        designation: 'Vice President',
+        photo: '/executive-committee/dr-raj-kumar.png',
+      },
+      {
+        name: 'Dr. A.B. Singh',
+        designation: 'Secretary',
+        photo: '/executive-committee/dr-a-b-singh.png',
+      },
+      {
+        name: 'Dr. Saibal Moitra',
+        designation: 'Joint Secretary',
+        photo: '/executive-committee/dr-saibal-moitra.png',
+      },
+      {
+        name: 'Dr. Nitin Goel',
+        designation: 'Treasurer',
+        photo: '/executive-committee/dr-nitin-goel.png',
+      },
       {
         name: 'Dr. Surya Kant',
         designation: 'Editor',
@@ -120,7 +139,11 @@ export const COMMITTEES: Committee[] = [
         designation: 'Council Member',
         photo: '/executive-committee/dr-ajay-kumar-verma.jpeg',
       },
-      { name: 'Dr. A.K. Janmeja', designation: 'Council Member' },
+      {
+        name: 'Dr. A.K. Janmeja',
+        designation: 'Council Member',
+        photo: '/executive-committee/dr-a-k-janmeja.png',
+      },
       {
         name: 'Dr. Mahesh Goyal',
         designation: 'Council Member',
@@ -129,7 +152,7 @@ export const COMMITTEES: Committee[] = [
       {
         name: 'Dr. Naveen Arora',
         designation: 'Council Member',
-        photo: '/executive-committee/prof-naveen-arora.jpeg',
+        photo: '/executive-committee/prof-naveen-arora.jpg',
       },
       {
         name: 'Dr. Anil Kumar Jain',
@@ -141,7 +164,11 @@ export const COMMITTEES: Committee[] = [
         designation: 'Council Member',
         photo: '/executive-committee/dr-mahesh-mishra.jpeg',
       },
-      { name: 'Dr. Digamber Behera', designation: 'Ex-Officio Member (Past President)' },
+      {
+        name: 'Dr. Digamber Behera',
+        designation: 'Ex-Officio Member (Past President)',
+        photo: '/executive-committee/dr-digamber-behera.png',
+      },
       {
         name: 'Dr. Rajendra Prasad',
         designation: 'Convenor, North Zone',
@@ -275,10 +302,9 @@ export const FOCUS_AREAS: FocusArea[] = [
 
 /** Key milestone dates (placeholder values — customise freely). */
 export const IMPORTANT_DATES = [
-  { date: '15 Mar 2026', label: 'Abstract submission opens', status: 'open' },
-  { date: '30 Jul 2026', label: 'Early-bird registration ends', status: 'soon' },
-  { date: '30 Jul 2026', label: 'Abstract submission closes', status: 'upcoming' },
-  { date: '20 Aug 2026', label: 'Acceptance notifications', status: 'upcoming' },
+  { date: '10 Sep 2026', label: 'Early-bird registration ends', status: 'soon' },
+  { date: '31 Aug 2026', label: 'Abstract submission closes', status: 'soon' },
+  { date: '15 Sep 2026', label: 'Acceptance notifications', status: 'upcoming' },
   { date: '24 Sep 2026', label: 'Conference begins', status: 'upcoming' },
 ] as const
 
@@ -362,8 +388,19 @@ export const BENEFITS = [
   },
 ]
 
-/** Registration tiers (INR). */
-export const REGISTRATION_TIERS = [
+/** Registration tiers (INR). `onSpotPrice`/`onSpotWindow` are optional — a
+ *  tier without them simply omits the on-spot line on its card. */
+export type RegistrationTier = {
+  name: string
+  price: string
+  window: string
+  onSpotPrice?: string
+  onSpotWindow?: string
+  featured: boolean
+  perks: string[]
+}
+
+export const REGISTRATION_TIERS: RegistrationTier[] = [
   {
     name: 'ICAAI Member',
     price: '₹ 6,500',
@@ -405,6 +442,15 @@ export const REGISTRATION_TIERS = [
       'E-poster eligibility',
       'E-certificate of participation',
     ],
+  },
+  {
+    // Accompanying persons get the full delegate experience except the
+    // e-certificate of participation, which is not issued for this tier.
+    name: 'Accompanying Person',
+    price: '₹ 5,500',
+    window: 'Regular: 01 Jun – 10 Sep 2026',
+    featured: false,
+    perks: ['Full 4-day access', 'Conference kit & badge', 'Lunch & networking breaks'],
   },
 ]
 

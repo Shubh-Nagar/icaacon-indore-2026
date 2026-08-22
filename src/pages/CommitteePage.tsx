@@ -1,10 +1,11 @@
+import { Fragment, useEffect } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Users } from 'lucide-react'
 import PageHeader from '@/components/ui/PageHeader'
 import Container from '@/components/ui/Container'
 import Img from '@/components/ui/Img'
-import { fadeUp, staggerContainer, viewportOnce } from '@/lib/motion'
+import { fadeUp, staggerContainer } from '@/lib/motion'
 import { COMMITTEES } from '@/data/content'
 
 /** Roster page for one of the four committees, keyed by :slug. */
@@ -12,10 +13,18 @@ export default function CommitteePage() {
   const { slug } = useParams()
   const committee = COMMITTEES.find((c) => c.slug === slug)
 
+  useEffect(() => {
+    if (committee) document.title = `${committee.label} · ICAAICON Indore 2026`
+  }, [committee])
+
   if (!committee) return <Navigate to="/" replace />
 
+  // Portraits are only maintained for the Executive Committee; every other
+  // roster is a plain name + designation list.
+  const withPhotos = committee.slug === 'executive-committee'
+
   return (
-    <>
+    <Fragment key={committee.slug}>
       <PageHeader
         current={committee.label}
         eyebrow={committee.eyebrow}
@@ -28,8 +37,7 @@ export default function CommitteePage() {
           <motion.div
             variants={staggerContainer}
             initial="hidden"
-            whileInView="show"
-            viewport={viewportOnce}
+            animate="show"
             className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
           >
             {committee.members.map((member, i) => (
@@ -38,17 +46,18 @@ export default function CommitteePage() {
                 variants={fadeUp}
                 className="overflow-hidden rounded-3xl bg-white shadow-card"
               >
-                {member.photo ? (
-                  <Img
-                    src={member.photo}
-                    alt={`Portrait of ${member.name}`}
-                    className="aspect-square w-full object-cover object-top"
-                  />
-                ) : (
-                  <div className="flex aspect-square w-full items-center justify-center bg-teal/10 text-teal">
-                    <Users size={48} />
-                  </div>
-                )}
+                {withPhotos &&
+                  (member.photo ? (
+                    <Img
+                      src={member.photo}
+                      alt={`Portrait of ${member.name}`}
+                      className="aspect-square w-full object-cover object-top"
+                    />
+                  ) : (
+                    <div className="flex aspect-square w-full items-center justify-center bg-teal/10 text-teal">
+                      <Users size={48} />
+                    </div>
+                  ))}
                 <div className="min-w-0 p-6">
                   <p className="font-display text-base font-semibold text-ink">{member.name}</p>
                   <p className="text-sm text-ink-soft">{member.designation}</p>
@@ -58,6 +67,6 @@ export default function CommitteePage() {
           </motion.div>
         </Container>
       </section>
-    </>
+    </Fragment>
   )
 }

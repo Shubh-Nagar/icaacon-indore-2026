@@ -7,7 +7,7 @@ import { fadeUp, staggerContainer, viewportOnce } from '@/lib/motion'
 
 /**
  * Registration tiers.
- * Three cards; the "ICAAI Member" tier is visually elevated as the
+ * One card per tier; the "ICAAI Member" tier is visually elevated as the
  * recommended option. Pricing (INR) lives in content.ts.
  */
 export default function Registration() {
@@ -20,13 +20,17 @@ export default function Registration() {
           title="Choose your pass"
           subtitle="Transparent, all-inclusive pricing. Postgraduate rates available with a valid student ID."
         />
+      </Container>
 
+      {/* Wider than the site container so four cards get real breathing room
+          instead of leaving the side margins empty. */}
+      <Container className="max-w-[1400px]">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="mt-14 grid items-stretch gap-6 lg:grid-cols-3"
+          className="mt-14 grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-4"
         >
           {REGISTRATION_TIERS.map((tier) => (
             <motion.div
@@ -63,20 +67,24 @@ export default function Registration() {
                 {tier.window}
               </p>
 
-              <p
-                className={`mt-4 text-lg font-semibold ${
-                  tier.featured ? 'text-teal' : 'text-ivory'
-                }`}
-              >
-                {tier.onSpotPrice}
-              </p>
-              <p
-                className={`mt-0.5 text-sm ${
-                  tier.featured ? 'text-ink-muted' : 'text-ivory/70'
-                }`}
-              >
-                {tier.onSpotWindow}
-              </p>
+              {tier.onSpotPrice && (
+                <>
+                  <p
+                    className={`mt-4 text-lg font-semibold ${
+                      tier.featured ? 'text-teal' : 'text-ivory'
+                    }`}
+                  >
+                    {tier.onSpotPrice}
+                  </p>
+                  <p
+                    className={`mt-0.5 text-sm ${
+                      tier.featured ? 'text-ink-muted' : 'text-ivory/70'
+                    }`}
+                  >
+                    {tier.onSpotWindow}
+                  </p>
+                </>
+              )}
 
               <ul className="mt-7 flex-1 space-y-3">
                 {tier.perks.map((perk) => (
@@ -107,11 +115,6 @@ export default function Registration() {
             </motion.div>
           ))}
         </motion.div>
-
-        <p className="mt-8 text-center text-sm text-ivory/60">
-          Group and accompanying-person rates available — contact the
-          secretariat for details.
-        </p>
       </Container>
     </section>
   )
