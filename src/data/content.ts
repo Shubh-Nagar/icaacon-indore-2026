@@ -303,9 +303,45 @@ export const FOCUS_AREAS: FocusArea[] = [
 /** Key milestone dates (placeholder values — customise freely). */
 export const IMPORTANT_DATES = [
   { date: '10 Sep 2026', label: 'Early-bird registration ends', status: 'soon' },
-  { date: '31 Aug 2026', label: 'Abstract submission closes', status: 'soon' },
+  { date: '31 Aug 2026', label: 'Abstract submission closes', status: 'closed' },
   { date: '15 Sep 2026', label: 'Acceptance notifications', status: 'upcoming' },
   { date: '24 Sep 2026', label: 'Conference begins', status: 'upcoming' },
+] as const
+
+/** Day-by-day scientific schedule, per the official ICAAICON program. */
+export const PROGRAM_SCHEDULE = [
+  {
+    day: 'Day 1',
+    date: '24 Sep',
+    title: 'Workshop',
+    time: '9:00 AM – 05:00 PM',
+    venue: 'Amaltas University, Ujjain Dewas Road, Bangar',
+    items: [
+      'Allergy & Immunotherapy',
+      'NIV & Sleep Breathing Disorders',
+      'Pulmonary Function Test',
+      'Smoking Cessation',
+      'Pulmonary Rehabilitation',
+    ],
+  },
+  {
+    day: 'Day 2',
+    date: '25 Sep',
+    title: 'Scientific Sessions',
+    items: ['Allergy', 'Immunotherapy', 'Asthma', 'Opening Ceremony'],
+  },
+  {
+    day: 'Day 3',
+    date: '26 Sep',
+    title: 'Scientific Sessions',
+    items: ['Allergy', 'Immunotherapy', 'Climate Change', 'Air Pollution', 'Occupational Disease'],
+  },
+  {
+    day: 'Day 4',
+    date: '27 Sep',
+    title: 'Scientific Sessions',
+    items: ['Allergy', 'Immunotherapy', 'Climate Change', 'Air Pollution', 'Occupational Disease'],
+  },
 ] as const
 
 /** Dummy speaker roster. Replace photos & names with the real faculty. */

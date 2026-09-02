@@ -4,44 +4,8 @@ import { ChevronDown, FileText, Upload, Calendar } from 'lucide-react'
 import PageHeader from '@/components/ui/PageHeader'
 import Container from '@/components/ui/Container'
 import SectionHeading from '@/components/ui/SectionHeading'
-import { FAQS, FOCUS_AREAS, IMPORTANT_DATES } from '@/data/content'
+import { FAQS, FOCUS_AREAS, IMPORTANT_DATES, PROGRAM_SCHEDULE } from '@/data/content'
 import { fadeUp, staggerContainer, viewportOnce } from '@/lib/motion'
-
-// Common pointers shared across the scientific days (Days 2–4).
-const COMMON_POINTERS = [
-  'Allergy & Diagnosis',
-  'Immunotherapy & Close',
-  'Climate & Asthma',
-  'Opening & Air Quality',
-]
-
-// Placeholder day-by-day outline.
-const SCHEDULE = [
-  {
-    day: 'Day 1',
-    date: '24 Sep',
-    title: 'Workshop',
-    items: ['Pre-conference workshop', 'Hands-on training sessions', 'Welcome reception'],
-  },
-  {
-    day: 'Day 2',
-    date: '25 Sep',
-    title: 'Scientific Sessions',
-    items: COMMON_POINTERS,
-  },
-  {
-    day: 'Day 3',
-    date: '26 Sep',
-    title: 'Scientific Sessions',
-    items: COMMON_POINTERS,
-  },
-  {
-    day: 'Day 4',
-    date: '27 Sep',
-    title: 'Scientific Sessions',
-    items: COMMON_POINTERS,
-  },
-]
 
 /** Accordion row for the FAQ. */
 function FaqItem({ q, a }: { q: string; a: string }) {
@@ -100,7 +64,7 @@ export default function ProgramPage() {
           <SectionHeading
             eyebrow="At a glance"
             title="Day-by-day outline"
-            subtitle="A provisional shape of the program. Sessions and timings are subject to confirmation."
+            subtitle="The official scientific schedule across the workshop and three days of sessions."
           />
           <motion.div
             variants={staggerContainer}
@@ -109,7 +73,7 @@ export default function ProgramPage() {
             viewport={viewportOnce}
             className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4"
           >
-            {SCHEDULE.map((d) => (
+            {PROGRAM_SCHEDULE.map((d) => (
               <motion.article
                 key={d.day}
                 variants={fadeUp}
@@ -127,6 +91,12 @@ export default function ProgramPage() {
                 <h3 className="mt-2 font-display text-base font-semibold text-ink">
                   {d.title}
                 </h3>
+                {'time' in d && (
+                  <p className="mt-1 text-xs font-semibold text-gold-deep">{d.time}</p>
+                )}
+                {'venue' in d && (
+                  <p className="mt-1 text-xs text-ink-muted">{d.venue}</p>
+                )}
                 <ul className="mt-4 space-y-2 text-sm text-ink-soft">
                   {d.items.map((it) => (
                     <li key={it} className="flex items-start gap-2">

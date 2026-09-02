@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Check, Clock, CalendarDays } from 'lucide-react'
+import { Check, Clock, CalendarDays, X } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import SectionHeading from '@/components/ui/SectionHeading'
 import Countdown from '@/components/sections/Countdown'
@@ -11,6 +11,7 @@ const STATUS = {
   open: { label: 'Open now', cls: 'bg-teal/10 text-teal', Icon: Check },
   soon: { label: 'Closing soon', cls: 'bg-maroon/10 text-maroon', Icon: Clock },
   upcoming: { label: 'Upcoming', cls: 'bg-ink/5 text-ink-muted', Icon: CalendarDays },
+  closed: { label: 'Closed', cls: 'bg-ink/10 text-ink-muted', Icon: X },
 } as const
 
 /**
