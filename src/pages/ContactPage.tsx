@@ -74,7 +74,7 @@ export default function ContactPage() {
   const DETAILS = [
     { Icon: Mail, label: 'Email', value: EVENT.contact.email, href: `mailto:${EVENT.contact.email}` },
     { Icon: Phone, label: 'Phone', value: EVENT.contact.phone, href: `tel:${EVENT.contact.phone.replace(/\s/g, '')}` },
-    { Icon: MapPin, label: 'Venue', value: `${EVENT.venue.name}, ${EVENT.venue.city}`, href: undefined },
+    { Icon: MapPin, label: 'Venue', value: EVENT.venue.name, href: undefined },
     { Icon: Instagram, label: 'Instagram', value: EVENT.contact.instagram, href: undefined },
   ]
 

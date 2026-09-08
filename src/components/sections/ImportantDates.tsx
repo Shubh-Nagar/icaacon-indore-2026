@@ -85,7 +85,7 @@ export default function ImportantDates() {
             <Countdown tone="light" compact />
             <p className="text-sm text-ivory/70">{EVENT.dates}</p>
             <p className="text-sm font-semibold text-ivory">
-              {EVENT.venue.name}, {EVENT.venue.city}
+              {EVENT.venue.name}
             </p>
           </motion.div>
         </div>

@@ -35,7 +35,7 @@ export default function CtaBand() {
           </h2>
           <p className="mt-4 max-w-xl text-ivory/80">
             Be part of the 60th edition of {EVENT.shortName}. {EVENT.dates} at{' '}
-            {EVENT.venue.name}, {EVENT.venue.city}.
+            {EVENT.venue.name}.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
             <Link

@@ -18,90 +18,84 @@ import Container from '@/components/ui/Container'
 import Img from '@/components/ui/Img'
 import { fadeUp, staggerContainer, viewportOnce } from '@/lib/motion'
 
-/** The official conference hotel. All figures, room categories, banquet
- *  capacities, dining outlets and photography are taken from the hotel's own
- *  "Vivanta Indore Amaltas" fact sheet (public/Vivanta Indore Amaltas.pdf). */
-const VIVANTA = {
-  name: 'Vivanta Indore Amaltas',
-  brand: 'Vivanta Hotels · Taj Group',
+/** The official conference hotel. Figures, room categories, banquet
+ *  capacities, dining outlets and photography are as published by the
+ *  Indore Marriott Hotel (marriott.com — property code IDRMH). */
+const MARRIOTT = {
+  name: 'Indore Marriott Hotel',
+  brand: 'Marriott Hotels · Marriott Bonvoy',
   stars: 5,
   distance: 'Conference Venue',
   price: '₹8,000 – ₹14,000',
   priceNote: 'per night (approx.)',
   overview:
-    "Indore offers an evolved startup ecosystem and is one of the country's fastest-growing commercial hubs, and Vivanta Indore Amaltas taps into that urban spirit. Naturally illuminated spaces, contemporary architecture and thoughtfully curated experiences reflect the design philosophy of 'Height and Light' — while the city's grandest banqueting and conferencing spaces host every session of ICAAICON 2026 under one roof.",
+    "Indore is one of India's fastest-growing commercial hubs, and the Indore Marriott Hotel sits at the heart of it in Vijay Nagar. Floor-to-ceiling windows, Italian marble bathrooms and a landscaped forecourt set the tone, while a 4,845 sq ft Grand Ballroom, adjoining salons and a sweeping lawn give ICAAICON 2026 every session, workshop and banquet under one roof.",
   location:
-    'Strategically situated on the MR-10 corridor, with easy access to business districts, industrial corridors, educational institutes and the most monumental landmarks of Indore.',
-  hero: '/vivanta/lobby.jpg',
+    'On Scheme No 54 beside Meghdoot Garden in Vijay Nagar — Indore’s business and retail district — with easy access to the airport, the railway station and the city’s landmarks.',
+  hero: '/marriott/lobby.jpg',
   stats: [
-    { icon: BedDouble, value: '202', label: 'Rooms & suites' },
-    { icon: Plane, value: '12 km', label: 'From airport' },
-    { icon: TrainFront, value: '8 km', label: 'From railway station' },
-    { icon: Users, value: '750', label: 'Ballroom capacity' },
+    { icon: BedDouble, value: '216', label: 'Rooms & suites' },
+    { icon: Plane, value: '16 km', label: 'From airport' },
+    { icon: TrainFront, value: '6 km', label: 'From railway station' },
+    { icon: Users, value: '650', label: 'Ballroom capacity' },
   ],
-  /** ACCOMMODATION — 202 well-appointed rooms across five categories. */
+  /** ACCOMMODATION — 216 rooms and suites. */
   rooms: {
-    img: '/vivanta/guest-room.jpg',
-    total: 202,
+    img: '/marriott/guest-room.jpg',
+    total: 216,
     categories: [
-      'Deluxe room with pool view',
-      'Superior room with city view',
-      'Premium room',
+      'Deluxe room, king or twin',
+      'Deluxe room with garden view',
+      'Executive room with lounge access',
       'Executive suite',
-      'Vivanta suite',
+      'Presidential suite',
     ],
   },
   /** MEETINGS & BANQUETS — venue capacities as published by the hotel. */
   banquets: {
-    img: '/vivanta/tango-ballroom.jpg',
+    img: '/marriott/ballroom.jpg',
     venues: [
-      { name: 'Tango Grand Ballroom', capacity: 750 },
-      { name: 'Horizon 1 — Banquet Lawn', capacity: 750 },
-      { name: 'Horizon 3 — Party Lawn', capacity: 750 },
-      { name: 'Horizon 2 — Poolside Lawn', capacity: 600 },
-      { name: 'Agenda', capacity: 170 },
-      { name: 'Strategy 2', capacity: 14 },
-      { name: 'Strategy 1', capacity: 12 },
+      { name: 'Marriott Lawn', capacity: 1500 },
+      { name: 'Grand Ballroom', capacity: 650 },
+      { name: 'Zodiac 1 & 2', capacity: 300 },
+      { name: 'Salon 2', capacity: 175 },
+      { name: 'Zodiac 1', capacity: 150 },
+      { name: 'Salon 1', capacity: 150 },
+      { name: 'Zodiac 2', capacity: 80 },
     ],
-    extra: 'Plush bridal room and an exclusive wedding studio',
+    extra:
+      'Nine event rooms with dedicated pre-function areas, AV and video conferencing, and valet parking for 400 cars',
   },
   dining: {
-    img: '/vivanta/mynt-dining.jpg',
+    img: '/marriott/dining.jpg',
     outlets: [
-      { name: 'Mynt', desc: 'Vibrant all-day dining restaurant' },
-      { name: 'Swirl', desc: 'Brews and sweet treats' },
-      { name: 'Wink', desc: 'High-energy bar' },
-      { name: 'Tease', desc: 'Poolside sips' },
-      { name: 'Trattino', desc: 'Italian favourites, served with a view' },
+      { name: 'Indore Kitchen', desc: 'All-day dining with live kitchens and buffet spreads' },
+      { name: 'One Asia', desc: 'Pan-Asian restaurant and bar' },
+      { name: 'Indore Baking Company', desc: 'Café, confectionery and deli' },
+      { name: 'In-room dining', desc: 'Available around the clock' },
     ],
   },
   facilities: {
-    img: '/vivanta/pool.jpg',
+    img: '/marriott/pool.jpg',
     items: [
-      'State-of-the-art fitness centre',
-      'Open-air, temperature-controlled swimming pool',
-      'A rejuvenating spa',
+      '24-hour fitness centre',
+      'Outdoor swimming pool with a poolside deck',
+      'Qalm Spa for massages and treatments',
+      'Business centre and complimentary Wi-Fi throughout',
     ],
   },
   contactPerson: { name: 'Piyush Rathore', phone: '9009090439' },
-  reservations: { phone: '+91 6232 034303', email: 'bookvivanta.amaltasindore@tajhotels.com' },
+  reservations: {
+    phone: '+91 731 477 7777',
+    website: 'https://www.marriott.com/en-us/hotels/idrmh-indore-marriott-hotel/overview/',
+  },
 }
 
 /** Empanelled accommodation list for delegates, from the official
- *  "Accommodation List - ICAAICON 2026" sheet. Rates/rooms are approximate
- *  and provided by each hotel directly. */
+ *  "Accommodation List - ICAAICON 2026" sheet, minus the Indore Marriott —
+ *  it is now the conference hotel and is featured above. Rates/rooms are
+ *  approximate and provided by each hotel directly. */
 const ACCOMMODATION_LIST = [
-  {
-    name: 'Indore Marriott',
-    address: 'H-2 Scheme No 54, Meghdoot Garden, Vijay Nagar, Indore, Madhya Pradesh 452010',
-    phones: ['0731-4777777'],
-    rooms: 216,
-    rate: 10000,
-    distanceVenue: '4.6 km',
-    distanceAirport: '16.1 km',
-    distanceRailway: '6.1 km',
-    img: 'https://ak-d.tripcdn.com/images/0226512000i398nkf5D34_R_960_660_R5_D.jpg',
-  },
   {
     name: 'Wow Crest',
     address: 'PU-3 Commercial, Plot No. 106, AB Rd, Scheme 54 PU4, Indore, Madhya Pradesh 452010',
@@ -267,7 +261,7 @@ const TIPS = [
   {
     icon: '🏷️',
     title: 'Delegate Rates',
-    desc: 'The official hotel (Vivanta) offers special negotiated rates for ICAAICON 2026 delegates. Quote "ICAAICON 2026" when booking to avail the discount.',
+    desc: 'The official hotel (Indore Marriott) offers special negotiated rates for ICAAICON 2026 delegates. Quote "ICAAICON 2026" when booking to avail the discount.',
   },
   {
     icon: '🚖',
@@ -319,8 +313,8 @@ export default function HotelAccommodationPage() {
             {/* Hero: hotel lobby */}
             <motion.div variants={fadeUp} className="relative overflow-hidden">
               <Img
-                src={VIVANTA.hero}
-                alt={`The lobby lounge at ${VIVANTA.name}`}
+                src={MARRIOTT.hero}
+                alt={`The reception lobby at the ${MARRIOTT.name}`}
                 className="aspect-[16/9] w-full object-cover sm:aspect-[21/9]"
               />
               <span className="absolute left-5 top-5 rounded-full bg-gold px-4 py-1.5 text-xs font-bold text-ivory shadow">
@@ -331,16 +325,16 @@ export default function HotelAccommodationPage() {
             <div className="p-8 lg:p-10">
               {/* Identity + overview */}
               <motion.div variants={fadeUp}>
-                <p className="text-xs font-semibold uppercase tracking-widest text-teal">{VIVANTA.brand}</p>
-                <h2 className="mt-1 font-display text-2xl font-semibold text-ink sm:text-3xl">{VIVANTA.name}</h2>
+                <p className="text-xs font-semibold uppercase tracking-widest text-teal">{MARRIOTT.brand}</p>
+                <h2 className="mt-1 font-display text-2xl font-semibold text-ink sm:text-3xl">{MARRIOTT.name}</h2>
                 <div className="mt-2 flex flex-wrap items-center gap-3">
-                  <StarRating count={VIVANTA.stars} />
+                  <StarRating count={MARRIOTT.stars} />
                   <span className="flex items-center gap-1 text-xs text-ink-muted">
                     <MapPin size={12} className="text-teal" />
-                    {VIVANTA.distance}
+                    {MARRIOTT.distance}
                   </span>
                 </div>
-                <p className="mt-5 text-sm leading-relaxed text-ink-soft">{VIVANTA.overview}</p>
+                <p className="mt-5 text-sm leading-relaxed text-ink-soft">{MARRIOTT.overview}</p>
               </motion.div>
 
               {/* Key figures */}
@@ -348,7 +342,7 @@ export default function HotelAccommodationPage() {
                 variants={fadeUp}
                 className="mt-8 grid grid-cols-2 gap-3 rounded-2xl bg-ivory-deep p-4 sm:grid-cols-4"
               >
-                {VIVANTA.stats.map((stat) => (
+                {MARRIOTT.stats.map((stat) => (
                   <div key={stat.label} className="text-center">
                     <stat.icon size={16} className="mx-auto text-teal" />
                     <p className="mt-1.5 font-display text-xl font-bold text-ink">{stat.value}</p>
@@ -360,17 +354,17 @@ export default function HotelAccommodationPage() {
               {/* Accommodation */}
               <motion.div variants={fadeUp} className="mt-10 grid gap-6 lg:grid-cols-2 lg:items-center">
                 <Img
-                  src={VIVANTA.rooms.img}
-                  alt={`A guest room at ${VIVANTA.name}`}
+                  src={MARRIOTT.rooms.img}
+                  alt={`A guest room at the ${MARRIOTT.name}`}
                   className="aspect-[4/3] w-full rounded-2xl object-cover"
                 />
                 <div>
                   <h3 className="font-display text-lg font-semibold text-ink">Accommodation</h3>
                   <p className="mt-1.5 text-sm text-ink-soft">
-                    {VIVANTA.rooms.total} well-appointed rooms across five categories:
+                    {MARRIOTT.rooms.total} well-appointed rooms across five categories:
                   </p>
                   <ul className="mt-4 space-y-2">
-                    {VIVANTA.rooms.categories.map((room) => (
+                    {MARRIOTT.rooms.categories.map((room) => (
                       <li key={room} className="flex items-start gap-2 text-sm text-ink-soft">
                         <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-teal" />
                         {room}
@@ -386,8 +380,8 @@ export default function HotelAccommodationPage() {
                 className="mt-10 grid gap-6 lg:grid-cols-2 lg:items-center"
               >
                 <Img
-                  src={VIVANTA.banquets.img}
-                  alt={`The Tango Grand Ballroom at ${VIVANTA.name}`}
+                  src={MARRIOTT.banquets.img}
+                  alt={`The Grand Ballroom at the ${MARRIOTT.name}`}
                   className="aspect-[4/3] w-full rounded-2xl object-cover lg:order-2"
                 />
                 <div className="lg:order-1">
@@ -397,7 +391,7 @@ export default function HotelAccommodationPage() {
                     happens here.
                   </p>
                   <ul className="mt-4 divide-y divide-ink/8 border-y border-ink/8">
-                    {VIVANTA.banquets.venues.map((venue) => (
+                    {MARRIOTT.banquets.venues.map((venue) => (
                       <li key={venue.name} className="flex items-baseline justify-between gap-3 py-2">
                         <span className="text-sm text-ink-soft">{venue.name}</span>
                         <span className="shrink-0 text-xs font-semibold text-teal">
@@ -408,7 +402,7 @@ export default function HotelAccommodationPage() {
                   </ul>
                   <p className="mt-3 flex items-start gap-2 text-sm text-ink-soft">
                     <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-teal" />
-                    {VIVANTA.banquets.extra}
+                    {MARRIOTT.banquets.extra}
                   </p>
                 </div>
               </motion.div>
@@ -417,8 +411,8 @@ export default function HotelAccommodationPage() {
               <motion.div variants={fadeUp} className="mt-10 grid gap-6 sm:grid-cols-2">
                 <div className="overflow-hidden rounded-2xl bg-ivory-deep">
                   <Img
-                    src={VIVANTA.dining.img}
-                    alt={`Mynt, the all-day dining restaurant at ${VIVANTA.name}`}
+                    src={MARRIOTT.dining.img}
+                    alt={`One Asia, the pan-Asian restaurant and bar at the ${MARRIOTT.name}`}
                     className="aspect-[16/10] w-full object-cover"
                   />
                   <div className="p-6">
@@ -427,7 +421,7 @@ export default function HotelAccommodationPage() {
                       Dining
                     </h3>
                     <ul className="mt-3 space-y-2">
-                      {VIVANTA.dining.outlets.map((outlet) => (
+                      {MARRIOTT.dining.outlets.map((outlet) => (
                         <li key={outlet.name} className="text-sm text-ink-soft">
                           <span className="font-semibold text-ink">{outlet.name}</span> — {outlet.desc}
                         </li>
@@ -438,8 +432,8 @@ export default function HotelAccommodationPage() {
 
                 <div className="overflow-hidden rounded-2xl bg-ivory-deep">
                   <Img
-                    src={VIVANTA.facilities.img}
-                    alt={`The open-air swimming pool at ${VIVANTA.name}`}
+                    src={MARRIOTT.facilities.img}
+                    alt={`The outdoor swimming pool at the ${MARRIOTT.name}`}
                     className="aspect-[16/10] w-full object-cover"
                   />
                   <div className="p-6">
@@ -448,7 +442,7 @@ export default function HotelAccommodationPage() {
                       Facilities
                     </h3>
                     <ul className="mt-3 space-y-2">
-                      {VIVANTA.facilities.items.map((item) => (
+                      {MARRIOTT.facilities.items.map((item) => (
                         <li key={item} className="flex items-start gap-2 text-sm text-ink-soft">
                           <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-teal" />
                           {item}
@@ -466,42 +460,44 @@ export default function HotelAccommodationPage() {
               >
                 <MapPin size={16} className="mt-0.5 shrink-0 text-teal" />
                 <p className="text-sm leading-relaxed text-ink-soft">
-                  <span className="font-semibold text-ink">Location:</span> {VIVANTA.location}
+                  <span className="font-semibold text-ink">Location:</span> {MARRIOTT.location}
                 </p>
               </motion.div>
 
-              {/* Delegate rates */}
-              <motion.div
+              {/* Delegate rates — hidden until the negotiated rate is confirmed. */}
+              {/* <motion.div
                 variants={fadeUp}
                 className="mt-4 flex items-start gap-3 rounded-2xl bg-gold/10 px-5 py-4"
               >
                 <Phone size={16} className="mt-0.5 shrink-0 text-amber-700" />
                 <p className="text-sm leading-relaxed text-ink-soft">
                   <span className="font-semibold text-ink">Discounted delegate rates:</span> Contact{' '}
-                  <span className="font-semibold text-ink">{VIVANTA.contactPerson.name}</span> at{' '}
+                  <span className="font-semibold text-ink">{MARRIOTT.contactPerson.name}</span> at{' '}
                   <a
-                    href={`tel:+91${VIVANTA.contactPerson.phone}`}
+                    href={`tel:+91${MARRIOTT.contactPerson.phone}`}
                     className="font-semibold text-amber-700 underline underline-offset-2"
                   >
-                    +91 {VIVANTA.contactPerson.phone.slice(0, 5)} {VIVANTA.contactPerson.phone.slice(5)}
+                    +91 {MARRIOTT.contactPerson.phone.slice(0, 5)} {MARRIOTT.contactPerson.phone.slice(5)}
                   </a>
                   . For direct hotel reservations, call{' '}
                   <a
-                    href={`tel:${VIVANTA.reservations.phone.replace(/\s/g, '')}`}
+                    href={`tel:${MARRIOTT.reservations.phone.replace(/\s/g, '')}`}
                     className="font-semibold text-amber-700 underline underline-offset-2"
                   >
-                    {VIVANTA.reservations.phone}
+                    {MARRIOTT.reservations.phone}
                   </a>{' '}
-                  or write to{' '}
+                  or book on the{' '}
                   <a
-                    href={`mailto:${VIVANTA.reservations.email}`}
+                    href={MARRIOTT.reservations.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="font-semibold text-amber-700 underline underline-offset-2"
                   >
-                    {VIVANTA.reservations.email}
+                    hotel's Marriott page
                   </a>
                   .
                 </p>
-              </motion.div>
+              </motion.div> */}
 
               {/* Rate + CTA */}
               <motion.div
@@ -510,8 +506,8 @@ export default function HotelAccommodationPage() {
               >
                 <div>
                   <p className="text-xs text-ink-muted">Starting from</p>
-                  <p className="font-display text-2xl font-bold text-ink">{VIVANTA.price}</p>
-                  <p className="text-xs text-ink-muted">{VIVANTA.priceNote}</p>
+                  <p className="font-display text-2xl font-bold text-ink">{MARRIOTT.price}</p>
+                  <p className="text-xs text-ink-muted">{MARRIOTT.priceNote}</p>
                 </div>
                 <a href="mailto:icaaicon2026@gmail.com" className="btn-accent">
                   Request Delegate Rate

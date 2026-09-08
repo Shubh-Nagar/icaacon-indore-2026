@@ -30,14 +30,11 @@ export const EVENT = {
   // ISO start used by the countdown timer
   startISO: '2026-09-24T09:00:00+05:30',
   venue: {
-    name: 'Vivanta Indore Amaltas',
+    name: 'Indore Marriott Hotel',
     city: 'Indore',
     region: 'Madhya Pradesh, India',
-    address: 'MR 10 Old Toll Naka, Near Shree Ram Enclave, Indore, Madhya Pradesh 453555',
-    // The hotel is pre-opening and has no Google Maps listing yet — searching
-    // its name lands on Vivanta Ahmedabad. Pin the MR-10 site by coordinates
-    // instead, with the hotel name as the marker label.
-    mapsQuery: '22.7795875,75.8601406 (Vivanta Indore Amaltas)',
+    address: 'H-2, Scheme No 54, Meghdoot Garden, Vijay Nagar, Indore, Madhya Pradesh 452010',
+    mapsQuery: 'Indore Marriott Hotel, Vijay Nagar, Indore, Madhya Pradesh 452010',
   },
   contact: {
     address: 'Surabhi 76 Dhar Kothi, Residency Area, Indore',
@@ -61,7 +58,7 @@ export const SOCIAL_LINKS: { label: string; href: string; icon: LucideIcon }[] =
 /** Scrolling marquee notices shown in the homepage top bar. */
 export const MARQUEE_NOTICES = [
   `Theme: "${EVENT.theme}"`,
-  `Venue: ${EVENT.venue.name}, ${EVENT.venue.city}`,
+  `Venue: ${EVENT.venue.name}`,
   'Early-bird registration ends 31 Aug 2026',
   'Abstract submission closes 31 Aug 2026',
 ]

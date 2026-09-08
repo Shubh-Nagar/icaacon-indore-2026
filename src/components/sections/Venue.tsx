@@ -6,12 +6,11 @@ import Img from '@/components/ui/Img'
 import { EVENT } from '@/data/content'
 import { fadeUp, staggerContainer, viewportOnce } from '@/lib/motion'
 
-// Quick venue facts, from the hotel's own fact sheet
-// (public/Vivanta Indore Amaltas.pdf).
+// Quick venue facts, as published by the Indore Marriott Hotel.
 const FACTS = [
-  { Icon: Hotel, label: '202 rooms & suites', sub: 'Deluxe rooms to Vivanta suites' },
-  { Icon: Plane, label: '12 km from airport', sub: 'Railway station just 8 km away' },
-  { Icon: Users, label: '750-guest ballroom', sub: 'Tango Grand Ballroom on-site' },
+  { Icon: Hotel, label: '216 rooms & suites', sub: 'Deluxe rooms to the Presidential suite' },
+  { Icon: Plane, label: '16 km from airport', sub: 'Railway station just 6 km away' },
+  { Icon: Users, label: '650-guest ballroom', sub: 'Grand Ballroom on-site' },
 ]
 
 /**
@@ -24,6 +23,9 @@ export default function Venue() {
     EVENT.venue.mapsQuery,
   )}&output=embed`
 
+  // "Indore Marriott Hotel" → ink "Indore" + teal "Marriott Hotel".
+  const [venueLead, ...venueRest] = EVENT.venue.name.split(' ')
+
   return (
     <section id="venue" className="bg-ivory-deep py-24 lg:py-32">
       <Container>
@@ -32,7 +34,7 @@ export default function Venue() {
           eyebrow="The venue"
           title={
             <>
-              {EVENT.venue.name}, <span className="text-teal">Indore</span>
+              {venueLead} <span className="text-teal">{venueRest.join(' ')}</span>
             </>
           }
           subtitle={`${EVENT.venue.address}. Four days of science in the heart of one of India’s cleanest, most welcoming cities.`}
@@ -49,8 +51,8 @@ export default function Venue() {
           >
             <motion.div variants={fadeUp}>
               <Img
-                src="/vivanta/lobby.jpg"
-                alt={`The lobby lounge at ${EVENT.venue.name}`}
+                src="/marriott/exterior.jpg"
+                alt={`The entrance forecourt at the ${EVENT.venue.name}`}
                 className="aspect-[16/10] w-full rounded-3xl object-cover shadow-card"
               />
             </motion.div>
@@ -81,7 +83,7 @@ export default function Venue() {
             className="relative overflow-hidden rounded-3xl border border-ink/10 shadow-card"
           >
             <iframe
-              title={`Map to ${EVENT.venue.name}, ${EVENT.venue.city}`}
+              title={`Map to ${EVENT.venue.name}`}
               src={mapSrc}
               className="h-full min-h-[320px] w-full"
               loading="lazy"
@@ -90,7 +92,7 @@ export default function Venue() {
             {/* address chip overlay */}
             <div className="pointer-events-none absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-ivory/95 px-4 py-2 text-sm font-semibold text-ink shadow-card backdrop-blur">
               <MapPin size={15} className="text-maroon" />
-              {EVENT.venue.name}, {EVENT.venue.city}
+              {EVENT.venue.name}
             </div>
           </motion.div>
         </div>

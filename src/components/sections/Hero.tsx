@@ -158,7 +158,7 @@ export default function Hero() {
             </span>
             <span className="inline-flex items-center gap-2 rounded-full border border-ivory/20 bg-white/10 px-4 py-2 text-sm font-semibold text-ivory backdrop-blur-sm">
               <MapPin size={16} className="text-gold-soft" />
-              {EVENT.venue.name}, {EVENT.venue.city}
+              {EVENT.venue.name}
             </span>
           </motion.div>
 
