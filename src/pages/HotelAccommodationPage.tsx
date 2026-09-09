@@ -84,7 +84,12 @@ const MARRIOTT = {
       'Business centre and complimentary Wi-Fi throughout',
     ],
   },
-  contactPerson: { name: 'Piyush Rathore', phone: '9009090439' },
+  contactPerson: {
+    name: 'Mr. Gajendra Singh',
+    title: 'Sales Manager',
+    phone: '9826901244',
+    email: 'gajendra.vaskale@marriott.com',
+  },
   reservations: {
     phone: '+91 731 477 7777',
     website: 'https://www.marriott.com/en-us/hotels/idrmh-indore-marriott-hotel/overview/',
@@ -464,20 +469,29 @@ export default function HotelAccommodationPage() {
                 </p>
               </motion.div>
 
-              {/* Delegate rates — hidden until the negotiated rate is confirmed. */}
-              {/* <motion.div
+              {/* Delegate rates — single point of contact at the hotel. */}
+              <motion.div
                 variants={fadeUp}
                 className="mt-4 flex items-start gap-3 rounded-2xl bg-gold/10 px-5 py-4"
               >
                 <Phone size={16} className="mt-0.5 shrink-0 text-amber-700" />
                 <p className="text-sm leading-relaxed text-ink-soft">
-                  <span className="font-semibold text-ink">Discounted delegate rates:</span> Contact{' '}
-                  <span className="font-semibold text-ink">{MARRIOTT.contactPerson.name}</span> at{' '}
+                  <span className="font-semibold text-ink">Discounted delegate rates:</span> For all
+                  room bookings at the {MARRIOTT.name}, the single point of contact is{' '}
+                  <span className="font-semibold text-ink">{MARRIOTT.contactPerson.name}</span>,{' '}
+                  {MARRIOTT.contactPerson.title}, at{' '}
                   <a
                     href={`tel:+91${MARRIOTT.contactPerson.phone}`}
                     className="font-semibold text-amber-700 underline underline-offset-2"
                   >
                     +91 {MARRIOTT.contactPerson.phone.slice(0, 5)} {MARRIOTT.contactPerson.phone.slice(5)}
+                  </a>{' '}
+                  or{' '}
+                  <a
+                    href={`mailto:${MARRIOTT.contactPerson.email}`}
+                    className="font-semibold text-amber-700 underline underline-offset-2"
+                  >
+                    {MARRIOTT.contactPerson.email}
                   </a>
                   . For direct hotel reservations, call{' '}
                   <a
@@ -497,7 +511,7 @@ export default function HotelAccommodationPage() {
                   </a>
                   .
                 </p>
-              </motion.div> */}
+              </motion.div>
 
               {/* Rate + CTA */}
               <motion.div
