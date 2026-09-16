@@ -230,8 +230,25 @@ export default function SponsorshipPage() {
       </section>
 
       {/* Sponsorship tiers */}
-      <section id="tiers" className="bg-teal-deep py-24 text-ivory lg:py-32">
-        <div className="mx-auto w-full max-w-[1600px] px-5 sm:px-8 lg:px-12">
+      <section id="tiers" className="relative overflow-hidden bg-teal-deep py-24 text-ivory lg:py-32">
+        {/* ── Video background ─────────────────────────────────────────── */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source src="/icaaicon_ambient_loop_cinematic.mp4" type="video/mp4" />
+        </video>
+
+        {/* Teal overlay — keeps the card grid legible over any video frame */}
+        <div className="absolute inset-0 bg-gradient-to-b from-teal-deep/75 via-teal-deep/60 to-teal-deep/80" />
+
+        {/* faint dotted texture */}
+        <div className="pointer-events-none absolute inset-0 grain opacity-[0.15]" />
+
+        <div className="relative z-10 mx-auto w-full max-w-[1600px] px-5 sm:px-8 lg:px-12">
           <motion.div
             variants={fadeUp}
             initial="hidden"

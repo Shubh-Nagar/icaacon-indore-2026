@@ -493,7 +493,7 @@ export default function HotelAccommodationPage() {
                   >
                     {MARRIOTT.contactPerson.email}
                   </a>
-                  . For direct hotel reservations, call{' '}
+                  {/* . For direct hotel reservations, call{' '}
                   <a
                     href={`tel:${MARRIOTT.reservations.phone.replace(/\s/g, '')}`}
                     className="font-semibold text-amber-700 underline underline-offset-2"
@@ -508,7 +508,7 @@ export default function HotelAccommodationPage() {
                     className="font-semibold text-amber-700 underline underline-offset-2"
                   >
                     hotel's Marriott page
-                  </a>
+                  </a> */}
                   .
                 </p>
               </motion.div>

@@ -4,7 +4,8 @@ import { ChevronDown, FileText, Upload, Calendar } from 'lucide-react'
 import PageHeader from '@/components/ui/PageHeader'
 import Container from '@/components/ui/Container'
 import SectionHeading from '@/components/ui/SectionHeading'
-import { FAQS, FOCUS_AREAS, IMPORTANT_DATES, PROGRAM_SCHEDULE } from '@/data/content'
+import Img from '@/components/ui/Img'
+import { DAY1_WORKSHOPS, FAQS, FOCUS_AREAS, IMPORTANT_DATES, PROGRAM_SCHEDULE } from '@/data/content'
 import { fadeUp, staggerContainer, viewportOnce } from '@/lib/motion'
 
 /** Accordion row for the FAQ. */
@@ -106,6 +107,49 @@ export default function ProgramPage() {
                   ))}
                 </ul>
               </motion.article>
+            ))}
+          </motion.div>
+        </Container>
+      </section>
+
+      {/* Day 1 workshop details */}
+      <section className="bg-ivory-deep py-24 lg:py-28">
+        <Container>
+          <SectionHeading
+            eyebrow="Day 1 · 24 September"
+            title="Pre-conference workshop programme"
+            subtitle="Full scientific programme for the Day 1 workshops at Amaltas University, Dewas."
+          />
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={viewportOnce}
+            className="mt-14 grid gap-8 md:grid-cols-3"
+          >
+            {DAY1_WORKSHOPS.map((w) => (
+              <motion.figure
+                key={w.title}
+                variants={fadeUp}
+                className="card overflow-hidden p-0"
+              >
+                <a href={w.image} target="_blank" rel="noopener noreferrer">
+                  <Img
+                    src={w.image}
+                    alt={`Workshop on ${w.title} — scientific programme`}
+                    className="w-full object-contain"
+                  />
+                </a>
+                <figcaption className="p-6">
+                  <h3 className="font-display text-lg font-semibold text-ink">
+                    Workshop on {w.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-ink-soft">{w.theme}</p>
+                  <p className="mt-2 text-xs font-semibold text-gold-deep">
+                    {w.time} &middot; Coordinator: {w.coordinator}
+                  </p>
+                </figcaption>
+              </motion.figure>
             ))}
           </motion.div>
         </Container>

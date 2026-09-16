@@ -299,9 +299,9 @@ export const FOCUS_AREAS: FocusArea[] = [
 
 /** Key milestone dates (placeholder values — customise freely). */
 export const IMPORTANT_DATES = [
-  { date: '10 Sep 2026', label: 'Early-bird registration ends', status: 'soon' },
+  { date: '10 Sep 2026', label: 'Early-bird registration ends', status: 'closed' },
   { date: '31 Aug 2026', label: 'Abstract submission closes', status: 'closed' },
-  { date: '15 Sep 2026', label: 'Acceptance notifications', status: 'upcoming' },
+  { date: '15 Sep 2026', label: 'Acceptance notifications', status: 'closed' },
   { date: '24 Sep 2026', label: 'Conference begins', status: 'upcoming' },
 ] as const
 
@@ -338,6 +338,31 @@ export const PROGRAM_SCHEDULE = [
     date: '27 Sep',
     title: 'Scientific Sessions',
     items: ['Allergy', 'Immunotherapy', 'Climate Change', 'Air Pollution', 'Occupational Disease'],
+  },
+] as const
+
+/** Day 1 pre-conference workshops — full scientific-programme posters. */
+export const DAY1_WORKSHOPS = [
+  {
+    title: 'Allergy and Immunotherapy',
+    theme: 'Advancing Allergy Care: From Precision Diagnosis to Personalized Immunotherapy',
+    time: '9:00 AM – 5:00 PM',
+    coordinator: 'Dr. Raj Kumar',
+    image: '/workshop/allergy-immunotherapy-workshop.jpeg',
+  },
+  {
+    title: 'Smoking Cessation',
+    theme: 'Empowering Healthcare Professionals for Effective Tobacco Cessation',
+    time: '2:00 PM – 5:00 PM',
+    coordinator: 'Dr. Raj Kumar',
+    image: '/workshop/smoking-cessation-workshop.jpeg',
+  },
+  {
+    title: 'Pulmonary Rehabilitation',
+    theme: 'Pulmonary Rehabilitation: Assessment, Exercise Prescription & Practical Training',
+    time: '9:00 AM – 1:00 PM',
+    coordinator: 'Dr. Vishal Bansal, Dr. BK Menon',
+    image: '/workshop/pulmonary-rehabilitation-workshop.jpeg',
   },
 ] as const
 
@@ -567,6 +592,42 @@ export const SPONSORSHIP_CONTACT = {
 export const SPONSORSHIP_DOCS = [
   { label: 'Sponsorship Benefits (PDF/DOC)', href: '/doc/ICAAICON 2026 - Sponsorship Benefits (Update).pdf' },
   { label: 'Sponsorship Invitation Letter', href: '/doc/ICAAICON 2026 - Sponsorship Letter.pdf' },
+]
+
+/** Featured video playlist — "DFCA TV" by Lung Care Foundation (YouTube). */
+export const VIDEO_PLAYLIST = {
+  title: 'DFCA TV',
+  channel: 'Lung Care Foundation',
+  playlistId: 'PL_CWrSkzkT5C5nLiSIT37HhKALFhYrvf3',
+  url: 'https://www.youtube.com/playlist?list=PL_CWrSkzkT5C5nLiSIT37HhKALFhYrvf3',
+}
+
+export type PlaylistVideo = {
+  id: string
+  title: string
+  duration: string
+}
+
+/** Playlist videos in their original order (id = YouTube video id). */
+export const VIDEOS: PlaylistVideo[] = [
+  { id: 'KcK0SiE1k4w', title: 'Why Air Pollution is Slowly Destroying Our Lungs', duration: '2:23' },
+  { id: 'w-z1gNFWUA8', title: 'How Polluted Air Affects Your Eyesight? Eye-Specialist Breaks It Down', duration: '3:03' },
+  { id: 'z4bls6UH9T8', title: "28% of Heart Deaths Linked to Air Pollution! You WON'T Believe This!", duration: '3:31' },
+  { id: 'fobAPMmXO4U', title: 'How To Survive Toxic Air: Your Ultimate Guide To Air Quality Index (AQI)', duration: '4:27' },
+  { id: 'xcrJX3rd6X0', title: 'Why Doctors Must Lead The Fight For Clean Air?', duration: '4:54' },
+  { id: 'QeqjqRN5S0Q', title: 'Doctor Explains: Why Air Pollution is a Bigger Threat Than You Think!', duration: '4:32' },
+  { id: 'Z7rcawnsbXg', title: 'How Air Pollution is Increasing the Risk of Diabetes? Medic Explains...', duration: '3:41' },
+  { id: '1VDDW9K9PsA', title: 'Health Impacts of Air Pollution on Brain - Dr. Vinay Goyal', duration: '1:27' },
+  { id: 'qdd0HX9IlLo', title: 'Health Impacts of Air Pollution on Heart - Dr. Naresh Trehan', duration: '1:40' },
+  { id: '9ycGfTgvmpo', title: 'Health Impacts of Air Pollution on Children', duration: '3:12' },
+  { id: '86YLjVwf7Lk', title: 'DFCA tv #Ep. 1 - Asthma and Covid: Uncovering Misconceptions', duration: '22:30' },
+  { id: '9_bsFzVBU1k', title: 'DFCA tv #Ep. 2 - Covid-19, Tuberculosis & Air Pollution', duration: '16:26' },
+  { id: 'HrYaOoKxDY4', title: 'DFCA tv #Ep. 3 - Link Between Air Pollution and Obesity, Asthma and Allergic Diseases', duration: '40:49' },
+  { id: 'BozHe_iVU1E', title: 'Economic Impact of Air Pollution in India', duration: '3:10' },
+  { id: '76FbetVqEGY', title: 'Global Warming - Risks & Adaptation', duration: '1:44' },
+  { id: 'LNp7QWrkhrM', title: 'वायु प्रदूषण का प्रहार:- स्वास्थ्य पर पड़ता प्रभाव', duration: '3:43' },
+  { id: '2sxKsFKwZFU', title: 'Doctors for Clean Air & Climate Action | Our Story', duration: '6:00' },
+  { id: '0odu79Sui60', title: 'How One Doctor Is Cutting Fossil Fuels to Protect Health | Air Pollution', duration: '6:45' },
 ]
 
 /** Gallery imagery — described per the brief. */

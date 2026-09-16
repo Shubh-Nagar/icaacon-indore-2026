@@ -2,6 +2,7 @@ import Hero from '@/components/sections/Hero'
 import About from '@/components/sections/About'
 import FocusAreas from '@/components/sections/FocusAreas'
 import ImportantDates from '@/components/sections/ImportantDates'
+import Videos from '@/components/sections/Videos'
 import Speakers from '@/components/sections/Speakers'
 import Venue from '@/components/sections/Venue'
 import WhyAttend from '@/components/sections/WhyAttend'
@@ -21,6 +22,7 @@ export default function HomePage() {
       <About />
       <FocusAreas />
       <ImportantDates />
+      <Videos />
       <Speakers />
       <Venue />
       <WhyAttend />
