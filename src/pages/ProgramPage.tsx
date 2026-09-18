@@ -1,12 +1,167 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown, FileText, Upload, Calendar } from 'lucide-react'
+import { ChevronDown, FileText, Upload, Calendar, Download } from 'lucide-react'
 import PageHeader from '@/components/ui/PageHeader'
 import Container from '@/components/ui/Container'
 import SectionHeading from '@/components/ui/SectionHeading'
 import Img from '@/components/ui/Img'
-import { DAY1_WORKSHOPS, FAQS, FOCUS_AREAS, IMPORTANT_DATES, PROGRAM_SCHEDULE } from '@/data/content'
+import {
+  DAY1_WORKSHOPS,
+  FAQS,
+  FOCUS_AREAS,
+  IMPORTANT_DATES,
+  PROGRAM_SCHEDULE,
+  SCIENTIFIC_PROGRAMME,
+  SCIENTIFIC_PROGRAMME_PDF_URL,
+} from '@/data/content'
 import { fadeUp, staggerContainer, viewportOnce } from '@/lib/motion'
+
+/**
+ * Appends AM/PM to every "H:MM" time found in a range string. The scientific
+ * programme only ever runs 09:00–20:00, so hour 12 and hours 1–8 are always
+ * PM while hours 9–11 are always AM. When every time in the range shares the
+ * same period, only the final one is labelled (e.g. "09:00 – 09:15 AM")
+ * instead of repeating it on both ends.
+ */
+function withMeridiem(range: string): string {
+  const matches = Array.from(range.matchAll(/(\d{1,2}):(\d{2})/g))
+  if (matches.length === 0) return range
+
+  const periods = matches.map((m) => {
+    const hour = parseInt(m[1], 10)
+    return hour === 12 || hour < 9 ? 'PM' : 'AM'
+  })
+  const allSame = periods.every((p) => p === periods[0])
+
+  let result = ''
+  let cursor = 0
+  matches.forEach((m, idx) => {
+    const end = (m.index ?? 0) + m[0].length
+    result += range.slice(cursor, end)
+    if (!allSame || idx === matches.length - 1) {
+      result += ` ${periods[idx]}`
+    }
+    cursor = end
+  })
+  result += range.slice(cursor)
+
+  return result.replace(/–/g, ' – ').replace(/\s+/g, ' ').trim()
+}
+
+/** Day + hall tabbed table view of the full scientific programme. */
+function ScientificProgrammeExplorer() {
+  const [dayIdx, setDayIdx] = useState(0)
+  const [hallIdx, setHallIdx] = useState(0)
+
+  const day = SCIENTIFIC_PROGRAMME[dayIdx]
+  const hall = day.halls[Math.min(hallIdx, day.halls.length - 1)]
+
+  return (
+    <div>
+      {/* Day tabs */}
+      <div className="flex flex-wrap gap-2">
+        {SCIENTIFIC_PROGRAMME.map((d, i) => (
+          <button
+            key={d.day}
+            type="button"
+            onClick={() => {
+              setDayIdx(i)
+              setHallIdx(0)
+            }}
+            className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
+              i === dayIdx
+                ? 'bg-teal text-ivory'
+                : 'bg-ivory text-ink-soft hover:bg-teal/10'
+            }`}
+          >
+            {d.day} <span className="opacity-70">· {d.date.split(' · ')[0]}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* Hall tabs */}
+      <div className="mt-4 flex flex-wrap items-center gap-3">
+        <span className="text-xs font-semibold uppercase tracking-wide text-ink-muted">
+          {day.date}
+        </span>
+        <div className="flex gap-2">
+          {day.halls.map((h, i) => (
+            <button
+              key={h.hall}
+              type="button"
+              onClick={() => setHallIdx(i)}
+              className={`rounded-full border px-4 py-1.5 text-xs font-semibold transition-colors ${
+                i === hallIdx
+                  ? 'border-gold bg-gold/15 text-gold-deep'
+                  : 'border-ink/10 text-ink-muted hover:border-gold/50'
+              }`}
+            >
+              {h.hall}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Schedule table */}
+      <div className="mt-8 overflow-x-auto rounded-2xl border border-ink/10">
+        <table className="w-full min-w-[760px] border-collapse text-left text-sm">
+          <thead>
+            <tr className="bg-ink text-ivory">
+              <th className="w-40 px-4 py-3 font-display text-xs font-semibold uppercase tracking-wide">
+                Time
+              </th>
+              <th className="px-4 py-3 font-display text-xs font-semibold uppercase tracking-wide">
+                Topic
+              </th>
+              <th className="px-4 py-3 font-display text-xs font-semibold uppercase tracking-wide">
+                Speaker
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {hall.blocks.map((block) =>
+              block.kind === 'symposium' ? (
+                <Fragment key={block.title}>
+                  <tr className="bg-teal/10">
+                    <td colSpan={3} className="px-4 py-2 font-display text-sm font-semibold text-teal">
+                      {block.title}{' '}
+                      <span className="font-sans text-xs font-normal text-ink-muted">
+                        &middot; {withMeridiem(block.time)}
+                      </span>
+                    </td>
+                  </tr>
+                  {block.rows.map((row) => (
+                    <tr key={row.time + row.topic} className="border-b border-ink/10 last:border-0">
+                      <td className="whitespace-nowrap px-4 py-2.5 align-top text-xs font-semibold text-ink-muted">
+                        {withMeridiem(row.time)}
+                      </td>
+                      <td className="px-4 py-2.5 align-top text-ink-soft">{row.topic}</td>
+                      <td className="px-4 py-2.5 align-top text-xs text-ink-muted">
+                        {row.speaker ?? '—'}
+                      </td>
+                    </tr>
+                  ))}
+                </Fragment>
+              ) : (
+                <tr key={block.title} className="border-b border-ink/10 bg-gold/10 last:border-0">
+                  <td className="whitespace-nowrap px-4 py-2.5 align-top text-xs font-semibold text-gold-deep">
+                    {withMeridiem(block.time)}
+                  </td>
+                  <td colSpan={block.speaker ? 1 : 2} className="px-4 py-2.5 align-top font-semibold text-ink">
+                    {block.title}
+                  </td>
+                  {block.speaker && (
+                    <td className="px-4 py-2.5 align-top text-xs text-ink-muted">{block.speaker}</td>
+                  )}
+                </tr>
+              ),
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )
+}
 
 /** Accordion row for the FAQ. */
 function FaqItem({ q, a }: { q: string; a: string }) {
@@ -152,6 +307,33 @@ export default function ProgramPage() {
               </motion.figure>
             ))}
           </motion.div>
+        </Container>
+      </section>
+
+      {/* Full scientific programme (from the official PDF) */}
+      <section className="bg-ivory py-24 lg:py-28">
+        <Container>
+          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+            <SectionHeading
+              align="left"
+              eyebrow="Session by session"
+              title="Full scientific programme"
+              subtitle="Every symposium, oration, debate and panel across Hall A & Hall B, as released in the official programme booklet."
+            />
+            <a
+              href={SCIENTIFIC_PROGRAMME_PDF_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              className="btn-primary shrink-0"
+            >
+              <Download size={18} />
+              Download PDF
+            </a>
+          </div>
+          <div className="mt-14">
+            <ScientificProgrammeExplorer />
+          </div>
         </Container>
       </section>
 

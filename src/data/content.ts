@@ -366,6 +366,461 @@ export const DAY1_WORKSHOPS = [
   },
 ] as const
 
+/** Downloadable scientific-programme PDF, as supplied by the organizing committee. */
+export const SCIENTIFIC_PROGRAMME_PDF_URL = '/ICAAICON%202026%20-%20Scientific%20Programme.pdf'
+
+export type ProgrammeRow = { time: string; topic: string; speaker?: string }
+export type ProgrammeBlock =
+  | { kind: 'symposium'; time: string; title: string; rows: ProgrammeRow[] }
+  | { kind: 'highlight'; time: string; title: string; speaker?: string }
+export type ProgrammeHall = { hall: string; blocks: ProgrammeBlock[] }
+export type ProgrammeDay = { day: string; date: string; halls: ProgrammeHall[] }
+
+/**
+ * Full scientific programme extracted from the official ICAAICON 2026
+ * "Scientific Programme" PDF (Hotel Marriott, Indore, 25–27 Sep 2026).
+ */
+export const SCIENTIFIC_PROGRAMME: ProgrammeDay[] = [
+  {
+    day: 'Day 1',
+    date: '25 September 2026 · Friday',
+    halls: [
+      {
+        hall: 'Hall A',
+        blocks: [
+          {
+            kind: 'symposium',
+            time: '9:00 – 10:00',
+            title: 'Symposium: Asthma – From Epidemiology to Endotypes',
+            rows: [
+              { time: '09:00–09:15', topic: 'Epidemiology & temporal trends', speaker: 'Dr. Sameer Vaidya' },
+              { time: '09:15–09:30', topic: 'Asthma biology: phenotypes, endotypes & biomarkers', speaker: 'Dr. BNBM Prasad' },
+              { time: '09:30–09:45', topic: 'Non allergic asthma', speaker: 'Dr. D Behera' },
+              { time: '09:45–10:00', topic: 'Precision treatment of asthma', speaker: 'Dr. Nikhil Sarangdhar' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '10:00 – 11:00',
+            title: 'Symposium: Modern Asthma Management',
+            rows: [
+              { time: '10:00–10:15', topic: 'GINA 2026 Update', speaker: 'Dr. Suresh Koolwal' },
+              { time: '10:15–10:30', topic: 'Personalising asthma care', speaker: 'Dr. Abhijeet Khandelwal' },
+              { time: '10:30–10:45', topic: 'Inhaler choice: doctor decision or patient comfort', speaker: 'Dr. Shubra Jain' },
+              { time: '10:45–11:00', topic: 'Yoga in Asthma', speaker: 'Dr. Ravikant Zala' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '11:00 – 12:00',
+            title: 'Symposium: Asthma Diagnosis – Beyond Spirometry',
+            rows: [
+              { time: '11:00–11:15', topic: 'Practical spirometry interpretation', speaker: 'Dr. Lokendra Dave' },
+              { time: '11:15–11:30', topic: 'ATS/ERS spirometry update', speaker: 'Dr. Gaurav Gupta' },
+              { time: '11:30–11:45', topic: 'FeNO in daily practice', speaker: 'Dr. Pradumna Sharma' },
+              { time: '11:45–12:00', topic: 'Lung oscillometry in asthma', speaker: 'Dr. Vikas Kumar Mishra' },
+            ],
+          },
+          { kind: 'highlight', time: '12:00 – 12:30', title: 'Debate 1 — Spirometry vs FOT', speaker: 'Dr. Sameer Vaidya vs Dr. Vikas Kumar Mishra' },
+          { kind: 'highlight', time: '12:30 – 01:00', title: 'Oration 1 — Dr. D N Shivpuri Oration: The post-COVID lung: when hypersensitivities outlive the virus', speaker: 'Dr. Narayan Mishra' },
+          { kind: 'highlight', time: '01:00 – 01:30', title: 'Lunch' },
+          {
+            kind: 'symposium',
+            time: '1:30 – 2:30',
+            title: 'Symposium: Difficult-to-Treat & Severe Asthma',
+            rows: [
+              { time: '01:30–01:45', topic: 'Asthma mimics', speaker: 'Dr. Surya Kant' },
+              { time: '01:45–02:00', topic: 'Management of uncontrolled asthma', speaker: 'Dr. B K Menon' },
+              { time: '02:00–02:15', topic: 'Optimising severe asthma management', speaker: 'Dr. Shailesh Agrawal' },
+              { time: '02:15–02:30', topic: 'LAMA beyond ICS/LABA', speaker: 'Dr. Ravi Dosi' },
+            ],
+          },
+          { kind: 'highlight', time: '2:30 – 3:00', title: 'Oration 2 — House dust mite allergy / immunotherapy: past, present and future', speaker: 'Dr. P C Kathuria' },
+          {
+            kind: 'symposium',
+            time: '3:00 – 4:00',
+            title: 'Symposium: Asthma & Associated Airway Disease',
+            rows: [
+              { time: '03:00–03:15', topic: 'Asthma–bronchiectasis overlap', speaker: 'Dr. Lokendra Dave' },
+              { time: '03:15–03:30', topic: 'Asthma–COPD overlap', speaker: 'Dr. Ved Prakash' },
+              { time: '03:30–03:45', topic: 'Asthma & critical care', speaker: 'Dr. Vikas Maurya' },
+              { time: '03:45–04:00', topic: 'When to do bronchoscopy in asthma', speaker: 'Dr. Pawan Gupta' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '4:00 – 5:00',
+            title: 'Symposium: Biologics in Severe Asthma',
+            rows: [
+              { time: '04:00–04:15', topic: 'Who should receive a biologic?', speaker: 'Dr. Rangnath Ganga' },
+              { time: '04:15–04:30', topic: 'Biomarkers for biologic selection', speaker: 'Dr. M K Gupta' },
+              { time: '04:30–04:45', topic: 'Monitoring, switching & stopping of biologicals', speaker: 'Dr. Sunita Chhapola' },
+              { time: '04:45–05:00', topic: 'Biologics in India: real-world evidence & cost-effectiveness', speaker: 'Dr. Ajay Verma' },
+            ],
+          },
+          { kind: 'highlight', time: '5:30 onwards', title: 'EC Meeting of ICAAI' },
+          { kind: 'highlight', time: '7:00 – 8:00', title: 'Inauguration' },
+        ],
+      },
+      {
+        hall: 'Hall B',
+        blocks: [
+          {
+            kind: 'symposium',
+            time: '9:00 – 10:00',
+            title: 'Symposium: Foundations of Allergy & Immunology',
+            rows: [
+              { time: '09:00–09:15', topic: 'Allergy & immunology in 2026', speaker: 'Dr. Suresh Koolwal' },
+              { time: '09:15–09:30', topic: 'Allergy and hypersensitivity', speaker: 'Dr. Gautam Modi' },
+              { time: '09:30–09:45', topic: 'Emerging mechanisms of allergy', speaker: 'Dr. Saibal Moitra' },
+              { time: '09:45–10:00', topic: 'Beyond symptom control: microbiome-directed strategies in allergic disease', speaker: 'Dr. Nagendra Prasad K. V.' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '10:00 – 10:45',
+            title: 'Symposium: How to Diagnose Allergy',
+            rows: [
+              { time: '10:00–10:15', topic: 'Approach to airborne allergy', speaker: 'Dr. Pendakur Anand' },
+              { time: '10:15–10:30', topic: 'In vivo diagnosis of allergy', speaker: 'Dr. Suresh Koolwal' },
+              { time: '10:30–10:45', topic: 'In vitro diagnosis of allergy', speaker: 'Dr. Naveen Arora' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '10:45 – 11:30',
+            title: 'Symposium: Precision Allergy Diagnostics',
+            rows: [
+              { time: '10:45–11:00', topic: 'CRD: hype or game changer?', speaker: 'Dr. P C Kathuria' },
+              { time: '11:00–11:15', topic: 'Biomarkers beyond total IgE', speaker: 'Dr. Subramanian Natrajan' },
+              { time: '11:15–11:30', topic: 'Differentiation of allergy from crossreaction', speaker: 'Dr. Ashish Kumar Prakash Sinha' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '11:30 – 12:30',
+            title: 'Personalizing Allergy Immunotherapy — Intro: Dr. Sujatha Ramesh, Dr. Raj Kumar',
+            rows: [
+              { time: '11:30–11:35', topic: 'Welcome & introduction', speaker: 'Dr. Sujatha Ramesh' },
+              { time: '11:35–11:55', topic: 'Hypoallergenic HDM allergoid SCIT – rationale and evidence', speaker: 'Dr. Raj Kumar' },
+              {
+                time: '11:55–12:30',
+                topic: 'AIT in clinical practice – evidence, patient selection and real-world challenges',
+                speaker: 'Moderator: Dr. Saibal Moitra · Panelists: Dr. Raj Kumar, Dr. S Z Jafrey, Dr. P C Kathuria, Dr. Arif Ahmed, Dr. Vijay Warad',
+              },
+            ],
+          },
+          { kind: 'highlight', time: '12:30 – 01:00', title: 'Oration 1 — Dr. D N Shivpuri Oration: The post-COVID lung: when hypersensitivities outlive the virus', speaker: 'Dr. Narayan Mishra' },
+          { kind: 'highlight', time: '01:00 – 01:30', title: 'Lunch' },
+          {
+            kind: 'symposium',
+            time: '1:30 – 2:30',
+            title: 'Symposium: Allergic Rhinitis & Unified Airway',
+            rows: [
+              {
+                time: '01:30–02:15',
+                topic: 'Panel discussion on latest in the management of allergic rhinitis (interactive session)',
+                speaker: 'Moderator: Dr. Subir Jain · Panelist: Dr. Sunita Chhapola, Dr. Abhay Gupta, Dr. Yamini Gupta',
+              },
+              { time: '02:15–02:30', topic: 'Hereditary angioedema — pearls and pitfalls', speaker: 'Dr. Sujatha Ramesh' },
+            ],
+          },
+          { kind: 'highlight', time: '02:30 – 03:00', title: 'Oration 2 — House dust mite allergy / immunotherapy: past, present and future', speaker: 'Dr. P C Kathuria' },
+          {
+            kind: 'symposium',
+            time: '3:00 – 4:00',
+            title: 'Symposium: Immunotherapy – From Concept to Practice',
+            rows: [
+              { time: '03:00–03:15', topic: 'Probiotics in allergy practice: from biological plausibility to evidence-based clinical use', speaker: 'Dr. Ankit Agrawal' },
+              { time: '03:15–03:30', topic: 'Patient selection for immunotherapy', speaker: 'Dr. Ajay Verma' },
+              { time: '03:30–03:45', topic: 'Allergic gastrointestinal disorders', speaker: 'Dr. Sujatha Ramesh' },
+              { time: '03:45–04:00', topic: 'How to select allergens for immunotherapy — practical tips', speaker: 'Dr. Saibal Moitra' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '4:00 – 5:00',
+            title: 'Symposium: Environmental Allergy',
+            rows: [
+              { time: '04:00–04:15', topic: 'Allergy cases from interiors of India', speaker: 'Dr. Bharat Anil Toshniwal' },
+              { time: '04:15–04:30', topic: 'Dust mite control', speaker: 'Dr. Salil Bhargava' },
+              { time: '04:30–04:45', topic: 'House dust mite respiratory allergy', speaker: 'Dr. Prashant Prakash' },
+              { time: '04:45–05:00', topic: 'Air pollution to airway inflammation — new insights into allergy and asthma', speaker: 'Dr. Ravi Dosi' },
+            ],
+          },
+          { kind: 'highlight', time: '5:30 onwards', title: 'EC Meeting of ICAAI' },
+          { kind: 'highlight', time: '7:00 – 8:00', title: 'Inauguration' },
+        ],
+      },
+    ],
+  },
+  {
+    day: 'Day 2',
+    date: '26 September 2026 · Saturday',
+    halls: [
+      {
+        hall: 'Hall A',
+        blocks: [
+          {
+            kind: 'symposium',
+            time: '9:00 – 10:00',
+            title: 'Symposium: Asthma, Allergy & Sleep',
+            rows: [
+              { time: '09:00–09:15', topic: 'Asthma and sleep', speaker: 'Dr. Shailesh Agrawal' },
+              { time: '09:15–09:30', topic: 'Allergy and sleep medicine', speaker: 'Dr. Nishant Shrivastava' },
+              { time: '09:30–09:45', topic: 'Beyond pharmacotherapy: the role of pulmonary rehabilitation in severe asthma', speaker: 'Dr. Ankit Sodani' },
+              { time: '09:45–10:00', topic: 'Chronic cough in asthma/allergy', speaker: 'Dr. Ashwin Songara' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '10:00 – 11:00',
+            title: 'Symposium: Immunotherapy – Newer Developments',
+            rows: [
+              { time: '10:00–10:15', topic: 'Newer developments in immunotherapy', speaker: 'Dr. Raj Bhagat' },
+              { time: '10:15–10:30', topic: 'HDM SLIT', speaker: 'Dr. M J Gupta' },
+              { time: '10:30–10:45', topic: 'Preparation of allergen vaccines', speaker: 'Dr. Naveen Arora' },
+              { time: '10:45–11:00', topic: 'Changing course of management of asthma', speaker: 'Dr. Pradyumn Sharma' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '11:00 – 12:00',
+            title: 'Symposium: Respiratory Immunotherapy',
+            rows: [
+              { time: '11:00–11:15', topic: 'Role of immunotherapy in allergic asthma', speaker: 'Dr. Anil Kumar Jain' },
+              { time: '11:15–11:30', topic: 'Immunotherapy for nasobronchial allergy', speaker: 'Dr. Subir Jain' },
+              {
+                time: '11:30–12:00',
+                topic: 'Panel discussion: Immuno-Histaglobulin Complex in Chronic Allergic Conditions — real-world experiences',
+                speaker: 'Moderator: Dr. Saswata Banerjee · Panelist: Dr. Gautam Modi, Dr. Hari Kishan, Dr. Raman Sharma, Dr. Surya Kant',
+              },
+            ],
+          },
+          { kind: 'highlight', time: '12:00 – 12:30', title: 'Debate 2 — SCIT vs SLIT', speaker: 'Dr. Raj Kumar vs Dr. Nagendra Prasad K V' },
+          { kind: 'highlight', time: '12:30 – 01:00', title: 'Oration 3 — Dr. R K Modi Memorial Oration: AI in respiratory allergy', speaker: 'Dr. A K Jenmeja' },
+          { kind: 'highlight', time: '01:00 – 01:30', title: 'Lunch' },
+          { kind: 'highlight', time: '01:30 – 02:00', title: 'Debate 3 — Monoallergen immunotherapy vs polyallergen immunotherapy', speaker: 'Dr. S Z Jafrey vs Dr. Subir Jain' },
+          {
+            kind: 'symposium',
+            time: '2:00 – 3:00',
+            title: 'Symposium: ABPA & Aspergillus-Related Airway Disease',
+            rows: [
+              { time: '02:00–02:15', topic: 'ABPA: the great mimicker', speaker: 'Dr. M K Gupta' },
+              { time: '02:15–02:30', topic: 'Diagnostic approach to ABPA', speaker: 'Dr. Gajendra Vikram Singh' },
+              { time: '02:30–02:45', topic: 'Surgical management of chronic rhinosinusitis', speaker: 'Dr. Govind Gourh' },
+              { time: '02:45–03:00', topic: 'ABPA: evolving treatment & biologics', speaker: 'Dr. Shubhra Jain' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '3:00 – 4:00',
+            title: 'Symposium: Environment, Climate & Respiratory Allergy',
+            rows: [
+              { time: '03:00–03:15', topic: 'Standardization of allergens', speaker: 'Dr. Naveen Arora' },
+              { time: '03:15–03:30', topic: 'Charles Richet Prize 2026 lecture', speaker: 'Dr. Md. Kaleem Ullah' },
+              { time: '03:30–03:45', topic: 'Thunderstorm asthma', speaker: 'Dr. V K Jain' },
+              { time: '03:45–04:00', topic: 'Understanding asthma heterogenicity and aid to management', speaker: 'Dr. Sudhir Choudhri' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '4:00 – 5:00',
+            title: 'Emerging Concepts in Asthma & Allergy',
+            rows: [
+              { time: '04:00–04:20', topic: 'AI in allergy practice', speaker: 'Dr. Mahendra Bainere' },
+              { time: '04:20–04:40', topic: 'Microbiome in allergy & immunology', speaker: 'Dr. Arti Julka' },
+              { time: '04:40–05:00', topic: 'Psychological triggers of allergic disease', speaker: 'Dr. Ravikant Zala' },
+            ],
+          },
+          { kind: 'highlight', time: '6:00 onwards', title: 'General Body Meeting of ICAAI' },
+          { kind: 'highlight', time: '7:00 onwards', title: 'Musical Night' },
+        ],
+      },
+      {
+        hall: 'Hall B',
+        blocks: [
+          {
+            kind: 'symposium',
+            time: '9:00 – 10:00',
+            title: 'Symposium: Allergy – Indian & Early-Life Perspective',
+            rows: [
+              { time: '09:00–09:15', topic: 'Allergic diseases: Indian perspective', speaker: 'Dr. Pritica Mathur' },
+              { time: '09:15–09:30', topic: 'Dermal allergies', speaker: 'Dr. Mahesh Goyal' },
+              { time: '09:30–09:45', topic: 'The allergic march revisited: precision, prevention and intervention across lifespan', speaker: 'Dr. Nagendra Prasad K. V.' },
+              { time: '09:45–10:00', topic: 'Irritant vs allergen', speaker: 'Dr. Parul Mrigpuri' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '10:00 – 11:00',
+            title: 'Symposium: Paediatric Allergy',
+            rows: [
+              { time: '10:00–10:15', topic: 'Paediatric allergy', speaker: 'Dr. Shetanshu Srivastava' },
+              { time: '10:15–10:30', topic: 'Ophthalmic allergy', speaker: 'Dr. Sharadini Vyas' },
+              { time: '10:30–10:45', topic: 'Infant wheeze: diagnosis, monitoring & prognosis', speaker: 'Dr. Sarika Gupta' },
+              { time: '10:45–11:00', topic: 'Food allergy in children', speaker: 'Dr. Hemant Jain' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '11:00 – 12:00',
+            title: 'Symposium: Allergy Across Specialties',
+            rows: [
+              { time: '11:00–11:15', topic: 'Atopic dermatitis', speaker: 'Dr. Rahul Nagar' },
+              { time: '11:15–11:30', topic: 'Chronic urticaria & angioedema', speaker: 'Dr. Manan Jhanwar' },
+              { time: '11:30–11:45', topic: 'Decoding the role of Claudin-1 in atopic dermatitis', speaker: 'Dr. Roohi Rasool' },
+              { time: '11:45–12:00', topic: 'Food allergy', speaker: 'Dr. Raj Kumar' },
+            ],
+          },
+          { kind: 'highlight', time: '12:00 – 12:30', title: 'Debate 3 — In vivo vs in vitro', speaker: 'Vivo: Dr. V K Jain vs Vitro: Dr. Saibal Moitra' },
+          { kind: 'highlight', time: '12:30 – 01:00', title: 'Oration 3 — Dr. R K Modi Memorial Oration: AI in respiratory allergy', speaker: 'Dr. A K Jenmeja' },
+          { kind: 'highlight', time: '01:00 – 01:30', title: 'Lunch' },
+          { kind: 'highlight', time: '01:30 – 02:00', title: 'Panel Discussion on Immunotherapy', speaker: 'Moderator: Dr. Raj Kumar · Panelist: Dr. Raj Bhagat, Dr. Rajendra Mehta' },
+          {
+            kind: 'symposium',
+            time: '2:00 – 3:00',
+            title: 'Symposium: Allergy Emergencies',
+            rows: [
+              { time: '02:00–02:15', topic: 'Diagnosis of anaphylaxis', speaker: 'Dr. Sonam Spalgais' },
+              { time: '02:15–02:30', topic: 'Management of anaphylaxis (case-based)', speaker: 'Dr. Sonali Agrawal' },
+              { time: '02:30–02:45', topic: 'Drug allergy', speaker: 'Dr. Ravikant Zala' },
+              { time: '02:45–03:00', topic: 'Venom allergy', speaker: 'Dr. Vivek Joshi' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '3:00 – 4:00',
+            title: 'Symposium: Indian Guidelines & Allergy Practice',
+            rows: [
+              { time: '03:00–03:15', topic: 'Indian guidelines for diagnosis of allergy', speaker: 'Dr. Raj Kumar' },
+              { time: '03:15–03:30', topic: 'Indian guidelines for immunotherapy', speaker: 'Dr. Sonam Spalgais' },
+              { time: '03:30–03:45', topic: 'Indian guidelines on nebulization', speaker: 'Dr. Raj Bhagat' },
+              { time: '03:45–04:00', topic: 'Indian guidelines for spirometry', speaker: 'Dr. Prashant Prakash' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '4:00 – 5:00',
+            title: 'Interactive Case Session: Allergy in the Real World',
+            rows: [
+              { time: '04:00–04:15', topic: 'Tuberculosis and respiratory allergy — the missing link', speaker: 'Dr. Nikhil Sarangdhar' },
+              { time: '04:15–04:30', topic: 'Allergies in dermatology', speaker: 'Dr. Akshat Verma' },
+              { time: '04:30–04:45', topic: 'Sublingual immunotherapy', speaker: 'Dr. Gautam Modi' },
+              { time: '04:45–05:00', topic: 'History-focused diagnostic cases', speaker: 'Dr. V P Jerath' },
+            ],
+          },
+          { kind: 'highlight', time: '6:00 onwards', title: 'General Body Meeting of ICAAI' },
+          { kind: 'highlight', time: '7:00 onwards', title: 'Musical Night' },
+        ],
+      },
+    ],
+  },
+  {
+    day: 'Day 3',
+    date: '27 September 2026 · Sunday',
+    halls: [
+      {
+        hall: 'Hall A',
+        blocks: [
+          {
+            kind: 'symposium',
+            time: '9:00 – 10:00',
+            title: 'Symposium: Asthma in Special Situations',
+            rows: [
+              { time: '09:00–09:15', topic: 'Aspirin-induced asthma', speaker: 'Dr. Mahesh Mishra' },
+              { time: '09:15–09:30', topic: 'Exercise & atypical triggers induced bronchoconstriction', speaker: 'Dr. Tariq Mahmood' },
+              { time: '09:30–09:45', topic: 'Asthma in ICU', speaker: 'Dr. Varun Deshmukh' },
+              { time: '09:45–10:00', topic: 'Asthma in pregnancy', speaker: 'Dr. Neha Mandowara' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '10:00 – 11:00',
+            title: 'Symposium: Allergic & Eosinophilic Lung Disease',
+            rows: [
+              { time: '10:00–10:20', topic: 'Eosinophilic lung disease: clinical spectrum', speaker: 'Dr. Anil Kumar Jain' },
+              { time: '10:20–10:40', topic: 'Hypersensitivity pneumonitis', speaker: 'Dr. Deepak Bansal' },
+              { time: '10:40–11:00', topic: 'Tropical pulmonary eosinophilia', speaker: 'Dr. H J Singh' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '11:00 – 12:00',
+            title: 'Symposium: Allergy, Infection & Immunology',
+            rows: [
+              { time: '11:00–11:15', topic: 'Air pollution, climate change and asthma: an Indian perspective', speaker: 'Dr. Abhinav Choubey' },
+              { time: '11:15–11:30', topic: 'Asthma mesotype: missing link', speaker: 'Dr. Manoj Goyal' },
+              { time: '11:30–11:45', topic: 'Infection–allergy interactions', speaker: 'Dr. Shalini Tyagi' },
+              { time: '11:45–12:00', topic: 'Immunological perspectives in respiratory disease', speaker: 'Dr. Zaheer Abbas Shah' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '12:00 – 01:00',
+            title: 'Symposium: Emerging Frontiers in Asthma & Allergy',
+            rows: [
+              { time: '12:00–12:15', topic: 'Nasal filters and allergic covers', speaker: 'Dr. Abhay Gupta' },
+              { time: '12:15–12:30', topic: 'Immunoglobulin injections', speaker: 'Dr. Avinash Jain' },
+              { time: '12:30–12:45', topic: 'Novel drug-delivery systems', speaker: 'Dr. Kamal Jobhani' },
+              { time: '12:45–01:00', topic: 'Towards asthma remission', speaker: 'Dr. A K Janmeja' },
+            ],
+          },
+          { kind: 'highlight', time: '1:00 onwards', title: 'Conference Concludes / Lunch' },
+        ],
+      },
+      {
+        hall: 'Hall B',
+        blocks: [
+          {
+            kind: 'symposium',
+            time: '9:00 – 10:00',
+            title: 'Symposium: Occupational Allergy – Foundations',
+            rows: [
+              { time: '09:00–09:20', topic: 'Occupational allergy: epidemiology & screening', speaker: 'Dr. Pritica Mathur' },
+              { time: '09:20–09:40', topic: 'Occupational asthma: causes & diagnosis', speaker: 'Dr. Shailesh Agrawal' },
+              { time: '09:40–10:00', topic: 'Allergic fungal rhino sinusitis', speaker: 'Dr. Praveen Surana' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '10:00 – 11:00',
+            title: 'Symposium: Occupational Lung Diseases',
+            rows: [
+              { time: '10:00–10:15', topic: 'Silicosis beyond mining', speaker: 'Dr. Tanay Joshi' },
+              { time: '10:15–10:30', topic: 'Pneumoconiosis', speaker: 'Dr. Suraj Verma' },
+              { time: '10:30–10:45', topic: "Coal workers' pneumoconiosis", speaker: 'Dr. Nikhilesh Pasari' },
+              { time: '10:45–11:00', topic: 'Occupational ILD', speaker: 'Dr. Pooja Aneja' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '11:00 – 12:00',
+            title: 'Symposium: Occupational Allergy – Prevention & Management',
+            rows: [
+              { time: '11:00–11:20', topic: 'Avoidance and prevention strategies', speaker: 'Dr. Arti Julka' },
+              { time: '11:20–11:40', topic: 'Adult vaccination', speaker: 'Dr. Abhijeet Khandelwal' },
+              { time: '11:40–12:00', topic: 'Role of surgery in allergic rhinitis', speaker: 'Dr. Sataya Prakash Dubey' },
+            ],
+          },
+          {
+            kind: 'symposium',
+            time: '12:00 – 1:00',
+            title: 'Symposium: Technology in Occupational & Environmental Health',
+            rows: [
+              { time: '12:00–12:15', topic: 'Impact of air pollution and climate change on health', speaker: 'Dr. Arvind Kumar' },
+              { time: '12:15–12:30', topic: 'AI in respiratory practice', speaker: 'Dr. Salil Bhargava' },
+              { time: '12:30–12:45', topic: 'Generative AI to enhance your practice', speaker: 'AI experts' },
+              { time: '12:45–01:00', topic: 'Emerging technologies in respiratory health', speaker: 'Dr. Pradyumn Sharma' },
+            ],
+          },
+          { kind: 'highlight', time: '1:00 onwards', title: 'Conference Concludes / Lunch' },
+        ],
+      },
+    ],
+  },
+]
+
 /** Dummy speaker roster. Replace photos & names with the real faculty. */
 export const SPEAKERS = [
   {
