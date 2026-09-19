@@ -10,7 +10,7 @@ import {
   FAQS,
   FOCUS_AREAS,
   IMPORTANT_DATES,
-  PROGRAM_SCHEDULE,
+  // PROGRAM_SCHEDULE, // used by the commented-out "Day-by-day outline" section
   SCIENTIFIC_PROGRAMME,
   SCIENTIFIC_PROGRAMME_PDF_URL,
 } from '@/data/content'
@@ -214,7 +214,7 @@ export default function ProgramPage() {
         subtitle="Keynotes, masterclasses, oral sessions and e-posters across the five focus tracks. The full agenda is released closer to the event."
       />
 
-      {/* Schedule outline */}
+      {/* Schedule outline — temporarily hidden
       <section className="bg-ivory py-24 lg:py-28">
         <Container>
           <SectionHeading
@@ -266,6 +266,7 @@ export default function ProgramPage() {
           </motion.div>
         </Container>
       </section>
+      */}
 
       {/* Day 1 workshop details */}
       <section className="bg-ivory-deep py-24 lg:py-28">
