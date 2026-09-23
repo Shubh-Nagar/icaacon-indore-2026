@@ -367,7 +367,7 @@ export const DAY1_WORKSHOPS = [
 ] as const
 
 /** Downloadable scientific-programme PDF, as supplied by the organizing committee. */
-export const SCIENTIFIC_PROGRAMME_PDF_URL = '/ICAAICON%202026%20-%20Scientific%20Programme.pdf'
+export const SCIENTIFIC_PROGRAMME_PDF_URL = '/ICAAICON%202026%20-%20Scientific%20Programme-updated.pdf'
 
 export type ProgrammeRow = { time: string; topic: string; speaker?: string }
 export type ProgrammeBlock =
@@ -406,7 +406,7 @@ export const SCIENTIFIC_PROGRAMME: ProgrammeDay[] = [
             rows: [
               { time: '10:00–10:15', topic: 'GINA 2026 Update', speaker: 'Dr. Suresh Koolwal' },
               { time: '10:15–10:30', topic: 'Personalising asthma care', speaker: 'Dr. Abhijeet Khandelwal' },
-              { time: '10:30–10:45', topic: 'Inhaler choice: doctor decision or patient comfort', speaker: 'Dr. Shubra Jain' },
+              { time: '10:30–10:45', topic: 'Inhaler choice: doctor decision or patient comfort', speaker: 'Dr. Shubhra Jain' },
               { time: '10:45–11:00', topic: 'Yoga in Asthma', speaker: 'Dr. Ravikant Zala' },
             ],
           },
@@ -417,7 +417,7 @@ export const SCIENTIFIC_PROGRAMME: ProgrammeDay[] = [
             rows: [
               { time: '11:00–11:15', topic: 'Practical spirometry interpretation', speaker: 'Dr. Lokendra Dave' },
               { time: '11:15–11:30', topic: 'ATS/ERS spirometry update', speaker: 'Dr. Gaurav Gupta' },
-              { time: '11:30–11:45', topic: 'FeNO in daily practice', speaker: 'Dr. Pradumna Sharma' },
+              { time: '11:30–11:45', topic: 'FeNO in daily practice', speaker: 'Dr. Pradyumn Sharma' },
               { time: '11:45–12:00', topic: 'Lung oscillometry in asthma', speaker: 'Dr. Vikas Kumar Mishra' },
             ],
           },
@@ -452,14 +452,14 @@ export const SCIENTIFIC_PROGRAMME: ProgrammeDay[] = [
             time: '4:00 – 5:00',
             title: 'Symposium: Biologics in Severe Asthma',
             rows: [
-              { time: '04:00–04:15', topic: 'Who should receive a biologic?', speaker: 'Dr. Rangnath Ganga' },
+              { time: '04:00–04:15', topic: 'Who should receive a biologic?', speaker: 'Dr. Ranganath Ganga' },
               { time: '04:15–04:30', topic: 'Biomarkers for biologic selection', speaker: 'Dr. M K Gupta' },
               { time: '04:30–04:45', topic: 'Monitoring, switching & stopping of biologicals', speaker: 'Dr. Sunita Chhapola' },
               { time: '04:45–05:00', topic: 'Biologics in India: real-world evidence & cost-effectiveness', speaker: 'Dr. Ajay Verma' },
             ],
           },
           { kind: 'highlight', time: '5:30 onwards', title: 'EC Meeting of ICAAI' },
-          { kind: 'highlight', time: '7:00 – 8:00', title: 'Inauguration' },
+          { kind: 'highlight', time: '7:00 – 8:00', title: 'Inauguration followed by cultural programme' },
         ],
       },
       {
@@ -481,7 +481,7 @@ export const SCIENTIFIC_PROGRAMME: ProgrammeDay[] = [
             time: '10:00 – 10:45',
             title: 'Symposium: How to Diagnose Allergy',
             rows: [
-              { time: '10:00–10:15', topic: 'Approach to airborne allergy', speaker: 'Dr. Pendakur Anand' },
+              { time: '10:00–10:15', topic: 'Approach to airborne allergy', speaker: 'Dr. Rajendra Mehta' },
               { time: '10:15–10:30', topic: 'In vivo diagnosis of allergy', speaker: 'Dr. Suresh Koolwal' },
               { time: '10:30–10:45', topic: 'In vitro diagnosis of allergy', speaker: 'Dr. Naveen Arora' },
             ],
@@ -492,14 +492,14 @@ export const SCIENTIFIC_PROGRAMME: ProgrammeDay[] = [
             title: 'Symposium: Precision Allergy Diagnostics',
             rows: [
               { time: '10:45–11:00', topic: 'CRD: hype or game changer?', speaker: 'Dr. P C Kathuria' },
-              { time: '11:00–11:15', topic: 'Biomarkers beyond total IgE', speaker: 'Dr. Subramanian Natrajan' },
+              { time: '11:00–11:15', topic: 'Biomarkers beyond total IgE', speaker: 'Dr. Ranganath Ganga' },
               { time: '11:15–11:30', topic: 'Differentiation of allergy from crossreaction', speaker: 'Dr. Ashish Kumar Prakash Sinha' },
             ],
           },
           {
             kind: 'symposium',
             time: '11:30 – 12:30',
-            title: 'Personalizing Allergy Immunotherapy — Intro: Dr. Sujatha Ramesh, Dr. Raj Kumar',
+            title: 'Symposium: Personalizing Allergy Immunotherapy',
             rows: [
               { time: '11:30–11:35', topic: 'Welcome & introduction', speaker: 'Dr. Sujatha Ramesh' },
               { time: '11:35–11:55', topic: 'Hypoallergenic HDM allergoid SCIT – rationale and evidence', speaker: 'Dr. Raj Kumar' },
@@ -510,7 +510,7 @@ export const SCIENTIFIC_PROGRAMME: ProgrammeDay[] = [
               },
             ],
           },
-          { kind: 'highlight', time: '12:30 – 01:00', title: 'Oration 1 — Dr. D N Shivpuri Oration: The post-COVID lung: when hypersensitivities outlive the virus', speaker: 'Dr. Narayan Mishra' },
+          { kind: 'highlight', time: '12:30 – 01:00', title: 'Oration 1 — Dr. D N Shivpuri Oration: The post-COVID lung: when hypersensitivities outlive the virus (in Hall A)', speaker: 'Dr. Narayan Mishra' },
           { kind: 'highlight', time: '01:00 – 01:30', title: 'Lunch' },
           {
             kind: 'symposium',
@@ -525,7 +525,7 @@ export const SCIENTIFIC_PROGRAMME: ProgrammeDay[] = [
               { time: '02:15–02:30', topic: 'Hereditary angioedema — pearls and pitfalls', speaker: 'Dr. Sujatha Ramesh' },
             ],
           },
-          { kind: 'highlight', time: '02:30 – 03:00', title: 'Oration 2 — House dust mite allergy / immunotherapy: past, present and future', speaker: 'Dr. P C Kathuria' },
+          { kind: 'highlight', time: '02:30 – 03:00', title: 'Oration 2 — House dust mite allergy / immunotherapy: past, present and future (in Hall A)', speaker: 'Dr. P C Kathuria' },
           {
             kind: 'symposium',
             time: '3:00 – 4:00',
@@ -543,13 +543,13 @@ export const SCIENTIFIC_PROGRAMME: ProgrammeDay[] = [
             title: 'Symposium: Environmental Allergy',
             rows: [
               { time: '04:00–04:15', topic: 'Allergy cases from interiors of India', speaker: 'Dr. Bharat Anil Toshniwal' },
-              { time: '04:15–04:30', topic: 'Dust mite control', speaker: 'Dr. Salil Bhargava' },
+              { time: '04:15–04:30', topic: 'Standardization of allergens', speaker: 'Dr. Naveen Arora' },
               { time: '04:30–04:45', topic: 'House dust mite respiratory allergy', speaker: 'Dr. Prashant Prakash' },
               { time: '04:45–05:00', topic: 'Air pollution to airway inflammation — new insights into allergy and asthma', speaker: 'Dr. Ravi Dosi' },
             ],
           },
           { kind: 'highlight', time: '5:30 onwards', title: 'EC Meeting of ICAAI' },
-          { kind: 'highlight', time: '7:00 – 8:00', title: 'Inauguration' },
+          { kind: 'highlight', time: '7:00 – 8:00', title: 'Inauguration followed by cultural programme (in Hall A)' },
         ],
       },
     ],
@@ -598,7 +598,7 @@ export const SCIENTIFIC_PROGRAMME: ProgrammeDay[] = [
             ],
           },
           { kind: 'highlight', time: '12:00 – 12:30', title: 'Debate 2 — SCIT vs SLIT', speaker: 'Dr. Raj Kumar vs Dr. Nagendra Prasad K V' },
-          { kind: 'highlight', time: '12:30 – 01:00', title: 'Oration 3 — Dr. R K Modi Memorial Oration: AI in respiratory allergy', speaker: 'Dr. A K Jenmeja' },
+          { kind: 'highlight', time: '12:30 – 01:00', title: 'Oration 3 — Dr. R K Modi Memorial Oration: AI in respiratory allergy', speaker: 'Dr. A K Janmeja' },
           { kind: 'highlight', time: '01:00 – 01:30', title: 'Lunch' },
           { kind: 'highlight', time: '01:30 – 02:00', title: 'Debate 3 — Monoallergen immunotherapy vs polyallergen immunotherapy', speaker: 'Dr. S Z Jafrey vs Dr. Subir Jain' },
           {
@@ -617,10 +617,10 @@ export const SCIENTIFIC_PROGRAMME: ProgrammeDay[] = [
             time: '3:00 – 4:00',
             title: 'Symposium: Environment, Climate & Respiratory Allergy',
             rows: [
-              { time: '03:00–03:15', topic: 'Standardization of allergens', speaker: 'Dr. Naveen Arora' },
+              { time: '03:00–03:15', topic: 'Dust mite control', speaker: 'Dr. Salil Bhargava' },
               { time: '03:15–03:30', topic: 'Charles Richet Prize 2026 lecture', speaker: 'Dr. Md. Kaleem Ullah' },
-              { time: '03:30–03:45', topic: 'Thunderstorm asthma', speaker: 'Dr. V K Jain' },
-              { time: '03:45–04:00', topic: 'Understanding asthma heterogenicity and aid to management', speaker: 'Dr. Sudhir Choudhri' },
+              { time: '03:30–03:45', topic: 'Prevention of asthma — how & when', speaker: 'Dr. V K Jain' },
+              { time: '03:45–04:00', topic: 'Understanding asthma heterogenicity and aid to management', speaker: 'Dr. Sudhir Chaudhri' },
             ],
           },
           {
@@ -628,13 +628,13 @@ export const SCIENTIFIC_PROGRAMME: ProgrammeDay[] = [
             time: '4:00 – 5:00',
             title: 'Emerging Concepts in Asthma & Allergy',
             rows: [
-              { time: '04:00–04:20', topic: 'AI in allergy practice', speaker: 'Dr. Mahendra Bainere' },
+              { time: '04:00–04:20', topic: 'AI in allergy practice', speaker: 'AI Expert' },
               { time: '04:20–04:40', topic: 'Microbiome in allergy & immunology', speaker: 'Dr. Arti Julka' },
               { time: '04:40–05:00', topic: 'Psychological triggers of allergic disease', speaker: 'Dr. Ravikant Zala' },
             ],
           },
-          { kind: 'highlight', time: '6:00 onwards', title: 'General Body Meeting of ICAAI' },
-          { kind: 'highlight', time: '7:00 onwards', title: 'Musical Night' },
+          { kind: 'highlight', time: '5:30 onwards', title: 'General Body Meeting of ICAAI' },
+          { kind: 'highlight', time: '7:00 onwards', title: 'Musical Evening — Swar Spandan, by the doctors for the doctors' },
         ],
       },
       {
@@ -656,7 +656,7 @@ export const SCIENTIFIC_PROGRAMME: ProgrammeDay[] = [
             time: '10:00 – 11:00',
             title: 'Symposium: Paediatric Allergy',
             rows: [
-              { time: '10:00–10:15', topic: 'Paediatric allergy', speaker: 'Dr. Shetanshu Srivastava' },
+              { time: '10:00–10:15', topic: 'Paediatric allergy', speaker: 'Dr. Shitanshu Srivastava' },
               { time: '10:15–10:30', topic: 'Ophthalmic allergy', speaker: 'Dr. Sharadini Vyas' },
               { time: '10:30–10:45', topic: 'Infant wheeze: diagnosis, monitoring & prognosis', speaker: 'Dr. Sarika Gupta' },
               { time: '10:45–11:00', topic: 'Food allergy in children', speaker: 'Dr. Hemant Jain' },
@@ -673,10 +673,10 @@ export const SCIENTIFIC_PROGRAMME: ProgrammeDay[] = [
               { time: '11:45–12:00', topic: 'Food allergy', speaker: 'Dr. Raj Kumar' },
             ],
           },
-          { kind: 'highlight', time: '12:00 – 12:30', title: 'Debate 3 — In vivo vs in vitro', speaker: 'Vivo: Dr. V K Jain vs Vitro: Dr. Saibal Moitra' },
-          { kind: 'highlight', time: '12:30 – 01:00', title: 'Oration 3 — Dr. R K Modi Memorial Oration: AI in respiratory allergy', speaker: 'Dr. A K Jenmeja' },
+          { kind: 'highlight', time: '12:00 – 12:30', title: 'Debate 3 — Allergy testing: in vivo vs in vitro', speaker: 'Vivo: Dr. V K Jain vs Vitro: Dr. Saibal Moitra' },
+          { kind: 'highlight', time: '12:30 – 01:00', title: 'Oration 3 — Dr. R K Modi Memorial Oration: AI in respiratory allergy', speaker: 'Dr. A K Janmeja' },
           { kind: 'highlight', time: '01:00 – 01:30', title: 'Lunch' },
-          { kind: 'highlight', time: '01:30 – 02:00', title: 'Panel Discussion on Immunotherapy', speaker: 'Moderator: Dr. Raj Kumar · Panelist: Dr. Raj Bhagat, Dr. Rajendra Mehta' },
+          { kind: 'highlight', time: '01:30 – 02:00', title: 'Panel discussion on immunotherapy', speaker: 'Moderator: Dr. Raj Kumar · Panelist: Dr. Raj Bhagat, Dr. Rajendra Mehta' },
           {
             kind: 'symposium',
             time: '2:00 – 3:00',
@@ -710,8 +710,8 @@ export const SCIENTIFIC_PROGRAMME: ProgrammeDay[] = [
               { time: '04:45–05:00', topic: 'History-focused diagnostic cases', speaker: 'Dr. V P Jerath' },
             ],
           },
-          { kind: 'highlight', time: '6:00 onwards', title: 'General Body Meeting of ICAAI' },
-          { kind: 'highlight', time: '7:00 onwards', title: 'Musical Night' },
+          { kind: 'highlight', time: '5:30 – 6:30', title: 'Public awareness programme on allergy' },
+          { kind: 'highlight', time: '7:00 onwards', title: 'Musical Evening — Swar Spandan, by the doctors for the doctors (in Hall A)' },
         ],
       },
     ],
@@ -739,9 +739,10 @@ export const SCIENTIFIC_PROGRAMME: ProgrammeDay[] = [
             time: '10:00 – 11:00',
             title: 'Symposium: Allergic & Eosinophilic Lung Disease',
             rows: [
-              { time: '10:00–10:20', topic: 'Eosinophilic lung disease: clinical spectrum', speaker: 'Dr. Anil Kumar Jain' },
-              { time: '10:20–10:40', topic: 'Hypersensitivity pneumonitis', speaker: 'Dr. Deepak Bansal' },
-              { time: '10:40–11:00', topic: 'Tropical pulmonary eosinophilia', speaker: 'Dr. H J Singh' },
+              { time: '10:00–10:15', topic: 'Tropical pulmonary eosinophilia', speaker: 'Dr. H J Singh' },
+              { time: '10:15–10:30', topic: 'Hypersensitivity pneumonitis', speaker: 'Dr. Deepak Bansal' },
+              { time: '10:30–10:45', topic: 'Pulmonary rehabilitation: a useful but underutilized tool', speaker: 'Dr. Arvind Kumar' },
+              { time: '10:45–11:00', topic: 'Eosinophilic lung disease: clinical spectrum', speaker: 'Dr. Anil Kumar Jain' },
             ],
           },
           {
@@ -750,7 +751,7 @@ export const SCIENTIFIC_PROGRAMME: ProgrammeDay[] = [
             title: 'Symposium: Allergy, Infection & Immunology',
             rows: [
               { time: '11:00–11:15', topic: 'Air pollution, climate change and asthma: an Indian perspective', speaker: 'Dr. Abhinav Choubey' },
-              { time: '11:15–11:30', topic: 'Asthma mesotype: missing link', speaker: 'Dr. Manoj Goyal' },
+              { time: '11:15–11:30', topic: 'Asthma mesotype: missing link', speaker: 'Dr. Manoj Goel' },
               { time: '11:30–11:45', topic: 'Infection–allergy interactions', speaker: 'Dr. Shalini Tyagi' },
               { time: '11:45–12:00', topic: 'Immunological perspectives in respiratory disease', speaker: 'Dr. Zaheer Abbas Shah' },
             ],
@@ -789,7 +790,7 @@ export const SCIENTIFIC_PROGRAMME: ProgrammeDay[] = [
             rows: [
               { time: '10:00–10:15', topic: 'Silicosis beyond mining', speaker: 'Dr. Tanay Joshi' },
               { time: '10:15–10:30', topic: 'Pneumoconiosis', speaker: 'Dr. Suraj Verma' },
-              { time: '10:30–10:45', topic: "Coal workers' pneumoconiosis", speaker: 'Dr. Nikhilesh Pasari' },
+              { time: '10:30–10:45', topic: 'Indian traditional treatment for respiratory disorders', speaker: 'Mr. Vijay Rawal' },
               { time: '10:45–11:00', topic: 'Occupational ILD', speaker: 'Dr. Pooja Aneja' },
             ],
           },
@@ -800,7 +801,7 @@ export const SCIENTIFIC_PROGRAMME: ProgrammeDay[] = [
             rows: [
               { time: '11:00–11:20', topic: 'Avoidance and prevention strategies', speaker: 'Dr. Arti Julka' },
               { time: '11:20–11:40', topic: 'Adult vaccination', speaker: 'Dr. Abhijeet Khandelwal' },
-              { time: '11:40–12:00', topic: 'Role of surgery in allergic rhinitis', speaker: 'Dr. Sataya Prakash Dubey' },
+              { time: '11:40–12:00', topic: 'Role of surgery in allergic rhinitis', speaker: 'Dr. Satya Prakash Dubey' },
             ],
           },
           {
